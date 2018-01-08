@@ -63,7 +63,7 @@
 //    [HTTPManager request:request delegate:self];
     
 //    ImagePickerController * picker = [[ImagePickerController alloc]init];
-    [self.sceneDirector openScene:@"MainScene" message:nil];
+    [self.sceneDirector onMemu:YES];
     
 //    [[self sceneDirector]  presentViewController:picker animated:NO completion:nil];
 //    [[self sceneDirector] openScene:@"MainScene" message:nil];

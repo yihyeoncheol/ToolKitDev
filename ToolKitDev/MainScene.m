@@ -26,6 +26,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)buttonTouchUpInside:(Button *)button
+{
+    [self.sceneDirector onMemu:NO];
+}
 /*
 #pragma mark - Navigation
 
