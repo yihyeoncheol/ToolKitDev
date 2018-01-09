@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,16 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Vf-Et-S1O" customClass="DataGrid">
-                    <rect key="frame" x="10" y="133" width="349" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Vf-Et-S1O" customClass="DataGrid">
+                    <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="90X-Sk-IvM"/>
                     </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3L-sb-h9R">
-                    <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="PSi-FZ-toW"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <connections>
                         <action selector="buttonTouchUpInside:" destination="-1" eventType="touchUpInside" id="N5D-oy-qrV"/>
@@ -39,9 +41,14 @@
             <color key="backgroundColor" red="1" green="0.75096603868959699" blue="0.66823674963689528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="b3L-sb-h9R" secondAttribute="trailing" id="2zW-7Z-Cm9"/>
+                <constraint firstAttribute="trailing" secondItem="0Vf-Et-S1O" secondAttribute="trailing" id="FYV-gG-pjf"/>
+                <constraint firstItem="b3L-sb-h9R" firstAttribute="top" secondItem="0Vf-Et-S1O" secondAttribute="bottom" id="Lmy-ft-QuG"/>
                 <constraint firstItem="b3L-sb-h9R" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YEt-Ld-d10"/>
                 <constraint firstAttribute="bottom" secondItem="b3L-sb-h9R" secondAttribute="bottom" id="ZQ5-ie-mwg"/>
+                <constraint firstItem="0Vf-Et-S1O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="fbX-8q-6hY"/>
+                <constraint firstItem="0Vf-Et-S1O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rCK-wf-eNi"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
             <point key="canvasLocation" x="-414.5" y="-199.5"/>
         </view>
     </objects>

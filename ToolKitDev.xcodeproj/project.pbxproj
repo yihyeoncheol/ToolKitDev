@@ -16,7 +16,8 @@
 		029DAEF21EB4AF2A003B32AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEF01EB4AF2A003B32AE /* LaunchScreen.storyboard */; };
 		02BE246D1EC827FF00B950E9 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BE246B1EC827FF00B950E9 /* MainScene.m */; };
 		02BE246E1EC827FF00B950E9 /* MainScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BE246C1EC827FF00B950E9 /* MainScene.xib */; };
-		02BE24721EC82AB100B950E9 /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BE24711EC82AB100B950E9 /* ToolKit.framework */; };
+		262A594D20044C8D00492A41 /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262A594C20044C8D00492A41 /* ToolKit.framework */; };
+		262A594E20044C8D00492A41 /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 262A594C20044C8D00492A41 /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5417559466508A4AEE2C11B4 /* libPods-ToolKitDev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B3F6E9534A9C3050A4FFAA /* libPods-ToolKitDev.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				262A594E20044C8D00492A41 /* ToolKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +53,7 @@
 		02BE246F1EC8298900B950E9 /* ToolKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToolKit.framework; path = "../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphonesimulator/ToolKit.framework"; sourceTree = "<group>"; };
 		02BE24711EC82AB100B950E9 /* ToolKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToolKit.framework; path = "../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphoneos/ToolKit.framework"; sourceTree = "<group>"; };
 		02FAB9CC1EC5EAC40028C216 /* ToolKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToolKit.framework; path = "../Toolkit/build/Debug-iphoneos/ToolKit.framework"; sourceTree = "<group>"; };
+		262A594C20044C8D00492A41 /* ToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3F6E9534A9C3050A4FFAA /* libPods-ToolKitDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ToolKitDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF8BC72EBF4A932754DFC87 /* Pods-ToolKitDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolKitDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToolKitDev/Pods-ToolKitDev.debug.xcconfig"; sourceTree = "<group>"; };
 		D69E8DE3E7848D2ECDF05B30 /* Pods-ToolKitDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolKitDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToolKitDev/Pods-ToolKitDev.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,8 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02BE24721EC82AB100B950E9 /* ToolKit.framework in Frameworks */,
 				5417559466508A4AEE2C11B4 /* libPods-ToolKitDev.a in Frameworks */,
+				262A594D20044C8D00492A41 /* ToolKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +75,7 @@
 		029DAED61EB4AF29003B32AE = {
 			isa = PBXGroup;
 			children = (
+				262A594C20044C8D00492A41 /* ToolKit.framework */,
 				029DAEE11EB4AF2A003B32AE /* ToolKitDev */,
 				029DAEE01EB4AF2A003B32AE /* Products */,
 				02FAB9CB1EC5EAC40028C216 /* Frameworks */,

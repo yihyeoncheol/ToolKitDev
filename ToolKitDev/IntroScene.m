@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
     
-    DataGridStructure *structure = [DataGridStructure structure];
+    DataGridStructure *structure = [DataGridStructure gridStructure];
     structure.columWidths = @[@(100),@(50),@(50),@(100),@(50),@(150),@(50)];
     structure.fixColumIndex = 3;
     structure.cells = @[[Cell cellWithHeigth:40 colums:@[[Colum columWithText:@"1"],
@@ -41,9 +41,27 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (CATransition *)animation
+{
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionFade;//kCATransitionFromTop;//kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+    //transition.subtype = kCATransitionFromTop; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+
+    return transition;
+}
+
+- (void)grid:(DataGrid *)grid didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 - (void)grid:(DataGrid *)grid gridTable:(GridTable *)cell cellDataForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Label *label = [cell columWithKey:@"{0,0}"];
+    
+    label.text = @"label";
     
 }
 
@@ -63,8 +81,8 @@
 //    [HTTPManager request:request delegate:self];
     
 //    ImagePickerController * picker = [[ImagePickerController alloc]init];
-    [self.sceneDirector onMemu:YES];
-    
+//    [self.sceneDirector onMemu:YES];
+    [self.sceneDirector showPopup:@"MainScene" message:nil];
 //    [[self sceneDirector]  presentViewController:picker animated:NO completion:nil];
 //    [[self sceneDirector] openScene:@"MainScene" message:nil];
 //    [Alert alertWithTitle:@"buttonTouchUpInside" message:@"buttonTouchUpInside" handler:nil cancelButtonTitle:@"취소" otherButtonTitles:nil];
@@ -74,7 +92,7 @@
 {
     
     Model *model = [Model modelWithData:response.data];
-    [self.sceneDirector openScene:@"MainScene" message:nil];
+    [self.sceneDirector pushScene:@"MainScene" message:nil];
 }
 
 - (void)httpRequest:(HTTPRequest*)request connectionDidFailWithError:(NSError *)error

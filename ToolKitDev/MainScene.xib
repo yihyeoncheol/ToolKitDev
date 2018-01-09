@@ -19,9 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlL-yg-wIO" customClass="Button">
-                    <rect key="frame" x="133" y="273" width="140" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlL-yg-wIO" customClass="Button">
+                    <rect key="frame" x="0.0" y="300" width="375" height="667"/>
                     <state key="normal" title="Button"/>
                     <connections>
                         <action selector="buttonTouchUpInside:" destination="-1" eventType="touchUpInside" id="dch-gY-AZl"/>
@@ -29,7 +28,13 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="34.5" y="54.5"/>
+            <constraints>
+                <constraint firstItem="mlL-yg-wIO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="300" id="Am6-5W-OZR"/>
+                <constraint firstItem="mlL-yg-wIO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TdG-0R-EtC"/>
+                <constraint firstItem="mlL-yg-wIO" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="n15-qX-ZR9"/>
+                <constraint firstAttribute="trailing" secondItem="mlL-yg-wIO" secondAttribute="trailing" id="u1n-b7-KfQ"/>
+            </constraints>
+            <point key="canvasLocation" x="-163" y="35"/>
         </view>
     </objects>
 </document>
