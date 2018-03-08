@@ -8,9 +8,9 @@
 
 #import "IntroScene.h"
 //#import <ToolKit/ImagePickerController.h>
-@interface IntroScene() <HTTPManagerDelegate,DataGridDelegate>
-@property(nonatomic,weak)IBOutlet Button *button;
-@property(nonatomic,weak)IBOutlet DataGrid *dataGrid;
+@interface IntroScene() <HTTPManagerDelegate>
+@property(nonatomic,weak)IBOutlet ComboBox *combobox;
+
 @end
 
 @implementation IntroScene
@@ -22,18 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    DataGridStructure *structure = [DataGridStructure gridStructure];
-    structure.columWidths = @[@(100),@(50),@(50),@(100),@(50),@(150),@(50)];
-    structure.fixColumIndex = 3;
-    structure.cells = @[[Cell cellWithHeigth:40 colums:@[[Colum columWithText:@"1"],
-                                                         [Colum columWithText:@"2"],
-                                                         [Colum columWithText:@"3"],
-                                                         [Colum columWithText:@"4"],
-                                                         [Colum columWithText:@"5"],
-                                                         [Colum columWithText:@"6"],
-                                                         [Colum columWithText:@"7"],]]];
-    _dataGrid.structure = structure;
+    _combobox.items = @[@"1",@"2",@"3"];
+    _combobox.showInView = self.view;
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,27 +42,12 @@
     return transition;
 }
 
-- (void)grid:(DataGrid *)grid didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
-- (void)grid:(DataGrid *)grid gridTable:(GridTable *)cell cellDataForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Label *label = [cell columWithKey:@"{0,0}"];
-    
-    label.text = @"label";
-    
-}
-
-- (NSInteger)grid:(DataGrid *)grid numberOfRowsInSection:(NSInteger)section
-{
-    return 3;
-}
 
 - (void)buttonTouchUpInside:(Button *)button
 {
-    
+
+    [Alert alertWithTitle:@"title" message:@"message" handler:nil cancelButtonTitle:@"취소" otherButtonTitles:@"확인",nil];
+    [Alert alertWithTitle:nil message:@"message" handler:nil cancelButtonTitle:@"취소" otherButtonTitles:@"확인",nil];
 //    [self.sceneDirector openScene:@"MainScene" message:nil];
     
 //    HTTPRequest *request = [HTTPRequest request];
@@ -82,7 +57,7 @@
     
 //    ImagePickerController * picker = [[ImagePickerController alloc]init];
 //    [self.sceneDirector onMemu:YES];
-    [self.sceneDirector showPopup:@"MainScene" message:nil];
+//    [self.sceneDirector showPopup:@"MainScene" message:nil];
 //    [[self sceneDirector]  presentViewController:picker animated:NO completion:nil];
 //    [[self sceneDirector] openScene:@"MainScene" message:nil];
 //    [Alert alertWithTitle:@"buttonTouchUpInside" message:@"buttonTouchUpInside" handler:nil cancelButtonTitle:@"취소" otherButtonTitles:nil];
