@@ -6,7 +6,7 @@ target 'ToolKitDev' do
   # use_frameworks!
 
   # Pods for ToolKitDev
-  #platform :ios, '6.1'
+  platform :ios, '8.0'
   
   pod 'SDWebImage', '~>3.7' #3.8.2
 end
