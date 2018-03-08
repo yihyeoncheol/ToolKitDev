@@ -46,7 +46,7 @@
 - (void)buttonTouchUpInside:(Button *)button
 {
 
-    [Alert alertWithTitle:@"title" message:@"message" handler:nil cancelButtonTitle:@"취소" otherButtonTitles:@"확인",nil];
+//    [Alert alertWithTitle:@"title" message:@"message" handler:nil cancelButtonTitle:@"취소" otherButtonTitles:@"확인",nil];
     [Alert alertWithTitle:nil message:@"message" handler:nil cancelButtonTitle:@"취소" otherButtonTitles:@"확인",nil];
 //    [self.sceneDirector openScene:@"MainScene" message:nil];
     
