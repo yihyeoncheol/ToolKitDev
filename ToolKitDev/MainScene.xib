@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainScene">
             <connections>
+                <outlet property="navigationBar" destination="sVI-l7-2NR" id="9E4-3U-PXh"/>
+                <outlet property="tabBar" destination="bVS-fI-jLd" id="7i1-4j-wd2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webBrowser" destination="Bhy-Bx-59v" id="PH2-DR-yea"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,22 +22,41 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlL-yg-wIO" customClass="Button">
-                    <rect key="frame" x="0.0" y="300" width="375" height="667"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="buttonTouchUpInside:" destination="-1" eventType="touchUpInside" id="dch-gY-AZl"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhy-Bx-59v" customClass="WebBrowser">
+                    <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVI-l7-2NR" customClass="NavigationBar">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="1iu-Bh-Jj4"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVS-fI-jLd" customClass="TabBar">
+                    <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="cRR-fi-SB0"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="mlL-yg-wIO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="300" id="Am6-5W-OZR"/>
-                <constraint firstItem="mlL-yg-wIO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TdG-0R-EtC"/>
-                <constraint firstItem="mlL-yg-wIO" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="n15-qX-ZR9"/>
-                <constraint firstAttribute="trailing" secondItem="mlL-yg-wIO" secondAttribute="trailing" id="u1n-b7-KfQ"/>
+                <constraint firstAttribute="bottom" secondItem="Bhy-Bx-59v" secondAttribute="bottom" id="2n2-Bn-H7x"/>
+                <constraint firstItem="bVS-fI-jLd" firstAttribute="top" secondItem="sVI-l7-2NR" secondAttribute="bottom" id="Eu3-k5-7bT"/>
+                <constraint firstAttribute="trailing" secondItem="sVI-l7-2NR" secondAttribute="trailing" id="IV3-YQ-Y4H"/>
+                <constraint firstItem="Bhy-Bx-59v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JBd-3i-gAe"/>
+                <constraint firstItem="Bhy-Bx-59v" firstAttribute="top" secondItem="bVS-fI-jLd" secondAttribute="bottom" id="PBp-35-P6J"/>
+                <constraint firstItem="bVS-fI-jLd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TjY-HH-vyk"/>
+                <constraint firstItem="sVI-l7-2NR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bdn-Rz-Lw4"/>
+                <constraint firstItem="sVI-l7-2NR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cfb-lR-xWg"/>
+                <constraint firstAttribute="trailing" secondItem="Bhy-Bx-59v" secondAttribute="trailing" id="mtw-EX-kFN"/>
+                <constraint firstAttribute="trailing" secondItem="bVS-fI-jLd" secondAttribute="trailing" id="ozC-4A-aA2"/>
             </constraints>
-            <point key="canvasLocation" x="-163" y="35"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="-143.5" y="-1360.5"/>
         </view>
     </objects>
 </document>

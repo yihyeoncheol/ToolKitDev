@@ -24,7 +24,7 @@
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="initalScene" value="IntroScene"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="navigationBarHidden" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="navigationBarHidden" value="YES"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="menuScene" value="MainScene"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>

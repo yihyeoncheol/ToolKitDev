@@ -1,72 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroScene">
             <connections>
-                <outlet property="combobox" destination="qwf-Q6-SWR" id="PjF-SG-zDB"/>
+                <outlet property="indicatorView" destination="wFW-VP-bUZ" id="mOw-oh-Dsu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYf-us-gLY" customClass="Calendar">
-                    <rect key="frame" x="10" y="41" width="200" height="44"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="gbs-qM-0KD"/>
-                        <constraint firstAttribute="height" constant="44" id="k4B-s5-DSo"/>
-                    </constraints>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="달력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSM-8u-YnM">
-                    <rect key="frame" x="10" y="10" width="30" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwf-Q6-SWR" customClass="ComboBox">
-                    <rect key="frame" x="10" y="179" width="355" height="32"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="32" id="9w6-3C-6bs"/>
-                    </constraints>
-                </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqQ-X8-DQW" customClass="Button">
-                    <rect key="frame" x="10" y="115" width="355" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="UK0-Bb-RBA"/>
-                    </constraints>
-                    <state key="normal" title="alert"/>
-                    <connections>
-                        <action selector="buttonTouchUpInside:" destination="-1" eventType="touchUpInside" id="ZPn-Qj-25L"/>
-                    </connections>
-                </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wFW-VP-bUZ">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="kYf-us-gLY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="5sI-7H-5lB"/>
-                <constraint firstItem="qwf-Q6-SWR" firstAttribute="top" secondItem="XqQ-X8-DQW" secondAttribute="bottom" constant="34" id="Czg-4f-a2g"/>
-                <constraint firstAttribute="trailing" secondItem="qwf-Q6-SWR" secondAttribute="trailing" constant="10" id="EJN-BC-xX6"/>
-                <constraint firstItem="qwf-Q6-SWR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="F3Q-3e-NO1"/>
-                <constraint firstAttribute="trailing" secondItem="XqQ-X8-DQW" secondAttribute="trailing" constant="10" id="Mze-3I-g85"/>
-                <constraint firstItem="WSM-8u-YnM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="NON-La-2eE"/>
-                <constraint firstItem="WSM-8u-YnM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="OPn-0p-V6I"/>
-                <constraint firstItem="kYf-us-gLY" firstAttribute="top" secondItem="WSM-8u-YnM" secondAttribute="bottom" constant="10" id="TBb-a9-ep7"/>
-                <constraint firstItem="XqQ-X8-DQW" firstAttribute="top" secondItem="kYf-us-gLY" secondAttribute="bottom" constant="30" id="U2q-9d-JSa"/>
-                <constraint firstItem="XqQ-X8-DQW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="t1i-ck-nwD"/>
+                <constraint firstItem="wFW-VP-bUZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="1Hw-og-Iwh"/>
+                <constraint firstItem="wFW-VP-bUZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JoS-Y8-0e2"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <point key="canvasLocation" x="-499.5" y="-573.5"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <point key="canvasLocation" x="-1330" y="-1585"/>
         </view>
     </objects>
 </document>

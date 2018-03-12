@@ -9,7 +9,7 @@
 #import "IntroScene.h"
 //#import <ToolKit/ImagePickerController.h>
 @interface IntroScene() <HTTPManagerDelegate>
-@property(nonatomic,weak)IBOutlet ComboBox *combobox;
+@property(nonatomic,weak)IBOutlet UIActivityIndicatorView *indicatorView;
 
 @end
 
@@ -17,14 +17,23 @@
 
 - (void)dealloc
 {
+    self.indicatorView = nil;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _combobox.items = @[@"1",@"2",@"3"];
-    _combobox.showInView = self.view;
+  
+//    self.navigationController.navigationBarHidden = YES;
+    
+    [_indicatorView startAnimating];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_indicatorView stopAnimating];
+        [self.sceneDirector openScene:@"LoginScene" message:nil];
+    });
 }
+
 
 - (void)didReceiveMemoryWarning
 {
