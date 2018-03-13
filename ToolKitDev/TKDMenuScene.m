@@ -7,6 +7,7 @@
 //
 
 #import "TKDMenuScene.h"
+#import <Photos/PHPhotoLibrary.h>
 
 @interface TKDMenuScene ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)NSMutableArray *dataList;
@@ -57,6 +58,35 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    
+    switch (status) {
+        case PHAuthorizationStatusNotDetermined: {
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                
+            }];
+        }
+            break;
+        case PHAuthorizationStatusAuthorized: {
+//            UIImageWriteToSavedPhotosAlbum(_snapshotImage, nil, nil, nil);
+//            [ARUtil showSimpleAlert:@"사진이 저장되었습니다." message:nil dismissBlock:^(UIAlertAction *action) {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self closePreviewMode:nil];
+//                });
+//            }];
+        }
+            break;
+//        case PHAuthorizationStatusDenied:
+//            break;
+        default: {
+
+//            [ARUtil showSimpleAlert:@"사진을 저장하려면 '설정->개인정보보호->사진'에서 하나멤버스를 허용해 주세요." message:nil dismissBlock:nil];
+            
+        }
+            break;
+    }
+            
     switch (indexPath.row) {
         case 0:
             [self.sceneDirector openScene:@"ImagePickerController" message:nil];
