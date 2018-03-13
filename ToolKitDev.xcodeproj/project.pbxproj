@@ -16,6 +16,8 @@
 		029DAEF21EB4AF2A003B32AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEF01EB4AF2A003B32AE /* LaunchScreen.storyboard */; };
 		02BE246D1EC827FF00B950E9 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BE246B1EC827FF00B950E9 /* MainScene.m */; };
 		02BE246E1EC827FF00B950E9 /* MainScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BE246C1EC827FF00B950E9 /* MainScene.xib */; };
+		26039C8120576F4B00173ADD /* TKDMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 26039C7F20576F4B00173ADD /* TKDMenuScene.m */; };
+		26039C8220576F4B00173ADD /* TKDMenuScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26039C8020576F4B00173ADD /* TKDMenuScene.xib */; };
 		3C18C02D20515D460005FF38 /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C18C02C20515D460005FF38 /* ToolKit.framework */; };
 		3C18C02E20515D460005FF38 /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C18C02C20515D460005FF38 /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C2498C1205698D700772E14 /* LoginScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2498BF205698D700772E14 /* LoginScene.m */; };
@@ -54,6 +56,9 @@
 		02BE246A1EC827FF00B950E9 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		02BE246B1EC827FF00B950E9 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
 		02BE246C1EC827FF00B950E9 /* MainScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScene.xib; sourceTree = "<group>"; };
+		26039C7E20576F4B00173ADD /* TKDMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKDMenuScene.h; sourceTree = "<group>"; };
+		26039C7F20576F4B00173ADD /* TKDMenuScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKDMenuScene.m; sourceTree = "<group>"; };
+		26039C8020576F4B00173ADD /* TKDMenuScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TKDMenuScene.xib; sourceTree = "<group>"; };
 		3C18C02C20515D460005FF38 /* ToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2498BE205698D700772E14 /* LoginScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginScene.h; sourceTree = "<group>"; };
 		3C2498BF205698D700772E14 /* LoginScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginScene.m; sourceTree = "<group>"; };
@@ -117,6 +122,9 @@
 				3C2498C82056C6E600772E14 /* SettingScene.m */,
 				3C2498C92056C6E600772E14 /* SettingScene.xib */,
 				029DAEEB1EB4AF2A003B32AE /* Main.storyboard */,
+				26039C7E20576F4B00173ADD /* TKDMenuScene.h */,
+				26039C7F20576F4B00173ADD /* TKDMenuScene.m */,
+				26039C8020576F4B00173ADD /* TKDMenuScene.xib */,
 				029DAEEE1EB4AF2A003B32AE /* Assets.xcassets */,
 				029DAEF01EB4AF2A003B32AE /* LaunchScreen.storyboard */,
 				029DAEF31EB4AF2A003B32AE /* Info.plist */,
@@ -221,6 +229,7 @@
 				02723D321EBE0C9B00A9A84B /* IntroScene.xib in Resources */,
 				02BE246E1EC827FF00B950E9 /* MainScene.xib in Resources */,
 				3C2498CB2056C6E600772E14 /* SettingScene.xib in Resources */,
+				26039C8220576F4B00173ADD /* TKDMenuScene.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +296,7 @@
 				029DAEE71EB4AF2A003B32AE /* AppDelegate.m in Sources */,
 				3C2498C1205698D700772E14 /* LoginScene.m in Sources */,
 				02BE246D1EC827FF00B950E9 /* MainScene.m in Sources */,
+				26039C8120576F4B00173ADD /* TKDMenuScene.m in Sources */,
 				029DAEE41EB4AF2A003B32AE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

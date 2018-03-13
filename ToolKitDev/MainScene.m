@@ -22,6 +22,7 @@
     Button *menuButton = [Button buttonWithType:UIButtonTypeCustom];
     [menuButton setImage:[UIImage imageNamed:@"ic_menu_36pt"] forState:UIControlStateNormal];
     [menuButton setEventTouchUpInsideHandler:^(Button *button) {
+        [self.sceneDirector onMenu];
     }];
     self.navigationBar.leftButtonItems = @[menuButton];
     
@@ -37,7 +38,7 @@
         [self.webBrowser reload];
     }];
     self.navigationBar.rightButtonItems = @[settingButton,refreshButton];
-    _tabBar.items = @[@"1",@"2",@"4",@"5",@"6",@"7",@"8"];
+    _tabBar.items = @[@"1",@"2",@"4",@"5",@"6"];
     [_webBrowser loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.naver.com"]]];
     
     // Do any additional setup after loading the view from its nib.
@@ -52,7 +53,7 @@
 
 - (void)buttonTouchUpInside:(Button *)button
 {
-    [self.sceneDirector onMemu:NO];
+//    [self.sceneDirector onMemu:NO];
 }
 /*
 #pragma mark - Navigation
