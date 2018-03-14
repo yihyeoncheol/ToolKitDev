@@ -19,14 +19,6 @@
 {
     [super viewDidLoad];
     
-    Button *menuButton = [Button buttonWithType:UIButtonTypeCustom];
-    [menuButton setImage:[UIImage imageNamed:@"ic_menu_36pt"] forState:UIControlStateNormal];
-    [menuButton setEventTouchUpInsideHandler:^(Button *button) {
-        [self.sceneDirector onMenu];
-    }];
-    self.navigationBar.leftButtonItems = @[menuButton];
-    
-    
     Button *settingButton = [Button buttonWithType:UIButtonTypeCustom];
     [settingButton setImage:[UIImage imageNamed:@"ic_settings_36pt"] forState:UIControlStateNormal];
     [settingButton setEventTouchUpInsideHandler:^(Button *button) {

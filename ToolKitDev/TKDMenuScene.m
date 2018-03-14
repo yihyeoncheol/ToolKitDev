@@ -92,10 +92,10 @@
             [self.sceneDirector openScene:@"ImagePickerController" message:nil];
             break;
         case 1:
-            [self.sceneDirector openScene:@"CameraScene" message:nil];
+            [self.sceneDirector openScene:@"MapScene" message:nil];
             break;
         case 2:
-            [self.sceneDirector openScene:@"CameraScene" message:nil];
+            [self.sceneDirector presentScene:@"CameraScene" message:nil];
             break;
         default:
             break;

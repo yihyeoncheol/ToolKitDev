@@ -18,6 +18,10 @@
 		02BE246E1EC827FF00B950E9 /* MainScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BE246C1EC827FF00B950E9 /* MainScene.xib */; };
 		26039C8120576F4B00173ADD /* TKDMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 26039C7F20576F4B00173ADD /* TKDMenuScene.m */; };
 		26039C8220576F4B00173ADD /* TKDMenuScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26039C8020576F4B00173ADD /* TKDMenuScene.xib */; };
+		3C06B02620595B780037AD05 /* MapScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C06B02420595B780037AD05 /* MapScene.m */; };
+		3C06B02720595B780037AD05 /* MapScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C06B02520595B780037AD05 /* MapScene.xib */; };
+		3C06B02B20595BE60037AD05 /* CameraScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C06B02920595BE60037AD05 /* CameraScene.m */; };
+		3C06B02C20595BE60037AD05 /* CameraScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C06B02A20595BE60037AD05 /* CameraScene.xib */; };
 		3C18C02D20515D460005FF38 /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C18C02C20515D460005FF38 /* ToolKit.framework */; };
 		3C18C02E20515D460005FF38 /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C18C02C20515D460005FF38 /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C2498C1205698D700772E14 /* LoginScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2498BF205698D700772E14 /* LoginScene.m */; };
@@ -59,6 +63,12 @@
 		26039C7E20576F4B00173ADD /* TKDMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKDMenuScene.h; sourceTree = "<group>"; };
 		26039C7F20576F4B00173ADD /* TKDMenuScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKDMenuScene.m; sourceTree = "<group>"; };
 		26039C8020576F4B00173ADD /* TKDMenuScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TKDMenuScene.xib; sourceTree = "<group>"; };
+		3C06B02320595B780037AD05 /* MapScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
+		3C06B02420595B780037AD05 /* MapScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapScene.m; sourceTree = "<group>"; };
+		3C06B02520595B780037AD05 /* MapScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapScene.xib; sourceTree = "<group>"; };
+		3C06B02820595BE60037AD05 /* CameraScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraScene.h; sourceTree = "<group>"; };
+		3C06B02920595BE60037AD05 /* CameraScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraScene.m; sourceTree = "<group>"; };
+		3C06B02A20595BE60037AD05 /* CameraScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraScene.xib; sourceTree = "<group>"; };
 		3C18C02C20515D460005FF38 /* ToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2498BE205698D700772E14 /* LoginScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginScene.h; sourceTree = "<group>"; };
 		3C2498BF205698D700772E14 /* LoginScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginScene.m; sourceTree = "<group>"; };
@@ -125,6 +135,12 @@
 				26039C7E20576F4B00173ADD /* TKDMenuScene.h */,
 				26039C7F20576F4B00173ADD /* TKDMenuScene.m */,
 				26039C8020576F4B00173ADD /* TKDMenuScene.xib */,
+				3C06B02320595B780037AD05 /* MapScene.h */,
+				3C06B02420595B780037AD05 /* MapScene.m */,
+				3C06B02520595B780037AD05 /* MapScene.xib */,
+				3C06B02820595BE60037AD05 /* CameraScene.h */,
+				3C06B02920595BE60037AD05 /* CameraScene.m */,
+				3C06B02A20595BE60037AD05 /* CameraScene.xib */,
 				029DAEEE1EB4AF2A003B32AE /* Assets.xcassets */,
 				029DAEF01EB4AF2A003B32AE /* LaunchScreen.storyboard */,
 				029DAEF31EB4AF2A003B32AE /* Info.plist */,
@@ -228,6 +244,8 @@
 				029DAEED1EB4AF2A003B32AE /* Main.storyboard in Resources */,
 				02723D321EBE0C9B00A9A84B /* IntroScene.xib in Resources */,
 				02BE246E1EC827FF00B950E9 /* MainScene.xib in Resources */,
+				3C06B02720595B780037AD05 /* MapScene.xib in Resources */,
+				3C06B02C20595BE60037AD05 /* CameraScene.xib in Resources */,
 				3C2498CB2056C6E600772E14 /* SettingScene.xib in Resources */,
 				26039C8220576F4B00173ADD /* TKDMenuScene.xib in Resources */,
 			);
@@ -291,7 +309,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C06B02B20595BE60037AD05 /* CameraScene.m in Sources */,
 				02723D311EBE0C9B00A9A84B /* IntroScene.m in Sources */,
+				3C06B02620595B780037AD05 /* MapScene.m in Sources */,
 				3C2498CA2056C6E600772E14 /* SettingScene.m in Sources */,
 				029DAEE71EB4AF2A003B32AE /* AppDelegate.m in Sources */,
 				3C2498C1205698D700772E14 /* LoginScene.m in Sources */,

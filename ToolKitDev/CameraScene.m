@@ -1,30 +1,24 @@
 //
-//  SettingScene.m
+//  CameraScene.m
 //  ToolKitDev
 //
-//  Created by yihyeoncheol on 2018. 3. 12..
+//  Created by yihyeoncheol on 2018. 3. 14..
 //  Copyright © 2018년 yihyeoncheol. All rights reserved.
 //
 
-#import "SettingScene.h"
-
-@interface SettingScene ()
+#import "CameraScene.h"
+//#import "SceneDirector.h"
+@interface CameraScene ()
 
 @end
 
-@implementation SettingScene
+@implementation CameraScene
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    Button *closeButton = [Button buttonWithType:UIButtonTypeCustom];
-//    [closeButton setImage:[UIImage imageNamed:@"ic_close_36pt"] forState:UIControlStateNormal];
-//    [closeButton setEventTouchUpInsideHandler:^(Button *button) {
-//        [self.sceneDirector dismissScene:self message:nil];
-//    }];
-//    self.navigationBar.rightButtonItems = @[closeButton];
-    
-    
+    // Do any additional setup after loading the view from its nib.
+    ;
+    NSLog(@"%@",self.sceneDirector.rootController.presentedViewController);
 }
 
 - (void)didReceiveMemoryWarning {
