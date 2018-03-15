@@ -1,0 +1,41 @@
+{
+    "title": "testmeun",
+    "scene": "",
+    "number": "1000",
+    "level": 1,
+    "opentype": 0,
+    "submenu": [
+                {
+                "title": "main",
+                "scene": "MainScene",
+                "number": "1100",
+                "level": 1,
+                "opentype": 0,
+                "submenu": []
+                },
+                {
+                "title": "앨범",
+                "scene": "ImagePickerController",
+                "number": "1200",
+                "level": 1,
+                "opentype": 0,
+                "submenu": []
+                },
+                {
+                "title": "지도",
+                "scene": "MapScene",
+                "number": "1300",
+                "level": 1,
+               "opentype": 1,
+                "submenu": []
+                },
+                {
+                "title": "카메라",
+                "scene": "CameraScene",
+                "number": "1400",
+                "level": 1,
+                "opentype": 2,
+                "submenu": []
+                }
+                ]
+}

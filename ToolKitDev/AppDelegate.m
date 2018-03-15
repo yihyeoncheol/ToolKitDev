@@ -49,8 +49,4 @@
 
 
 @end
-#if 0
-NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pmCode MATCHES[c] %@", code.pmCode];
-  NSArray *striks = [arrData valueForKeyPath:[NSString stringWithFormat:@"@distinctUnionOfObjects.%@", @"strik"]];
-https://realm.io/kr
-#endif
+

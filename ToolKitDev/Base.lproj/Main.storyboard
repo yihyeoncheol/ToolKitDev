@@ -25,7 +25,8 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="initalScene" value="IntroScene"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="navigationBarHidden" value="YES"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="menuScene" value="TKDMenuScene"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="menuScene" value="MainMenuScene"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="menuPath" value="Menu/menu.json"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rp9-wA-xDl" userLabel="First Responder" sceneMemberID="firstResponder"/>

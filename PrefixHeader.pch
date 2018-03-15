@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  ToolKitDev
+//
+//  Created by Infomax on 2018. 3. 15..
+//  Copyright © 2018년 yihyeoncheol. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#define DECLARE_BLOCK_SELF(my) __weak __typeof__(self) my = self
+
+#endif /* PrefixHeader_pch */
