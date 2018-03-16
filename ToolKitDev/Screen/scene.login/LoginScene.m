@@ -12,7 +12,7 @@
 
 @property(nonatomic,weak)IBOutlet TextField *idTextField;
 @property(nonatomic,weak)IBOutlet TextField *pwTextField;
-
+@property(nonatomic,weak)IBOutlet CheckBox *idSaveCheckBox;
 @end
 
 @implementation LoginScene
@@ -23,20 +23,37 @@
     self.pwTextField = nil;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
     _pwTextField.targetView = self.view;
     _idTextField.targetView = self.view;
+    
+    NSString *loginIDSave = [self.cookie getCookie:@"login.id.save"];
+    
+    if ([loginIDSave isEqualToString:@"YES"]) {
+        _idSaveCheckBox.on = YES;
+    }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 -(void)buttonTouchUpInside:(Button *)button
 {
-    [self.sceneDirector openScene:@"MainScene" message:nil];
+    DECLARE_BLOCK_SELF(my);
+//    [LoginManager loginProcessor:@"" passwd:@"" complete:^(BOOL complete,NSString *messag) {
+        [my.sceneDirector openScene:@"MainScene" message:nil];
+//    }];
+}
+
+- (void)checkBoxValueChanged:(CheckBox *)checkBox
+{
+    [self.cookie setCookie:checkBox.on ? @"YES" : @"NO" forName:@"login.id.save"];
 }
 /*
 #pragma mark - Navigation

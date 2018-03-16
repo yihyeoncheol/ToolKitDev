@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginScene">
             <connections>
+                <outlet property="idSaveCheckBox" destination="LKN-g9-82n" id="biy-Tc-DMl"/>
                 <outlet property="idTextField" destination="P2y-sP-1wv" id="Nj3-n6-fsZ"/>
                 <outlet property="pwTextField" destination="2jP-r5-Kyr" id="hly-x9-1SN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -85,6 +86,9 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="아이디 저장"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="checkBoxValueChanged:" destination="-1" eventType="valueChanged" id="WfC-PH-wT1"/>
+                    </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceB-m3-ikB" customClass="Button">
                     <rect key="frame" x="10" y="440.5" width="355" height="35"/>

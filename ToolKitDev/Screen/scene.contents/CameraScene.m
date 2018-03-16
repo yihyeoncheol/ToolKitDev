@@ -24,6 +24,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)buttonTouchUpInside:(Button *)button
+{
+    [self.sceneDirector presentScene:@"CameraScene" message:nil];
+}
 /*
 #pragma mark - Navigation
 

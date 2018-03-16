@@ -26,7 +26,7 @@
     [super viewDidLoad];
     
     DECLARE_BLOCK_SELF(my);
-//    __weak __typeof__(self) my = self;
+
     
     Button *settingButton = [Button buttonWithType:UIButtonTypeCustom];
     [settingButton setImage:[UIImage imageNamed:@"ic_settings_36pt"] forState:UIControlStateNormal];
@@ -41,7 +41,7 @@
     
     self.navigationBar.rightButtonItems = @[settingButton,refreshButton];
     _tabBar.items = @[@"1",@"2",@"4",@"5",@"6"];
-    [_webBrowser loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.naver.com"]]];
+//    [_webBrowser loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.naver.com"]]];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -55,7 +55,7 @@
 
 - (void)buttonTouchUpInside:(Button *)button
 {
-    [self.sceneDirector onMenu];
+    
 }
 /*
 #pragma mark - Navigation

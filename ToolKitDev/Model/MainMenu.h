@@ -8,14 +8,14 @@
 
 #import <ToolKit/ToolKit.h>
 
-@interface MainMenu : Menu
+@interface MainMenu : Model <Menu>
 
 @property(nonatomic,strong)NSString *title;
-@property(nonatomic,strong)NSString *scene;
-@property(nonatomic,strong)NSString *number;
-@property(nonatomic,strong)NSNumber *level;
-@property(nonatomic,strong)NSNumber *opentype;
+@property(nonatomic,strong)NSString *sceneName;
+@property(nonatomic,strong)NSString *sceneNumber;
+@property(nonatomic,strong)NSNumber *level;;
+@property(nonatomic,strong)NSNumber *type;
+@property(nonatomic,strong)NSArray *subMenu;
 
-@property(nonatomic,strong)NSArray *submenu;
 @end
 

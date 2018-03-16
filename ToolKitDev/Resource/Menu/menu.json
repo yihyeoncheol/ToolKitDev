@@ -1,41 +1,41 @@
 {
     "title": "testmeun",
-    "scene": "",
-    "number": "1000",
+    "sceneName": "",
+    "sceneNumber": "1000",
     "level": 1,
-    "opentype": 0,
-    "submenu": [
+    "type": 0,
+    "subMenu": [
                 {
                 "title": "main",
-                "scene": "MainScene",
-                "number": "1100",
+                "sceneName": "MainScene",
+                "sceneNumber": "1100",
                 "level": 1,
-                "opentype": 0,
-                "submenu": []
+                "type": 0,
+                "subMenu": []
                 },
                 {
                 "title": "앨범",
-                "scene": "ImagePickerController",
-                "number": "1200",
+                "sceneName": "ImagePickerController",
+                "sceneNumber": "1200",
                 "level": 1,
-                "opentype": 0,
-                "submenu": []
+                "type": 0,
+                "subMenu": []
                 },
                 {
                 "title": "지도",
-                "scene": "MapScene",
-                "number": "1300",
+                "sceneName": "MapScene",
+                "sceneNumber": "1300",
                 "level": 1,
-               "opentype": 1,
-                "submenu": []
+                "type": 1,
+                "subMenu": []
                 },
                 {
                 "title": "카메라",
-                "scene": "CameraScene",
-                "number": "1400",
+                "sceneName": "CameraScene",
+                "sceneNumber": "1400",
                 "level": 1,
-                "opentype": 2,
-                "submenu": []
+                "type": 2,
+                "subMenu": []
                 }
                 ]
 }

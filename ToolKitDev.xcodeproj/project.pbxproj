@@ -83,6 +83,7 @@
 		264149D9205A1C7000B72655 /* MainMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		264149DA205A1C7000B72655 /* MainMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		264149DC205A3F8B00B72655 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		26E89DA6205B8B39001C58B4 /* ToolKitDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToolKitDev.entitlements; sourceTree = "<group>"; };
 		3C18C02C20515D460005FF38 /* ToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2498C52056A82700772E14 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		68B3F6E9534A9C3050A4FFAA /* libPods-ToolKitDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ToolKitDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +127,7 @@
 		029DAEE11EB4AF2A003B32AE /* ToolKitDev */ = {
 			isa = PBXGroup;
 			children = (
+				26E89DA6205B8B39001C58B4 /* ToolKitDev.entitlements */,
 				264149D8205A1C5700B72655 /* Model */,
 				264149BE205A0A8E00B72655 /* Resource */,
 				26414998205A096500B72655 /* Screen */,
@@ -313,6 +315,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = HWZWGFYVDV;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
