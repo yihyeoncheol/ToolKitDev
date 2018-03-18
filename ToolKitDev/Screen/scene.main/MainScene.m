@@ -41,8 +41,8 @@
     
     self.navigationBar.rightButtonItems = @[settingButton,refreshButton];
     _tabBar.items = @[@"1",@"2",@"4",@"5",@"6"];
-//    [_webBrowser loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.naver.com"]]];
-    
+    [_webBrowser loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.naver.com"]]];
+    self.navigationBar.scrollView = _webBrowser.scrollView;
     // Do any additional setup after loading the view from its nib.
 }
 

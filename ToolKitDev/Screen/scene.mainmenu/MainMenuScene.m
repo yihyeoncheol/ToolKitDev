@@ -46,7 +46,7 @@
 //@protocol UITableViewDataSource<NSObject>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _menuList.submenu.count;
+    return _menuList.subMenu.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -59,7 +59,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     
-    MainMenu *menu = _menuList.submenu[indexPath.row];
+    MainMenu *menu = _menuList.subMenu[indexPath.row];
     cell.textLabel.text = menu.title;
     
     return cell;
@@ -73,14 +73,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    MainMenu *menu = _menuList.submenu[indexPath.row];
-    switch (menu.opentype.integerValue) {
-        case 0:[self.sceneDirector openScene:menu.scene message:nil];break;
-        case 1:[self.sceneDirector pushScene:menu.scene message:nil];break;
-        case 2:[self.sceneDirector presentScene:menu.scene message:nil];break;
-        default:
-            break;
-    }
+    MainMenu *menu = _menuList.subMenu[indexPath.row];
+    [self.sceneDirector openMemu:menu];
     
     [self.sceneDirector offMenu];
 }

@@ -25,6 +25,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhy-Bx-59v" customClass="WebBrowser">
                     <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="hybridService" value="HybridService"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="hybrid" value="HybridService"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVI-l7-2NR" customClass="NavigationBar">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
@@ -32,6 +36,10 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="1iu-Bh-Jj4"/>
                     </constraints>
+                    <connections>
+                        <outlet property="heightContraint" destination="1iu-Bh-Jj4" id="CtP-Za-kgr"/>
+                        <outlet property="viewTopContraint" destination="bdn-Rz-Lw4" id="fTP-WK-9tA"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVS-fI-jLd" customClass="TabBar">
                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
