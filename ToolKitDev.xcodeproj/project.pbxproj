@@ -12,6 +12,8 @@
 		029DAEED1EB4AF2A003B32AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEEB1EB4AF2A003B32AE /* Main.storyboard */; };
 		029DAEEF1EB4AF2A003B32AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEEE1EB4AF2A003B32AE /* Assets.xcassets */; };
 		029DAEF21EB4AF2A003B32AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEF01EB4AF2A003B32AE /* LaunchScreen.storyboard */; };
+		2628E07D205F8CED00E706BA /* PriceScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2628E07B205F8CED00E706BA /* PriceScene.m */; };
+		2628E07E205F8CED00E706BA /* PriceScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2628E07C205F8CED00E706BA /* PriceScene.xib */; };
 		264149B1205A096500B72655 /* SettingScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2641499B205A096500B72655 /* SettingScene.xib */; };
 		264149B2205A096500B72655 /* SettingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2641499C205A096500B72655 /* SettingScene.m */; };
 		264149B3205A096500B72655 /* MainScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2641499F205A096500B72655 /* MainScene.xib */; };
@@ -57,6 +59,9 @@
 		029DAEEE1EB4AF2A003B32AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029DAEF11EB4AF2A003B32AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		029DAEF31EB4AF2A003B32AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2628E07A205F8CED00E706BA /* PriceScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceScene.h; sourceTree = "<group>"; };
+		2628E07B205F8CED00E706BA /* PriceScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriceScene.m; sourceTree = "<group>"; };
+		2628E07C205F8CED00E706BA /* PriceScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceScene.xib; sourceTree = "<group>"; };
 		2641499A205A096500B72655 /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
 		2641499B205A096500B72655 /* SettingScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingScene.xib; sourceTree = "<group>"; };
 		2641499C205A096500B72655 /* SettingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingScene.m; sourceTree = "<group>"; };
@@ -170,6 +175,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2628E079205F8ADE00E706BA /* scene.stock.price */ = {
+			isa = PBXGroup;
+			children = (
+				2628E07A205F8CED00E706BA /* PriceScene.h */,
+				2628E07B205F8CED00E706BA /* PriceScene.m */,
+				2628E07C205F8CED00E706BA /* PriceScene.xib */,
+			);
+			path = scene.stock.price;
+			sourceTree = "<group>";
+		};
 		26414996205A081200B72655 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +202,7 @@
 		26414998205A096500B72655 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				2628E079205F8ADE00E706BA /* scene.stock.price */,
 				264149D2205A0ABC00B72655 /* scene.mainmenu */,
 				26414999205A096500B72655 /* scene.setting */,
 				2641499D205A096500B72655 /* scene.main */,
@@ -231,11 +247,11 @@
 			isa = PBXGroup;
 			children = (
 				264149A7205A096500B72655 /* CameraScene.xib */,
-				264149A8205A096500B72655 /* MapScene.m */,
+				264149AC205A096500B72655 /* CameraScene.m */,
 				264149A9205A096500B72655 /* CameraScene.h */,
 				264149AA205A096500B72655 /* MapScene.xib */,
+				264149A8205A096500B72655 /* MapScene.m */,
 				264149AB205A096500B72655 /* MapScene.h */,
-				264149AC205A096500B72655 /* CameraScene.m */,
 			);
 			path = scene.contents;
 			sourceTree = "<group>";
@@ -243,9 +259,9 @@
 		264149AD205A096500B72655 /* scene.intro */ = {
 			isa = PBXGroup;
 			children = (
+				264149B0205A096500B72655 /* IntroScene.h */,
 				264149AE205A096500B72655 /* IntroScene.m */,
 				264149AF205A096500B72655 /* IntroScene.xib */,
-				264149B0205A096500B72655 /* IntroScene.h */,
 			);
 			path = scene.intro;
 			sourceTree = "<group>";
@@ -347,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				029DAEF21EB4AF2A003B32AE /* LaunchScreen.storyboard in Resources */,
+				2628E07E205F8CED00E706BA /* PriceScene.xib in Resources */,
 				264149D1205A0AA200B72655 /* Menu in Resources */,
 				264149B6205A096500B72655 /* LoginScene.xib in Resources */,
 				264149B1205A096500B72655 /* SettingScene.xib in Resources */,
@@ -423,6 +440,7 @@
 				264149D7205A0ABC00B72655 /* MainMenuScene.m in Sources */,
 				264149BC205A096500B72655 /* IntroScene.m in Sources */,
 				264149BB205A096500B72655 /* CameraScene.m in Sources */,
+				2628E07D205F8CED00E706BA /* PriceScene.m in Sources */,
 				264149B4205A096500B72655 /* MainScene.m in Sources */,
 				264149DB205A1C7000B72655 /* MainMenu.m in Sources */,
 				264149B7205A096500B72655 /* LoginScene.m in Sources */,
