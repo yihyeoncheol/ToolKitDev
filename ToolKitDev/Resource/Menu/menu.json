@@ -6,6 +6,14 @@
     "type": 0,
     "subMenu": [
                 {
+                "title": "현재가",
+                "sceneName": "PriceScene",
+                "sceneNumber": "1100",
+                "level": 1,
+                "type": 0,
+                "subMenu": []
+                },
+                {
                 "title": "main",
                 "sceneName": "MainScene",
                 "sceneNumber": "1100",
