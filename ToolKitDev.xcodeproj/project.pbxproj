@@ -12,34 +12,14 @@
 		029DAEED1EB4AF2A003B32AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEEB1EB4AF2A003B32AE /* Main.storyboard */; };
 		029DAEEF1EB4AF2A003B32AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEEE1EB4AF2A003B32AE /* Assets.xcassets */; };
 		029DAEF21EB4AF2A003B32AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEF01EB4AF2A003B32AE /* LaunchScreen.storyboard */; };
-		2628E07D205F8CED00E706BA /* PriceScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2628E07B205F8CED00E706BA /* PriceScene.m */; };
-		2628E07E205F8CED00E706BA /* PriceScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2628E07C205F8CED00E706BA /* PriceScene.xib */; };
-		264149B1205A096500B72655 /* SettingScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2641499B205A096500B72655 /* SettingScene.xib */; };
-		264149B2205A096500B72655 /* SettingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2641499C205A096500B72655 /* SettingScene.m */; };
 		264149B3205A096500B72655 /* MainScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2641499F205A096500B72655 /* MainScene.xib */; };
 		264149B4205A096500B72655 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 264149A0205A096500B72655 /* MainScene.m */; };
-		264149B6205A096500B72655 /* LoginScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264149A3205A096500B72655 /* LoginScene.xib */; };
-		264149B7205A096500B72655 /* LoginScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 264149A4205A096500B72655 /* LoginScene.m */; };
-		264149B8205A096500B72655 /* CameraScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264149A7205A096500B72655 /* CameraScene.xib */; };
-		264149B9205A096500B72655 /* MapScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 264149A8205A096500B72655 /* MapScene.m */; };
-		264149BA205A096500B72655 /* MapScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264149AA205A096500B72655 /* MapScene.xib */; };
-		264149BB205A096500B72655 /* CameraScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 264149AC205A096500B72655 /* CameraScene.m */; };
-		264149BC205A096500B72655 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 264149AE205A096500B72655 /* IntroScene.m */; };
-		264149BD205A096500B72655 /* IntroScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264149AF205A096500B72655 /* IntroScene.xib */; };
 		264149D0205A0AA200B72655 /* font in Resources */ = {isa = PBXBuildFile; fileRef = 264149CE205A0AA200B72655 /* font */; };
 		264149D1205A0AA200B72655 /* Menu in Resources */ = {isa = PBXBuildFile; fileRef = 264149CF205A0AA200B72655 /* Menu */; };
-		264149D6205A0ABC00B72655 /* MainMenuScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264149D3205A0ABC00B72655 /* MainMenuScene.xib */; };
-		264149D7205A0ABC00B72655 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 264149D5205A0ABC00B72655 /* MainMenuScene.m */; };
 		264149DB205A1C7000B72655 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 264149DA205A1C7000B72655 /* MainMenu.m */; };
 		3C18C02D20515D460005FF38 /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C18C02C20515D460005FF38 /* ToolKit.framework */; };
 		3C18C02E20515D460005FF38 /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C18C02C20515D460005FF38 /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3CEF93B7205FE29500F3FC66 /* Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF93B6205FE29500F3FC66 /* Style.m */; };
-		3CEF93C1205FFEC400F3FC66 /* HogaScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF93BF205FFEC400F3FC66 /* HogaScene.m */; };
-		3CEF93C2205FFEC400F3FC66 /* HogaScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CEF93C0205FFEC400F3FC66 /* HogaScene.xib */; };
-		3CEF93C72060006600F3FC66 /* TotalScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF93C52060006600F3FC66 /* TotalScene.m */; };
-		3CEF93C82060006600F3FC66 /* TotalScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CEF93C62060006600F3FC66 /* TotalScene.xib */; };
-		3CEF93CD2060037E00F3FC66 /* FillScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF93CB2060037E00F3FC66 /* FillScene.m */; };
-		3CEF93CE2060037E00F3FC66 /* FillScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CEF93CC2060037E00F3FC66 /* FillScene.xib */; };
 		5417559466508A4AEE2C11B4 /* libPods-ToolKitDev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B3F6E9534A9C3050A4FFAA /* libPods-ToolKitDev.a */; };
 /* End PBXBuildFile section */
 
@@ -66,32 +46,11 @@
 		029DAEEE1EB4AF2A003B32AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029DAEF11EB4AF2A003B32AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		029DAEF31EB4AF2A003B32AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2628E07A205F8CED00E706BA /* PriceScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceScene.h; sourceTree = "<group>"; };
-		2628E07B205F8CED00E706BA /* PriceScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriceScene.m; sourceTree = "<group>"; };
-		2628E07C205F8CED00E706BA /* PriceScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceScene.xib; sourceTree = "<group>"; };
-		2641499A205A096500B72655 /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
-		2641499B205A096500B72655 /* SettingScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingScene.xib; sourceTree = "<group>"; };
-		2641499C205A096500B72655 /* SettingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingScene.m; sourceTree = "<group>"; };
 		2641499E205A096500B72655 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		2641499F205A096500B72655 /* MainScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScene.xib; sourceTree = "<group>"; };
 		264149A0205A096500B72655 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
-		264149A3205A096500B72655 /* LoginScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginScene.xib; sourceTree = "<group>"; };
-		264149A4205A096500B72655 /* LoginScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScene.m; sourceTree = "<group>"; };
-		264149A5205A096500B72655 /* LoginScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScene.h; sourceTree = "<group>"; };
-		264149A7205A096500B72655 /* CameraScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraScene.xib; sourceTree = "<group>"; };
-		264149A8205A096500B72655 /* MapScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapScene.m; sourceTree = "<group>"; };
-		264149A9205A096500B72655 /* CameraScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraScene.h; sourceTree = "<group>"; };
-		264149AA205A096500B72655 /* MapScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapScene.xib; sourceTree = "<group>"; };
-		264149AB205A096500B72655 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
-		264149AC205A096500B72655 /* CameraScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraScene.m; sourceTree = "<group>"; };
-		264149AE205A096500B72655 /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
-		264149AF205A096500B72655 /* IntroScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroScene.xib; sourceTree = "<group>"; };
-		264149B0205A096500B72655 /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
 		264149CE205A0AA200B72655 /* font */ = {isa = PBXFileReference; lastKnownFileType = folder; path = font; sourceTree = "<group>"; };
 		264149CF205A0AA200B72655 /* Menu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Menu; sourceTree = "<group>"; };
-		264149D3205A0ABC00B72655 /* MainMenuScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuScene.xib; sourceTree = "<group>"; };
-		264149D4205A0ABC00B72655 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
-		264149D5205A0ABC00B72655 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 		264149D9205A1C7000B72655 /* MainMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		264149DA205A1C7000B72655 /* MainMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		264149DC205A3F8B00B72655 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -100,15 +59,6 @@
 		3C2498C52056A82700772E14 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3CEF93B5205FE29500F3FC66 /* Style.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Style.h; sourceTree = "<group>"; };
 		3CEF93B6205FE29500F3FC66 /* Style.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Style.m; sourceTree = "<group>"; };
-		3CEF93BE205FFEC400F3FC66 /* HogaScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HogaScene.h; sourceTree = "<group>"; };
-		3CEF93BF205FFEC400F3FC66 /* HogaScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HogaScene.m; sourceTree = "<group>"; };
-		3CEF93C0205FFEC400F3FC66 /* HogaScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HogaScene.xib; sourceTree = "<group>"; };
-		3CEF93C42060006600F3FC66 /* TotalScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TotalScene.h; sourceTree = "<group>"; };
-		3CEF93C52060006600F3FC66 /* TotalScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TotalScene.m; sourceTree = "<group>"; };
-		3CEF93C62060006600F3FC66 /* TotalScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalScene.xib; sourceTree = "<group>"; };
-		3CEF93CA2060037E00F3FC66 /* FillScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FillScene.h; sourceTree = "<group>"; };
-		3CEF93CB2060037E00F3FC66 /* FillScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FillScene.m; sourceTree = "<group>"; };
-		3CEF93CC2060037E00F3FC66 /* FillScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FillScene.xib; sourceTree = "<group>"; };
 		68B3F6E9534A9C3050A4FFAA /* libPods-ToolKitDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ToolKitDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF8BC72EBF4A932754DFC87 /* Pods-ToolKitDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolKitDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToolKitDev/Pods-ToolKitDev.debug.xcconfig"; sourceTree = "<group>"; };
 		D69E8DE3E7848D2ECDF05B30 /* Pods-ToolKitDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolKitDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToolKitDev/Pods-ToolKitDev.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +111,7 @@
 				029DAEEB1EB4AF2A003B32AE /* Main.storyboard */,
 				029DAEEE1EB4AF2A003B32AE /* Assets.xcassets */,
 				029DAEF01EB4AF2A003B32AE /* LaunchScreen.storyboard */,
+				2641499D205A096500B72655 /* scene.main */,
 				029DAEF31EB4AF2A003B32AE /* Info.plist */,
 				029DAEE21EB4AF2A003B32AE /* Supporting Files */,
 			);
@@ -193,41 +144,11 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		2628E079205F8ADE00E706BA /* scene.stock.price */ = {
-			isa = PBXGroup;
-			children = (
-				3CEF93C92060036700F3FC66 /* fill */,
-				3CEF93C32060004400F3FC66 /* total */,
-				3CEF93BD205FFE9700F3FC66 /* hoga */,
-				2628E07A205F8CED00E706BA /* PriceScene.h */,
-				2628E07B205F8CED00E706BA /* PriceScene.m */,
-				2628E07C205F8CED00E706BA /* PriceScene.xib */,
-			);
-			path = scene.stock.price;
-			sourceTree = "<group>";
-		};
 		26414998205A096500B72655 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				2628E079205F8ADE00E706BA /* scene.stock.price */,
-				264149D2205A0ABC00B72655 /* scene.mainmenu */,
-				26414999205A096500B72655 /* scene.setting */,
-				2641499D205A096500B72655 /* scene.main */,
-				264149A2205A096500B72655 /* scene.login */,
-				264149A6205A096500B72655 /* scene.contents */,
-				264149AD205A096500B72655 /* scene.intro */,
 			);
 			path = Screen;
-			sourceTree = "<group>";
-		};
-		26414999205A096500B72655 /* scene.setting */ = {
-			isa = PBXGroup;
-			children = (
-				2641499A205A096500B72655 /* SettingScene.h */,
-				2641499B205A096500B72655 /* SettingScene.xib */,
-				2641499C205A096500B72655 /* SettingScene.m */,
-			);
-			path = scene.setting;
 			sourceTree = "<group>";
 		};
 		2641499D205A096500B72655 /* scene.main */ = {
@@ -240,39 +161,6 @@
 			path = scene.main;
 			sourceTree = "<group>";
 		};
-		264149A2205A096500B72655 /* scene.login */ = {
-			isa = PBXGroup;
-			children = (
-				264149A3205A096500B72655 /* LoginScene.xib */,
-				264149A4205A096500B72655 /* LoginScene.m */,
-				264149A5205A096500B72655 /* LoginScene.h */,
-			);
-			path = scene.login;
-			sourceTree = "<group>";
-		};
-		264149A6205A096500B72655 /* scene.contents */ = {
-			isa = PBXGroup;
-			children = (
-				264149A7205A096500B72655 /* CameraScene.xib */,
-				264149AC205A096500B72655 /* CameraScene.m */,
-				264149A9205A096500B72655 /* CameraScene.h */,
-				264149AA205A096500B72655 /* MapScene.xib */,
-				264149A8205A096500B72655 /* MapScene.m */,
-				264149AB205A096500B72655 /* MapScene.h */,
-			);
-			path = scene.contents;
-			sourceTree = "<group>";
-		};
-		264149AD205A096500B72655 /* scene.intro */ = {
-			isa = PBXGroup;
-			children = (
-				264149B0205A096500B72655 /* IntroScene.h */,
-				264149AE205A096500B72655 /* IntroScene.m */,
-				264149AF205A096500B72655 /* IntroScene.xib */,
-			);
-			path = scene.intro;
-			sourceTree = "<group>";
-		};
 		264149BE205A0A8E00B72655 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,16 +168,6 @@
 				264149CF205A0AA200B72655 /* Menu */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		264149D2205A0ABC00B72655 /* scene.mainmenu */ = {
-			isa = PBXGroup;
-			children = (
-				264149D3205A0ABC00B72655 /* MainMenuScene.xib */,
-				264149D4205A0ABC00B72655 /* MainMenuScene.h */,
-				264149D5205A0ABC00B72655 /* MainMenuScene.m */,
-			);
-			path = scene.mainmenu;
 			sourceTree = "<group>";
 		};
 		264149D8205A1C5700B72655 /* Model */ = {
@@ -315,36 +193,6 @@
 				3CEF93B6205FE29500F3FC66 /* Style.m */,
 			);
 			path = Style;
-			sourceTree = "<group>";
-		};
-		3CEF93BD205FFE9700F3FC66 /* hoga */ = {
-			isa = PBXGroup;
-			children = (
-				3CEF93BE205FFEC400F3FC66 /* HogaScene.h */,
-				3CEF93BF205FFEC400F3FC66 /* HogaScene.m */,
-				3CEF93C0205FFEC400F3FC66 /* HogaScene.xib */,
-			);
-			path = hoga;
-			sourceTree = "<group>";
-		};
-		3CEF93C32060004400F3FC66 /* total */ = {
-			isa = PBXGroup;
-			children = (
-				3CEF93C42060006600F3FC66 /* TotalScene.h */,
-				3CEF93C52060006600F3FC66 /* TotalScene.m */,
-				3CEF93C62060006600F3FC66 /* TotalScene.xib */,
-			);
-			path = total;
-			sourceTree = "<group>";
-		};
-		3CEF93C92060036700F3FC66 /* fill */ = {
-			isa = PBXGroup;
-			children = (
-				3CEF93CA2060037E00F3FC66 /* FillScene.h */,
-				3CEF93CB2060037E00F3FC66 /* FillScene.m */,
-				3CEF93CC2060037E00F3FC66 /* FillScene.xib */,
-			);
-			path = fill;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,21 +264,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				029DAEF21EB4AF2A003B32AE /* LaunchScreen.storyboard in Resources */,
-				2628E07E205F8CED00E706BA /* PriceScene.xib in Resources */,
 				264149D1205A0AA200B72655 /* Menu in Resources */,
-				3CEF93CE2060037E00F3FC66 /* FillScene.xib in Resources */,
-				3CEF93C82060006600F3FC66 /* TotalScene.xib in Resources */,
-				264149B6205A096500B72655 /* LoginScene.xib in Resources */,
-				264149B1205A096500B72655 /* SettingScene.xib in Resources */,
 				029DAEEF1EB4AF2A003B32AE /* Assets.xcassets in Resources */,
 				029DAEED1EB4AF2A003B32AE /* Main.storyboard in Resources */,
-				264149BA205A096500B72655 /* MapScene.xib in Resources */,
 				264149B3205A096500B72655 /* MainScene.xib in Resources */,
 				264149D0205A0AA200B72655 /* font in Resources */,
-				264149B8205A096500B72655 /* CameraScene.xib in Resources */,
-				3CEF93C2205FFEC400F3FC66 /* HogaScene.xib in Resources */,
-				264149BD205A096500B72655 /* IntroScene.xib in Resources */,
-				264149D6205A0ABC00B72655 /* MainMenuScene.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,20 +331,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				029DAEE71EB4AF2A003B32AE /* AppDelegate.m in Sources */,
-				264149D7205A0ABC00B72655 /* MainMenuScene.m in Sources */,
-				3CEF93C1205FFEC400F3FC66 /* HogaScene.m in Sources */,
-				264149BC205A096500B72655 /* IntroScene.m in Sources */,
 				3CEF93B7205FE29500F3FC66 /* Style.m in Sources */,
-				3CEF93CD2060037E00F3FC66 /* FillScene.m in Sources */,
-				264149BB205A096500B72655 /* CameraScene.m in Sources */,
-				2628E07D205F8CED00E706BA /* PriceScene.m in Sources */,
 				264149B4205A096500B72655 /* MainScene.m in Sources */,
 				264149DB205A1C7000B72655 /* MainMenu.m in Sources */,
-				264149B7205A096500B72655 /* LoginScene.m in Sources */,
-				264149B9205A096500B72655 /* MapScene.m in Sources */,
-				264149B2205A096500B72655 /* SettingScene.m in Sources */,
 				029DAEE41EB4AF2A003B32AE /* main.m in Sources */,
-				3CEF93C72060006600F3FC66 /* TotalScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
