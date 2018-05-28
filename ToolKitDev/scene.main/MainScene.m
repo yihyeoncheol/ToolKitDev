@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     
-    DECLARE_BLOCK_SELF(my);
+    DECLARE_WEAK_SELF(my);
 
     
     Button *settingButton = [Button buttonWithType:UIButtonTypeCustom];

@@ -9,27 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../ToolKit/ToolKit/ui/ImagePicker.h"
-            timestampString = "522123560.645065"
+            filePath = "ToolKitDev/App/NHFControlTower.m"
+            timestampString = "547651616.209846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToolKitDev/IntroScene.m"
-            timestampString = "535607909.105425"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-httpRequest:connectionDidFailWithError:"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "-start"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -39,29 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../ToolKit/ToolKit/service/http/HTTPManager.m"
-            timestampString = "533053216.170806"
+            filePath = "ToolKitDev/App/Job/NHFJobEncryptKey.m"
+            timestampString = "549018344.45119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "+cancel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToolKitDev/IntroScene.m"
-            timestampString = "535607909.105606"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-connectionDidReceiveResponse:"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-execute"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
