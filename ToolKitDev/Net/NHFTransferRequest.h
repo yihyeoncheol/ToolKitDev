@@ -52,6 +52,6 @@
 
 #define ENCRYPT_FML_SIZE    2800
 
-@interface NHFTCPService : TransferRequest
+@interface NHFTransferRequest : TransferRequest
 
 @end

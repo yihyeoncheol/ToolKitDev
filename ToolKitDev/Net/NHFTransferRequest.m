@@ -6,10 +6,10 @@
 //  Copyright © 2018년 yihyeoncheol. All rights reserved.
 //
 
-#import "NHFTCPService.h"
+#import "NHFTransferRequest.h"
 #import "COMMHAEDER.h"
 #import "KSclient.h"
-@interface NHFTCPService ()
+@interface NHFTransferRequest ()
 {
     KS_CLIENT_CTX _ks_ctx;
 }
@@ -17,7 +17,7 @@
 @property(nonatomic,strong)NSMutableDictionary *packetData;
 @end
 
-@implementation NHFTCPService
+@implementation NHFTransferRequest
 
 - (int)uniqKey
 {
@@ -78,7 +78,7 @@
                                dataOffset:0
                                  dataSize:dataSize
                               dataOrgSize:dataSize
-                                  dataCnt:0
+//                                  dataCnt:0
                                   viewKey:viewKey];
     return packetData;
 }
@@ -88,24 +88,29 @@
     return  -1;
 }
 
-
 /*
  헤더 세팅..
  */
 
-- (NSData*)makePacket:(Request *)packet flag:(char)packetFlag data:(char *)szData dataOffset:(int)dataOffset dataSize:(int)dataSize dataOrgSize:(int)dataOrgSize dataCnt:(int)dataCnt viewKey:(int)viewKey
+- (NSData*)makePacket:(Request *)request flag:(char)packetFlag data:(char *)szData dataOffset:(int)dataOffset dataSize:(int)dataSize dataOrgSize:(int)dataOrgSize viewKey:(int)viewKey
 {
     COMMHAEDER _COMMHAEDER;
     
     int HEADER_SIZE  = sizeof(COMMHAEDER);
     
-    NSString *_ip = @"";//DEVICE.IP;
-    NSString *_id = @"";//USERSESSION.ID;
-    NSString *empNo = @"";//USERSESSION.info.empno;
+    NSString *_ip = DEVICE.IP;
+    NSString *_id = [self.session getAttribute:@"ID"];
+    if(_id == nil){
+        _id = @"";
+    }
+    NSString *empNo = [self.session getAttribute:@"empno"];
     if (empNo == nil) {
         empNo = @"";
     }
-    
+    NSString *trcode = request.name;
+    if (trcode == nil) {
+        trcode = @"";
+    }
     memset(&_COMMHAEDER, 0x20, HEADER_SIZE);
     
     NSInteger packetLength = HEADER_SIZE + dataSize - sizeof(_COMMHAEDER.len);
@@ -115,9 +120,9 @@
     //    _COMMHAEDER.flag[0] = 0x00;
     _COMMHAEDER.seq[0] = packetFlag;
     
-    _COMMHAEDER.cmd[0] = packet.command;
+    _COMMHAEDER.cmd[0] = request.command;
     
-    stringCopy((char*)_COMMHAEDER.trcode,   packet.name);
+    stringCopy((char*)_COMMHAEDER.trcode,   trcode);
     stringCopy((char*)_COMMHAEDER.cert,     @"");
     stringCopy((char*)_COMMHAEDER.media,    @"P");
     stringCopy((char*)_COMMHAEDER.IPAddr,   _ip);
@@ -130,11 +135,11 @@
     
     
     
-    if(packet.encrypt){
+    if(request.encrypt){
         _COMMHAEDER.flag[0] |= H_FLAG_ENCRPYTE;
     }
     
-    if(packet.compress){
+    if(request.compress){
         _COMMHAEDER.flag[0] |= H_FLAG_COMPRESS;
     }
     
@@ -167,24 +172,23 @@
     return data;
 }
 
-- (NSArray*)makePacket:(Request*)packet viewKey:(int)viewKey
+- (NSArray*)makePacket:(Request*)request viewKey:(int)viewKey
 {
+    NSData *bodyData = [request data];
     
-    NSData *bodyData = [packet fieldToData];
-    
-    if(packet.encrypt){
+    if(request.encrypt){
         bodyData = [self encryptData:bodyData];
     }
     
-    if(packet.compress){
+    if(request.compress){
         bodyData = [self compressData:bodyData];
     }
     
-    if (packet.command == '\0'){
-        packet.command = H_CMD_DATA;
+    if (request.command == '\0'){
+        request.command = H_CMD_DATA;
     }
     
-    if (packet.simplesign) {
+    if (request.simplesign) {
         
         //        KSCertManager *certManager = [KSCertManager SharedObject];
         //        int signResult = 0;
@@ -201,10 +205,7 @@
     
     int dataLength = (int)[bodyData length]; // 전체길이...
     
-    int packetSize = packet.encrypt && (dataLength > ENCRYPT_FML_SIZE) ? ENCRYPT_FML_SIZE : (dataLength > FML_SIZE ? FML_SIZE : dataLength);
-    
-    
-    
+    int packetSize = request.encrypt && (dataLength > ENCRYPT_FML_SIZE) ? ENCRYPT_FML_SIZE : (dataLength > FML_SIZE ? FML_SIZE : dataLength);
     
     NSMutableArray *packets = [[NSMutableArray alloc]init];
     
@@ -217,24 +218,28 @@
         
         int dataSize = MIN(packetSize, len);
         
-        NSData *requestPacket = nil;;
+        
+        char packetFlag = H_SEQ_LAST;
         if (remain == 0) { //마지막
-            requestPacket = [self makePacket:packet flag:H_SEQ_LAST data:(char*)[bodyData bytes]
-                                  dataOffset:offset dataSize:dataSize dataOrgSize:dataLength dataCnt:0 viewKey:viewKey];
+            packetFlag = H_SEQ_LAST;
         }else if(offset == 0 &&  remain > packetSize){
-            requestPacket = [self makePacket:packet flag:H_SEQ_FIRST data:(char*)[bodyData bytes]
-                                  dataOffset:offset dataSize:dataSize dataOrgSize:dataLength dataCnt:0 viewKey:viewKey];
+            packetFlag = H_SEQ_FIRST;
         }else{
-            requestPacket = [self makePacket:packet flag:H_SEQ_MIDDLE data:(char*)[bodyData bytes]
-                                  dataOffset:offset dataSize:dataSize dataOrgSize:dataLength dataCnt:0 viewKey:viewKey];
+            packetFlag = H_SEQ_MIDDLE;
         }
+        
+        NSData *packet = [self makePacket:request
+                                     flag:H_SEQ_LAST
+                                     data:(char*)[bodyData bytes]
+                              dataOffset:offset
+                                 dataSize:dataSize
+                              dataOrgSize:dataLength
+//                                  dataCnt:0
+                                  viewKey:viewKey];
+        [packets addObject:packet];
         
         len -= dataSize;
         offset += dataSize;
-        
-        
-        [packets addObject:requestPacket];
-        
     }
     
     return packets;
@@ -276,7 +281,6 @@
         [self onSystemError:bodyData withViewKey:windowid];
         return;
     }
-    
     
     if (encrypt) {
         bodyData = [self decryptData:bodyData];
@@ -382,6 +386,8 @@
 
 - (void)packetProcessReadData:(NSData *)data withTag:(long)tag
 {
+    
+    // TODO 
 #if TARGET_IPHONE_SIMULATOR
     //    wirteHexLog((char*)[data bytes] ,(int)[data length]);
 #endif

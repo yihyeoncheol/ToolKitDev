@@ -25,9 +25,9 @@
     _processor = [[JobProcessor alloc]init];
     [_processor registerJobs:@[[NHFJobAppVersion new],[NHFJobEncryptKey new]] processorID:0];
     
-    [[NHFTCPService defaultCenter] startServiceHost:@"210.183.186.82" onPort:8300 timeoutInterval:10];
-    
-    [NHFTCPService defaultCenter].stateHandeler = ^(ServiceState state){
+    [[NHFTransferRequest defaultCenter] startServiceHost:@"210.183.186.82" onPort:8300 timeoutInterval:10];
+    [[NHFTransferRequest defaultCenter] setSession:self.session];
+    [NHFTransferRequest defaultCenter].stateHandeler = ^(ServiceState state){
             switch (state) {
                 case ServiceStateConnected:
                 {

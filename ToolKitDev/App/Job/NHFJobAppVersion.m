@@ -14,28 +14,21 @@
 {
     [super execute];
     
-    NSLog(@"NHFJobAppVersion");
     NSString *ver_opt = @"1";
     NSData *data = [ver_opt dataUsingEncoding:NSUTF8StringEncoding];
     
-//    [[NHFTCPService defaultCenter]dataTaskWithCommand:H_CMD_APP_INFO
-//                                                 data:data
-//                                             receiver:self
-//                                             selector:@selector(receiveAppVersion:)];
+    Request *request = [Request new];
+    [request setCommand:H_CMD_APP_INFO];
+    [request setBytes:[data bytes] length:data.length];
+    Block *block = [Block new];
     
-//    Block *b = [Block new];
-//
-//    Request *request = [Request new];
-//
-//    PacketData *packetData = [PacketData new];
-//    [[packetData addBlock] fieldName:@"" value:@"" index:0];
-//
-//    requ
-//    [[NHFTCPService defaultCenter]dataTaskWithRequest:request
-//                                             receiver:self
-//                                             selector:@selector(receiveAppVersion:)];
+    [request setBlock:block];
     
-//    self.completionBlock();
+    
+    
+    [[NHFTransferRequest defaultCenter] dataTaskWithRequest:request
+                                                   receiver:self
+                                                   selector:@selector(receiveAppVersion:)];
 }
 
 //-(BOOL)asynchronous

@@ -13,7 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 //#import "NHFControlTower.h"
-#import "NHFTCPService.h"
+#import "NHFTransferRequest.h"
 
 #define DECLARE_WEAK_SELF(my) __weak __typeof__(self) my = self
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PriceScene">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOy-WX-8ua" customClass="TabBar">
+                    <rect key="frame" x="0.0" y="130" width="375" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="3uu-rX-GQJ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e73-Q2-QXY" customClass="View" customModule="ToolKitDev" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="e73-Q2-QXY" secondAttribute="height" multiplier="75:26" id="fOF-iR-Uya"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="e73-Q2-QXY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Bgd-Kd-lHm"/>
+                <constraint firstItem="bOy-WX-8ua" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BkD-7R-NvA"/>
+                <constraint firstAttribute="trailing" secondItem="e73-Q2-QXY" secondAttribute="trailing" id="GZ2-oj-LW1"/>
+                <constraint firstItem="bOy-WX-8ua" firstAttribute="top" secondItem="e73-Q2-QXY" secondAttribute="bottom" id="ivh-RD-WqQ"/>
+                <constraint firstAttribute="trailing" secondItem="bOy-WX-8ua" secondAttribute="trailing" id="jM6-tw-M56"/>
+                <constraint firstItem="e73-Q2-QXY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qLC-LP-Uvj"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
