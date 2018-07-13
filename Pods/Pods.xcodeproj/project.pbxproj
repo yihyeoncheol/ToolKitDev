@@ -1,0 +1,1056 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02AAC7694505B6C516E0E09DF2EBB0D2 /* SRKCommitOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB2FABE148A0780EAC681032C6D8A47 /* SRKCommitOptions.m */; };
+		035E2B61443A2AA78C53410FB8BF547B /* SRKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3D22D19B9DDAE9079F1D5178E3204E /* SRKContext.m */; };
+		0D09822F8C81E2C0B90573DAAD2DD134 /* MyFloatLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 58AA883ABA1617678018344A22B4FD1D /* MyFloatLayout.m */; };
+		0D18D523C035D0084F24BD6BC18256E8 /* SRKTransaction+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D3FB37533C9D498C53A38B82B2A3D5C /* SRKTransaction+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		100490DE26D2579F8D5A67710A698890 /* MyLayoutSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 82D62EAF8F85CBF2028A9EB771AD96E3 /* MyLayoutSize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11D4504CA03B23A9F96BFD2E76D7D83B /* MyLayoutDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8591955412C8728F0BAE8EE0C05F681 /* MyLayoutDelegate.m */; };
+		12C46A924D3224877E4A0D7B8EBA8914 /* MyRelativeLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B2EAAA488F56CE06FB45533C41F5695 /* MyRelativeLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14FB42E69DDDA7E4B6E2198F9D55DAC4 /* SRKRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F0168F460E0F676DFB7E64353996E7 /* SRKRegistry.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1977B660FC1FE2B5FC663555224F2BFE /* SRKRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF13353E326E7F84E19A1DE4CC696E0 /* SRKRelationship.m */; };
+		1BF1940736F9162694CF98B439981080 /* SRKSQLiteHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 613ED9EEAE712F353E0C3529900809B1 /* SRKSQLiteHandle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		22DD22FEA006DA519F88A362822C1B3D /* MyLayoutPosInner.h in Headers */ = {isa = PBXBuildFile; fileRef = CF4C658FCC3F0AFC86E5EF3F97A62C7A /* MyLayoutPosInner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22E6CF160D0C54B82F3CA374BF532ED3 /* SRKRawResults.m in Sources */ = {isa = PBXBuildFile; fileRef = E292A7E0318603953820BE9ADA5AF1C8 /* SRKRawResults.m */; };
+		29570AC112B5808D52B3783176570B5B /* SRKEventRegistryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D6A239D1FD9B06818947166FE65C4A0E /* SRKEventRegistryObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2964698B1E44C28CE9766735A516D042 /* MyLayoutDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80805BB93E62FFD4DCFCBEE3412EAABD /* MyLayoutDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B186803934CDB96E48BCCF2F7E53F34 /* SRKSQLiteHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E3A1EDBB88861EEE120ACB60A9AEF0 /* SRKSQLiteHandle.m */; };
+		2DAFF70B84D1A3E21EC967C6D5C4C8CB /* FTSRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = CB80E7FF67C423986267713914CFA8DD /* FTSRegistry.m */; };
+		35ACEB8D9DBE3E210916C38ABE541B7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		35D397B7971F1D14643AD6A83F031801 /* MyBaseLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E7064C6193E421A30FE963B16FAA43 /* MyBaseLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37555EC07165BE93146A299FB7FE2EF5 /* MyGridNode.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1D127B036321E7C93D03902BC56D70 /* MyGridNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACDB82BC34ACC43407A09CD1022F947 /* SRKRegistryEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0001CEC1C6F397840783940F9075CA90 /* SRKRegistryEntry.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3B893FC65C83CF21FCE72ACE66528E0A /* sqlite3ext.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB33FB8CA75D8850455919482A7575B /* sqlite3ext.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3CC752ADD19D57872AD35381DA30E9AB /* SRKCommitOptions+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FE452E6FFDF38B08CD8666537608943C /* SRKCommitOptions+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3E33CDA83762520010586CB064558D08 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 60A15C7FEE28885C0E540502011342EC /* sqlite3.c */; };
+		409EDC58BB674A31428FCFFA7A4282DF /* MyLayoutPos.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BB1ED045C0584796AE1B850C5F05E96 /* MyLayoutPos.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		493D2AAEAD20302BD2CFA90CD22FAD02 /* SRKQueryAsyncHandler+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C3B3EC6A288E59BFEB38527CC1D26DA /* SRKQueryAsyncHandler+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		497D649AE6C0871D89A3B72B24D30483 /* SRKError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4496EF177848F17512793504BCFAF368 /* SRKError.m */; };
+		4C417EFD1B9EE1876516DDE0DF0A8CE9 /* SRKRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6AA0299163E0995EE4E39FE76CA861 /* SRKRegistry.m */; };
+		4F305B31E84058E1F8C3769F2796B789 /* SRKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = C49C717EB4F61318FB6CE18AA2B08323 /* SRKUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4F681FBA05ADD6CE16E0B9DF5F9BE2BD /* SRKTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 68588FD321397CC1211A67ED2FF1BC00 /* SRKTransaction.m */; };
+		503A4F260E2B2CE017DE4520558F3124 /* SRKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EED9DD6AC541280196AF5267DA1A0A2 /* SRKUtilities.m */; };
+		5556FF14D88428DCA578310B0E2A7147 /* SRKObjectChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 4218BEC65ADB9E519457E66F6FDF84B6 /* SRKObjectChain.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		560846810F38B3CC50779E03C0D01115 /* MyLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = F5955ABB8E42096F7B204280BF6470BC /* MyLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56C01FBB43F46CC1B33E7E53CC9E447F /* SRKGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 529EE7F26F9DFB718A34F648653F0CB5 /* SRKGlobals.m */; };
+		57563E250EDA947301D81E901772C5BE /* SharkORM.h in Headers */ = {isa = PBXBuildFile; fileRef = 916CE689483917B34CF2E3B03EC196C5 /* SharkORM.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5940E059AB22FB25DC696085C239C115 /* SharkORM-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E72D56C83FE82AAEF5F4F5B89E183680 /* SharkORM-dummy.m */; };
+		5A17CB503E802352E03A3203E7E742D9 /* MyLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 433BD9AD7856ED38503032C37B3214A3 /* MyLayout-dummy.m */; };
+		5CEE8EA33B2216AFBABB406F91769138 /* MyLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 267460C0D433AC7C9F31FB43912BA9F8 /* MyLinearLayout.m */; };
+		5DC5B591AF687256E652DE258D8D3AAA /* SharkORM.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9293E6AC8095DF81C5CA31CE4989EF /* SharkORM.m */; };
+		5F0A916A533F72C2104F10681EAA6063 /* SRKEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EDB059431B4989E710F8A432E994D /* SRKEventHandler.m */; };
+		5FAE4AE2F4845AE8BB83720B64EF2124 /* MyLayoutSizeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5839E7B5A22281877D68BD29761B76E8 /* MyLayoutSizeClass.m */; };
+		630A4B0E877676501842EF6BC904CBBF /* SRKResultSet+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6798FE3BC845D0FD0AD1AAA4D18B8B96 /* SRKResultSet+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6317E0F077C4D0F355D9781736D29AB7 /* MyDimeScale.h in Headers */ = {isa = PBXBuildFile; fileRef = EF1004CE0A81C75B64DADFA71759CC85 /* MyDimeScale.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		641817754FB71124E926EA6087A637D5 /* MyLinearLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D735840B00FE9466308652FF6E9FD7F0 /* MyLinearLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		656CABBFE3537057716B8A0FBD6A606B /* SRKGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E185D5A64E8B05BE292B39B67C0F235 /* SRKGlobals.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		65D5E72158A80D669AF0529C934BE1D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		6B712CFB64E15D0DA71DE99389E1F3D0 /* MyBorderline.m in Sources */ = {isa = PBXBuildFile; fileRef = A18492113234F42A47E96405CC74B616 /* MyBorderline.m */; };
+		6C15DFBC9D7AFC1463B9E99E3285C478 /* SRKContext.h in Headers */ = {isa = PBXBuildFile; fileRef = B481C23283FB3CFC51F5D36BBCF44CFD /* SRKContext.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		73D8BAD29297C4F53C0F922F19F9C10E /* SRKQueryAsyncHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 135563FD18A745908C61CDDE830E2AE1 /* SRKQueryAsyncHandler.m */; };
+		764C86CEC52E6979547D81CEFDABDA88 /* SRKAES256Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C1777F68F23150441CF558E87D17489B /* SRKAES256Extension.m */; };
+		790C2AE1E3404BF2EF23A0D6FB504E66 /* SRKIndexDefinition+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 97C0D5654854E0632B954522FE583A00 /* SRKIndexDefinition+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7ABC02B32FAE1ABCE543F951823B905C /* SRKAES256Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B4FCA488E400D43AA1B3FA7A8BC8EE9 /* SRKAES256Extension.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7DAB61E8B7852CE785D1B7BB65E35DEA /* MyMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F4A7556BCCB81BA3BF00568A340BF /* MyMaker.m */; };
+		83875813CA32C3561940103B0CAD1FC7 /* SRKLazyLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5596FA143A4FD6E59654867A168AFE /* SRKLazyLoader.m */; };
+		90B0CA547E90FE161B91F8C913D99C4B /* SRKFTSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CC9D44E8B9F836F8D8CCCFEDC7A0A /* SRKFTSQuery.m */; };
+		93D6AC0FCC9F7273BFDE8DF416220561 /* SRKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 424DED980E9B1B088A685F44B53941A6 /* SRKObject.m */; };
+		9565374086F8282B63B07EC160DD4F0E /* SRKFuzzyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = A05BD51236C7F5BE14D3FEB81EA6077F /* SRKFuzzyStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9741FF1AD6C03FAA2D5707F319728612 /* MyBaseLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA4C3B5B34BE543ED83B3A7181C5097 /* MyBaseLayout.m */; };
+		994055B1988E33AB85B0B31BE57E32A0 /* SRKDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 18852E7B92335F8C0A6EE3C0F9766080 /* SRKDefinitions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		99B1FC7ECBAA058CDEDAC5C2B1E66DED /* SharkORM+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B6D0CE898501885B4A0DF1768E852F /* SharkORM+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9C07549DB97AC919ED3AEA7C5278FB13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		9E9459B0B336C1ABF7EAFC38D5149EC5 /* MyFloatLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B3324E3897BFFB1B2A0E5C005096A05 /* MyFloatLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FF25BFB25E57C5F3EDD0306907DB4CC /* SRKObject+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 49DCB0DCC84B0B16559741A79023EAD1 /* SRKObject+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A006D1770C05AEBDE537357E63CC0629 /* SRKSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C733C62FFD9F56F6F32470D5F1B0642 /* SRKSettings.m */; };
+		A10D8EEE5AC4FAEC9C783C6218457C62 /* SRKLazyLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = E3F28597972AE6DA106ACFD1ECCE79C1 /* SRKLazyLoader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A33ACDCADB815B9CC29D3D3DD0B9143E /* MyLayoutMath.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEAEEC468344B6280F289C24BC7F911 /* MyLayoutMath.m */; };
+		A65AAC6CE5BECBB1D16C5B7D2BDC94B4 /* MyDimeScale.m in Sources */ = {isa = PBXBuildFile; fileRef = CF169426187E8017BE56E2F5470CC4D3 /* MyDimeScale.m */; };
+		AA437D093F166045315C6428C48D25D2 /* MyLayoutDef.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7329CD45689FAF393493DDA32DE9E7 /* MyLayoutDef.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA9B2F262362348BD0713A09A5CCF48E /* sqlite3.h in Headers */ = {isa = PBXBuildFile; fileRef = B7A6FF5BE074684677F8DD97C145C386 /* sqlite3.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AAE6FD90BE18D8D70938358A6DEB3EEB /* SRKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DCC55CF53498B3F76DF2BC47539077 /* SRKEvent.m */; };
+		AB3D8D859E66AA238D9A330F8582981B /* SRKEventRegistryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D17E3F23DB9DF9B518AB76574BCC38F5 /* SRKEventRegistryObject.m */; };
+		B0B6124243BF2DE26CA213F133BE4109 /* MyGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = 51498A8025143A4CB563B1031479F1D2 /* MyGrid.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B525F580F868394DD1B3DBE6F0A379CD /* SRKEventBlockHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 436EC929A57EB8D1C1028591D9506FC6 /* SRKEventBlockHolder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B71381D75C6580599B0D7B4A6A3187F7 /* MyBorderline.h in Headers */ = {isa = PBXBuildFile; fileRef = A501E9CA6C1CFE8B4F353FFAFAE14A92 /* MyBorderline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7C2B1EF647DC14F8ED5905DC9AF72F0 /* MyGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 480F99699D7A45AD3034C82D13621E68 /* MyGridLayout.m */; };
+		BD5CCDE55665E938F02F219AC9F2F03C /* MyLayoutMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 5803D05E88C78E87A87B0E3BEF25FA4A /* MyLayoutMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C12E8B5E26C34D84F1817D0C951B7C07 /* SRKUnsupportedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AC0A52DECF66154E7D23F89C8FF485 /* SRKUnsupportedObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C18778886A4BB363822AA115A2A062D7 /* MyFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D8AB077B0CF7ADD06010F271AE910075 /* MyFlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7AB3A04C5F3C763AA73B4CC143360CE /* SRKFuzzyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A99A207E0A7492F499832A9762ECF9D6 /* SRKFuzzyStore.m */; };
+		C98DE3A85EB2B329B1520C3A208281AF /* MyLayoutSizeClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F5EB3E724075E1A3371B6E944C66CF2 /* MyLayoutSizeClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9CDD2D5025A8A2BAEFC83934AD77619 /* SRKEncryptedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = CDE00180112A3D194DBE816D77117BBB /* SRKEncryptedObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CD9E8D52B19B09F60A9E31A7E7973C14 /* SRKQueryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 024DC981BA4B644ED15E2E9120DFE1FD /* SRKQueryProfile.m */; };
+		CE4920A29BEE6ABAFAFB9C56DE6B0762 /* MyRelativeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C11E9180C48B2B79341C946C1905E5D /* MyRelativeLayout.m */; };
+		CF2748EEE33A8301F9A16D7A82CF1619 /* SRKTransactionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F24A550C171F8D80B12981C1E51213BE /* SRKTransactionInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D12947C0F58B8662B9B2EE7F09600261 /* MyLayoutSize.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6FAF7EF9F243F3140FE3719C532F8E /* MyLayoutSize.m */; };
+		D1A6D316D3331AFBD5E4F633C87B68FB /* SRKEventHandler+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = DAC309DE9F5B73B636DF681E1A42A916 /* SRKEventHandler+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D2F5A6E79D9BEC1899D8694DE7972AB2 /* MyLayoutInner.h in Headers */ = {isa = PBXBuildFile; fileRef = 537D45D285375C4B010E75EE515DF200 /* MyLayoutInner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D60B8ED57DBA1AAAADBD70AEF2EB3320 /* SRKJoinObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 34FFECE3AEA3600D078868FFBC325422 /* SRKJoinObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D6719F8D4FF7BAB36F5BA21CBAB03042 /* MyTableLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AAC77809365FBFA00AB945555415103 /* MyTableLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6900C30DCA0E49E99C78176305F448C /* SRKUnsupportedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C2200B0D6470361B3B6D9B97FC51EE48 /* SRKUnsupportedObject.m */; };
+		D9441044BF48399CB6D0AB410DBFD096 /* MyLayoutPos.m in Sources */ = {isa = PBXBuildFile; fileRef = ABED74BF2065B82049969157DE4E18A7 /* MyLayoutPos.m */; };
+		DA1D51F423656B5537D96801849F78F4 /* SRKQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E5473B2034E24294C579BE15193AB4 /* SRKQuery.m */; };
+		DA68C669F033BF2CBBA36BC5DEEF50FB /* DBAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = D99BBD530A855D5768400DF21B0F9517 /* DBAccess.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCA4C5ECB9939EDD2E59E1279633CBD4 /* SRKJoinObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A7C1B788261C29E4F7D7D8FAC4921F /* SRKJoinObject.m */; };
+		DCF197B96C27679A4540C87EDC2CB3B0 /* SRKEncryptedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ED490C9DD406088A8232AB74FE9B7E /* SRKEncryptedObject.m */; };
+		DE19968589D6129D12DC09D8D4B6C849 /* MyLayoutSizeInner.h in Headers */ = {isa = PBXBuildFile; fileRef = 740407A476AC54500B74A76056F5C9C3 /* MyLayoutSizeInner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE4B702DA24AAE33A820CA675E73662D /* SRKObjectChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E01C697F083946351E9691E8AB776C /* SRKObjectChain.m */; };
+		E2FD10D181F2B3A61CCEF5189C15D29D /* MyFrameLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5087F15216B2279BED755EEB8F7CE2A6 /* MyFrameLayout.m */; };
+		E73D23F0AAEA0021F009A6C5D5F764FC /* MyTableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1BEC39F61B5ECCDB0E7DA52EADC682 /* MyTableLayout.m */; };
+		EA5279433BDFB6A09E9B6D92EF4A0D5E /* MyMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = AC6D18C93D3EFE825E40971D35F20940 /* MyMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA8377191FB5AB9FCACCAD4B0247D572 /* MyPathLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67060250566A427604682A322E92CBA1 /* MyPathLayout.m */; };
+		EAD63CC1BFF1E564857A87257D14E037 /* SRKRelationship.h in Headers */ = {isa = PBXBuildFile; fileRef = 372CD722780C131BA44EBC1485B8DB14 /* SRKRelationship.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EE3429BAAF12ABEF125B7BCA1E8F8327 /* MyGridNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0D3B88B7166FD3EDA3FC333C35C3C6 /* MyGridNode.m */; };
+		EED4D8E7993A52A0C2ABEE8A345F6655 /* SRKIndexDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A26ED0DB22BFF2A5C9D4D42FD9E83B6 /* SRKIndexDefinition.m */; };
+		EF132E3428212F8572DB4EDBA21F1F81 /* SRKResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E83B6A46C76AC39207708825E1E286 /* SRKResultSet.m */; };
+		F004DAE87A09E11EFD5C765115147D6A /* FTSRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B6058349DA8074C964FDA27295402C /* FTSRegistry.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F0CABDC4E4BFB24119BF0332EF97B191 /* MyGridLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD93466E8F1A20CC95D54B795A75569 /* MyGridLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F17B5DDDEDF5C12278E2508D313B6D6F /* MyFrameLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 936163CC972332480B6D78043CABE07B /* MyFrameLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4DD64EC10A341321255BDC8E42683F5 /* Pods-ToolKitDev-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4490754A3531495B09521FAEB5A99BEF /* Pods-ToolKitDev-dummy.m */; };
+		F5DDC4E5F02A326529F5E58832C25C57 /* MyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F552FDEE1099E31AFB472C3F79CAD8 /* MyFlowLayout.m */; };
+		F5FF1A13B7FC9560116BFA3BC33F117D /* SRKQuery+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 59E3C4D9C067A1F09C4B830102DD4BB1 /* SRKQuery+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F63DABE0E0A6B2C310C35E4ED750D541 /* SRKTransactionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6671D3A12B1325ADDAFB66C7C691CFEC /* SRKTransactionInfo.m */; };
+		F983783FF3606C6CDB1DAA7F694A31CF /* MyPathLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A94D5E7BEAE9CD3F333797265C45784 /* MyPathLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA12141FB75061B5B065BCC52D684B6A /* SRKStringObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62143CA275C28E93032AA779C57C7E /* SRKStringObject.m */; };
+		FDF1EA6FFC3F2938765C3610740A21B6 /* SRKRegistryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C8E5AFB2BED9A3D7E556B6A463F1FA /* SRKRegistryEntry.m */; };
+		FEDA614DB36ACE4864E47A416038A00C /* SRKEventBlockHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D1389CD40B28F8DB60E596CD8FFC00 /* SRKEventBlockHolder.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2376F1634A540EFA49F100A006A8FC9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC44C566DF7E2431F897FB2D6DE15F0C;
+			remoteInfo = SharkORM;
+		};
+		FAB593F556FC1755FFC4E1B198D6E482 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36DD9A87239F1E988347A56D85CE879F;
+			remoteInfo = MyLayout;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0001CEC1C6F397840783940F9075CA90 /* SRKRegistryEntry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKRegistryEntry.h; path = SharkORM/Core/Registry/SRKRegistryEntry.h; sourceTree = "<group>"; };
+		024DC981BA4B644ED15E2E9120DFE1FD /* SRKQueryProfile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKQueryProfile.m; path = SharkORM/Core/Queries/SRKQueryProfile.m; sourceTree = "<group>"; };
+		0DB87B185E854D2D3988842478F9233D /* MyLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyLayout-prefix.pch"; sourceTree = "<group>"; };
+		0E69F58759ED6BCC4D426C749B414175 /* Pods-ToolKitDev-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ToolKitDev-resources.sh"; sourceTree = "<group>"; };
+		11B6B55C32BD73368B273D861A29E785 /* Pods-ToolKitDev-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ToolKitDev-acknowledgements.markdown"; sourceTree = "<group>"; };
+		135563FD18A745908C61CDDE830E2AE1 /* SRKQueryAsyncHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKQueryAsyncHandler.m; path = SharkORM/Core/Queries/SRKQueryAsyncHandler.m; sourceTree = "<group>"; };
+		144DD7CF08F767568E750D930151E50A /* MyLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MyLayout.xcconfig; sourceTree = "<group>"; };
+		14B820267D895AA40905B25F91C6C0B1 /* Pods-ToolKitDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToolKitDev.release.xcconfig"; sourceTree = "<group>"; };
+		18852E7B92335F8C0A6EE3C0F9766080 /* SRKDefinitions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKDefinitions.h; path = SharkORM/Core/SRKDefinitions.h; sourceTree = "<group>"; };
+		1A26ED0DB22BFF2A5C9D4D42FD9E83B6 /* SRKIndexDefinition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKIndexDefinition.m; path = SharkORM/Core/Indexing/SRKIndexDefinition.m; sourceTree = "<group>"; };
+		1A5596FA143A4FD6E59654867A168AFE /* SRKLazyLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKLazyLoader.m; path = SharkORM/Core/SRKLazyLoader.m; sourceTree = "<group>"; };
+		1C5CC9D44E8B9F836F8D8CCCFEDC7A0A /* SRKFTSQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKFTSQuery.m; path = SharkORM/Core/Queries/SRKFTSQuery.m; sourceTree = "<group>"; };
+		1DA4C3B5B34BE543ED83B3A7181C5097 /* MyBaseLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyBaseLayout.m; path = MyLayout/Lib/MyBaseLayout.m; sourceTree = "<group>"; };
+		21D5BDF89521B2F13F7F71DC8D4183B0 /* Pods-ToolKitDev-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ToolKitDev-frameworks.sh"; sourceTree = "<group>"; };
+		267460C0D433AC7C9F31FB43912BA9F8 /* MyLinearLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyLinearLayout.m; path = MyLayout/Lib/MyLinearLayout.m; sourceTree = "<group>"; };
+		2797B26A80475195F36014C0A463173C /* SharkORM-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SharkORM-prefix.pch"; sourceTree = "<group>"; };
+		34FFECE3AEA3600D078868FFBC325422 /* SRKJoinObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKJoinObject.h; path = SharkORM/Core/Queries/SRKJoinObject.h; sourceTree = "<group>"; };
+		363F4A7556BCCB81BA3BF00568A340BF /* MyMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyMaker.m; path = MyLayout/Lib/MyMaker.m; sourceTree = "<group>"; };
+		372CD722780C131BA44EBC1485B8DB14 /* SRKRelationship.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKRelationship.h; path = SharkORM/Core/SRKRelationship.h; sourceTree = "<group>"; };
+		3B7329CD45689FAF393493DDA32DE9E7 /* MyLayoutDef.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayoutDef.h; path = MyLayout/Lib/MyLayoutDef.h; sourceTree = "<group>"; };
+		3C6AA0299163E0995EE4E39FE76CA861 /* SRKRegistry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKRegistry.m; path = SharkORM/Core/Registry/SRKRegistry.m; sourceTree = "<group>"; };
+		41E3A1EDBB88861EEE120ACB60A9AEF0 /* SRKSQLiteHandle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKSQLiteHandle.m; path = SharkORM/Core/SRKSQLiteHandle.m; sourceTree = "<group>"; };
+		4218BEC65ADB9E519457E66F6FDF84B6 /* SRKObjectChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKObjectChain.h; path = "SharkORM/Core/Persistable Objects/SRKObjectChain.h"; sourceTree = "<group>"; };
+		424DED980E9B1B088A685F44B53941A6 /* SRKObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKObject.m; path = "SharkORM/Core/Persistable Objects/SRKObject.m"; sourceTree = "<group>"; };
+		433BD9AD7856ED38503032C37B3214A3 /* MyLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MyLayout-dummy.m"; sourceTree = "<group>"; };
+		436EC929A57EB8D1C1028591D9506FC6 /* SRKEventBlockHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKEventBlockHolder.h; path = SharkORM/Core/Events/SRKEventBlockHolder.h; sourceTree = "<group>"; };
+		43ED490C9DD406088A8232AB74FE9B7E /* SRKEncryptedObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKEncryptedObject.m; path = "SharkORM/Core/Persistable Objects/SRKEncryptedObject.m"; sourceTree = "<group>"; };
+		4490754A3531495B09521FAEB5A99BEF /* Pods-ToolKitDev-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ToolKitDev-dummy.m"; sourceTree = "<group>"; };
+		4496EF177848F17512793504BCFAF368 /* SRKError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKError.m; path = SharkORM/Core/SRKError.m; sourceTree = "<group>"; };
+		480F99699D7A45AD3034C82D13621E68 /* MyGridLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyGridLayout.m; path = MyLayout/Lib/MyGridLayout.m; sourceTree = "<group>"; };
+		49DCB0DCC84B0B16559741A79023EAD1 /* SRKObject+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SRKObject+Private.h"; path = "SharkORM/Core/Persistable Objects/SRKObject+Private.h"; sourceTree = "<group>"; };
+		4C11E9180C48B2B79341C946C1905E5D /* MyRelativeLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyRelativeLayout.m; path = MyLayout/Lib/MyRelativeLayout.m; sourceTree = "<group>"; };
+		5087F15216B2279BED755EEB8F7CE2A6 /* MyFrameLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyFrameLayout.m; path = MyLayout/Lib/MyFrameLayout.m; sourceTree = "<group>"; };
+		51498A8025143A4CB563B1031479F1D2 /* MyGrid.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyGrid.h; path = MyLayout/Lib/MyGrid.h; sourceTree = "<group>"; };
+		529EE7F26F9DFB718A34F648653F0CB5 /* SRKGlobals.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKGlobals.m; path = SharkORM/Core/SRKGlobals.m; sourceTree = "<group>"; };
+		52AC0A52DECF66154E7D23F89C8FF485 /* SRKUnsupportedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKUnsupportedObject.h; path = "SharkORM/Core/Persistable Objects/SRKUnsupportedObject.h"; sourceTree = "<group>"; };
+		52E7064C6193E421A30FE963B16FAA43 /* MyBaseLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyBaseLayout.h; path = MyLayout/Lib/MyBaseLayout.h; sourceTree = "<group>"; };
+		537D45D285375C4B010E75EE515DF200 /* MyLayoutInner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayoutInner.h; path = MyLayout/Lib/MyLayoutInner.h; sourceTree = "<group>"; };
+		53D1389CD40B28F8DB60E596CD8FFC00 /* SRKEventBlockHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKEventBlockHolder.m; path = SharkORM/Core/Events/SRKEventBlockHolder.m; sourceTree = "<group>"; };
+		5803D05E88C78E87A87B0E3BEF25FA4A /* MyLayoutMath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayoutMath.h; path = MyLayout/Lib/MyLayoutMath.h; sourceTree = "<group>"; };
+		5839E7B5A22281877D68BD29761B76E8 /* MyLayoutSizeClass.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyLayoutSizeClass.m; path = MyLayout/Lib/MyLayoutSizeClass.m; sourceTree = "<group>"; };
+		58AA883ABA1617678018344A22B4FD1D /* MyFloatLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyFloatLayout.m; path = MyLayout/Lib/MyFloatLayout.m; sourceTree = "<group>"; };
+		59E3C4D9C067A1F09C4B830102DD4BB1 /* SRKQuery+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SRKQuery+Private.h"; path = "SharkORM/Core/Queries/SRKQuery+Private.h"; sourceTree = "<group>"; };
+		5CB2FABE148A0780EAC681032C6D8A47 /* SRKCommitOptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKCommitOptions.m; path = "SharkORM/Core/Persistable Objects/SRKCommitOptions.m"; sourceTree = "<group>"; };
+		5CF13353E326E7F84E19A1DE4CC696E0 /* SRKRelationship.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKRelationship.m; path = SharkORM/Core/SRKRelationship.m; sourceTree = "<group>"; };
+		5D3FB37533C9D498C53A38B82B2A3D5C /* SRKTransaction+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SRKTransaction+Private.h"; path = "SharkORM/Core/Transactions/SRKTransaction+Private.h"; sourceTree = "<group>"; };
+		5E185D5A64E8B05BE292B39B67C0F235 /* SRKGlobals.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKGlobals.h; path = SharkORM/Core/SRKGlobals.h; sourceTree = "<group>"; };
+		60A15C7FEE28885C0E540502011342EC /* sqlite3.c */ = {isa = PBXFileReference; includeInIndex = 1; name = sqlite3.c; path = SharkORM/SQLite/sqlite3.c; sourceTree = "<group>"; };
+		613ED9EEAE712F353E0C3529900809B1 /* SRKSQLiteHandle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKSQLiteHandle.h; path = SharkORM/Core/SRKSQLiteHandle.h; sourceTree = "<group>"; };
+		630EDB059431B4989E710F8A432E994D /* SRKEventHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKEventHandler.m; path = SharkORM/Core/Events/SRKEventHandler.m; sourceTree = "<group>"; };
+		63B6D0CE898501885B4A0DF1768E852F /* SharkORM+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SharkORM+Private.h"; path = "SharkORM/Core/SharkORM+Private.h"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6671D3A12B1325ADDAFB66C7C691CFEC /* SRKTransactionInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKTransactionInfo.m; path = SharkORM/Core/Transactions/SRKTransactionInfo.m; sourceTree = "<group>"; };
+		67060250566A427604682A322E92CBA1 /* MyPathLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyPathLayout.m; path = MyLayout/Lib/MyPathLayout.m; sourceTree = "<group>"; };
+		6798FE3BC845D0FD0AD1AAA4D18B8B96 /* SRKResultSet+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SRKResultSet+Private.h"; path = "SharkORM/Core/Persistable Objects/SRKResultSet+Private.h"; sourceTree = "<group>"; };
+		68588FD321397CC1211A67ED2FF1BC00 /* SRKTransaction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKTransaction.m; path = SharkORM/Core/Transactions/SRKTransaction.m; sourceTree = "<group>"; };
+		6B3324E3897BFFB1B2A0E5C005096A05 /* MyFloatLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyFloatLayout.h; path = MyLayout/Lib/MyFloatLayout.h; sourceTree = "<group>"; };
+		6B4FCA488E400D43AA1B3FA7A8BC8EE9 /* SRKAES256Extension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKAES256Extension.h; path = "SharkORM/Core/Persistable Objects/SRKAES256Extension.h"; sourceTree = "<group>"; };
+		6BB1ED045C0584796AE1B850C5F05E96 /* MyLayoutPos.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayoutPos.h; path = MyLayout/Lib/MyLayoutPos.h; sourceTree = "<group>"; };
+		6C733C62FFD9F56F6F32470D5F1B0642 /* SRKSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKSettings.m; path = SharkORM/Core/SRKSettings.m; sourceTree = "<group>"; };
+		6EED9DD6AC541280196AF5267DA1A0A2 /* SRKUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKUtilities.m; path = SharkORM/Core/SRKUtilities.m; sourceTree = "<group>"; };
+		6FD93466E8F1A20CC95D54B795A75569 /* MyGridLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyGridLayout.h; path = MyLayout/Lib/MyGridLayout.h; sourceTree = "<group>"; };
+		740407A476AC54500B74A76056F5C9C3 /* MyLayoutSizeInner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayoutSizeInner.h; path = MyLayout/Lib/MyLayoutSizeInner.h; sourceTree = "<group>"; };
+		75E83B6A46C76AC39207708825E1E286 /* SRKResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKResultSet.m; path = "SharkORM/Core/Persistable Objects/SRKResultSet.m"; sourceTree = "<group>"; };
+		80805BB93E62FFD4DCFCBEE3412EAABD /* MyLayoutDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayoutDelegate.h; path = MyLayout/Lib/MyLayoutDelegate.h; sourceTree = "<group>"; };
+		82D62EAF8F85CBF2028A9EB771AD96E3 /* MyLayoutSize.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayoutSize.h; path = MyLayout/Lib/MyLayoutSize.h; sourceTree = "<group>"; };
+		8A94D5E7BEAE9CD3F333797265C45784 /* MyPathLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyPathLayout.h; path = MyLayout/Lib/MyPathLayout.h; sourceTree = "<group>"; };
+		8AAC77809365FBFA00AB945555415103 /* MyTableLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyTableLayout.h; path = MyLayout/Lib/MyTableLayout.h; sourceTree = "<group>"; };
+		8C3B3EC6A288E59BFEB38527CC1D26DA /* SRKQueryAsyncHandler+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SRKQueryAsyncHandler+Private.h"; path = "SharkORM/Core/Queries/SRKQueryAsyncHandler+Private.h"; sourceTree = "<group>"; };
+		8E9293E6AC8095DF81C5CA31CE4989EF /* SharkORM.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SharkORM.m; path = SharkORM/Core/SharkORM.m; sourceTree = "<group>"; };
+		8F5EB3E724075E1A3371B6E944C66CF2 /* MyLayoutSizeClass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayoutSizeClass.h; path = MyLayout/Lib/MyLayoutSizeClass.h; sourceTree = "<group>"; };
+		916CE689483917B34CF2E3B03EC196C5 /* SharkORM.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SharkORM.h; path = SharkORM/Core/SharkORM.h; sourceTree = "<group>"; };
+		936163CC972332480B6D78043CABE07B /* MyFrameLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyFrameLayout.h; path = MyLayout/Lib/MyFrameLayout.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93E5473B2034E24294C579BE15193AB4 /* SRKQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKQuery.m; path = SharkORM/Core/Queries/SRKQuery.m; sourceTree = "<group>"; };
+		97C0D5654854E0632B954522FE583A00 /* SRKIndexDefinition+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SRKIndexDefinition+Private.h"; path = "SharkORM/Core/Indexing/SRKIndexDefinition+Private.h"; sourceTree = "<group>"; };
+		9B2EAAA488F56CE06FB45533C41F5695 /* MyRelativeLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyRelativeLayout.h; path = MyLayout/Lib/MyRelativeLayout.h; sourceTree = "<group>"; };
+		9F0D3B88B7166FD3EDA3FC333C35C3C6 /* MyGridNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyGridNode.m; path = MyLayout/Lib/MyGridNode.m; sourceTree = "<group>"; };
+		A05BD51236C7F5BE14D3FEB81EA6077F /* SRKFuzzyStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKFuzzyStore.h; path = SharkORM/Core/FuzzyStore/SRKFuzzyStore.h; sourceTree = "<group>"; };
+		A18492113234F42A47E96405CC74B616 /* MyBorderline.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyBorderline.m; path = MyLayout/Lib/MyBorderline.m; sourceTree = "<group>"; };
+		A501E9CA6C1CFE8B4F353FFAFAE14A92 /* MyBorderline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyBorderline.h; path = MyLayout/Lib/MyBorderline.h; sourceTree = "<group>"; };
+		A99A207E0A7492F499832A9762ECF9D6 /* SRKFuzzyStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKFuzzyStore.m; path = SharkORM/Core/FuzzyStore/SRKFuzzyStore.m; sourceTree = "<group>"; };
+		ABED74BF2065B82049969157DE4E18A7 /* MyLayoutPos.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyLayoutPos.m; path = MyLayout/Lib/MyLayoutPos.m; sourceTree = "<group>"; };
+		AC6D18C93D3EFE825E40971D35F20940 /* MyMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyMaker.h; path = MyLayout/Lib/MyMaker.h; sourceTree = "<group>"; };
+		AD1D127B036321E7C93D03902BC56D70 /* MyGridNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyGridNode.h; path = MyLayout/Lib/MyGridNode.h; sourceTree = "<group>"; };
+		B481C23283FB3CFC51F5D36BBCF44CFD /* SRKContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKContext.h; path = SharkORM/Core/Transactions/SRKContext.h; sourceTree = "<group>"; };
+		B7A6FF5BE074684677F8DD97C145C386 /* sqlite3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = sqlite3.h; path = SharkORM/SQLite/sqlite3.h; sourceTree = "<group>"; };
+		C1777F68F23150441CF558E87D17489B /* SRKAES256Extension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKAES256Extension.m; path = "SharkORM/Core/Persistable Objects/SRKAES256Extension.m"; sourceTree = "<group>"; };
+		C2200B0D6470361B3B6D9B97FC51EE48 /* SRKUnsupportedObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKUnsupportedObject.m; path = "SharkORM/Core/Persistable Objects/SRKUnsupportedObject.m"; sourceTree = "<group>"; };
+		C2B6058349DA8074C964FDA27295402C /* FTSRegistry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FTSRegistry.h; path = SharkORM/Core/FTS/FTSRegistry.h; sourceTree = "<group>"; };
+		C49C717EB4F61318FB6CE18AA2B08323 /* SRKUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKUtilities.h; path = SharkORM/Core/SRKUtilities.h; sourceTree = "<group>"; };
+		CB80E7FF67C423986267713914CFA8DD /* FTSRegistry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FTSRegistry.m; path = SharkORM/Core/FTS/FTSRegistry.m; sourceTree = "<group>"; };
+		CDE00180112A3D194DBE816D77117BBB /* SRKEncryptedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKEncryptedObject.h; path = "SharkORM/Core/Persistable Objects/SRKEncryptedObject.h"; sourceTree = "<group>"; };
+		CE4980C30DF91A354D1C4A52D63654B2 /* libPods-ToolKitDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ToolKitDev.a"; path = "libPods-ToolKitDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF169426187E8017BE56E2F5470CC4D3 /* MyDimeScale.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyDimeScale.m; path = MyLayout/Lib/MyDimeScale.m; sourceTree = "<group>"; };
+		CF4C658FCC3F0AFC86E5EF3F97A62C7A /* MyLayoutPosInner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayoutPosInner.h; path = MyLayout/Lib/MyLayoutPosInner.h; sourceTree = "<group>"; };
+		CF62143CA275C28E93032AA779C57C7E /* SRKStringObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKStringObject.m; path = "SharkORM/Core/Persistable Objects/SRKStringObject.m"; sourceTree = "<group>"; };
+		D0F552FDEE1099E31AFB472C3F79CAD8 /* MyFlowLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyFlowLayout.m; path = MyLayout/Lib/MyFlowLayout.m; sourceTree = "<group>"; };
+		D17E3F23DB9DF9B518AB76574BCC38F5 /* SRKEventRegistryObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKEventRegistryObject.m; path = SharkORM/Core/Events/SRKEventRegistryObject.m; sourceTree = "<group>"; };
+		D4E01C697F083946351E9691E8AB776C /* SRKObjectChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKObjectChain.m; path = "SharkORM/Core/Persistable Objects/SRKObjectChain.m"; sourceTree = "<group>"; };
+		D6A239D1FD9B06818947166FE65C4A0E /* SRKEventRegistryObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKEventRegistryObject.h; path = SharkORM/Core/Events/SRKEventRegistryObject.h; sourceTree = "<group>"; };
+		D735840B00FE9466308652FF6E9FD7F0 /* MyLinearLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLinearLayout.h; path = MyLayout/Lib/MyLinearLayout.h; sourceTree = "<group>"; };
+		D8591955412C8728F0BAE8EE0C05F681 /* MyLayoutDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyLayoutDelegate.m; path = MyLayout/Lib/MyLayoutDelegate.m; sourceTree = "<group>"; };
+		D8AB077B0CF7ADD06010F271AE910075 /* MyFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyFlowLayout.h; path = MyLayout/Lib/MyFlowLayout.h; sourceTree = "<group>"; };
+		D99BBD530A855D5768400DF21B0F9517 /* DBAccess.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBAccess.h; path = SharkORM/Core/DBAccess.h; sourceTree = "<group>"; };
+		DA1BEC39F61B5ECCDB0E7DA52EADC682 /* MyTableLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyTableLayout.m; path = MyLayout/Lib/MyTableLayout.m; sourceTree = "<group>"; };
+		DAC309DE9F5B73B636DF681E1A42A916 /* SRKEventHandler+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SRKEventHandler+Private.h"; path = "SharkORM/Core/Events/SRKEventHandler+Private.h"; sourceTree = "<group>"; };
+		DCEAEEC468344B6280F289C24BC7F911 /* MyLayoutMath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyLayoutMath.m; path = MyLayout/Lib/MyLayoutMath.m; sourceTree = "<group>"; };
+		DD54F28977E0EDF07811C816E314F2DC /* Pods-ToolKitDev-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolKitDev-acknowledgements.plist"; sourceTree = "<group>"; };
+		DDB33FB8CA75D8850455919482A7575B /* sqlite3ext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = sqlite3ext.h; path = SharkORM/SQLite/sqlite3ext.h; sourceTree = "<group>"; };
+		DF3D22D19B9DDAE9079F1D5178E3204E /* SRKContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKContext.m; path = SharkORM/Core/Transactions/SRKContext.m; sourceTree = "<group>"; };
+		E292A7E0318603953820BE9ADA5AF1C8 /* SRKRawResults.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKRawResults.m; path = "SharkORM/Core/Persistable Objects/SRKRawResults.m"; sourceTree = "<group>"; };
+		E2DCC55CF53498B3F76DF2BC47539077 /* SRKEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKEvent.m; path = SharkORM/Core/Events/SRKEvent.m; sourceTree = "<group>"; };
+		E3F28597972AE6DA106ACFD1ECCE79C1 /* SRKLazyLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKLazyLoader.h; path = SharkORM/Core/SRKLazyLoader.h; sourceTree = "<group>"; };
+		E4C8E5AFB2BED9A3D7E556B6A463F1FA /* SRKRegistryEntry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKRegistryEntry.m; path = SharkORM/Core/Registry/SRKRegistryEntry.m; sourceTree = "<group>"; };
+		E68CA767F89A3F78AD6F4996D5CEF1AF /* Pods-ToolKitDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToolKitDev.debug.xcconfig"; sourceTree = "<group>"; };
+		E72D56C83FE82AAEF5F4F5B89E183680 /* SharkORM-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SharkORM-dummy.m"; sourceTree = "<group>"; };
+		E7A7C1B788261C29E4F7D7D8FAC4921F /* SRKJoinObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRKJoinObject.m; path = SharkORM/Core/Queries/SRKJoinObject.m; sourceTree = "<group>"; };
+		ED6FAF7EF9F243F3140FE3719C532F8E /* MyLayoutSize.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MyLayoutSize.m; path = MyLayout/Lib/MyLayoutSize.m; sourceTree = "<group>"; };
+		EF1004CE0A81C75B64DADFA71759CC85 /* MyDimeScale.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyDimeScale.h; path = MyLayout/Lib/MyDimeScale.h; sourceTree = "<group>"; };
+		EF1AD4159000BCFAA800DCA44C8ECC54 /* libSharkORM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSharkORM.a; path = libSharkORM.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF8EE9C28084D26ED4B4E118E601BEF3 /* SharkORM.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SharkORM.xcconfig; sourceTree = "<group>"; };
+		F24A550C171F8D80B12981C1E51213BE /* SRKTransactionInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKTransactionInfo.h; path = SharkORM/Core/Transactions/SRKTransactionInfo.h; sourceTree = "<group>"; };
+		F5955ABB8E42096F7B204280BF6470BC /* MyLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyLayout.h; path = MyLayout/Lib/MyLayout.h; sourceTree = "<group>"; };
+		F7F0168F460E0F676DFB7E64353996E7 /* SRKRegistry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRKRegistry.h; path = SharkORM/Core/Registry/SRKRegistry.h; sourceTree = "<group>"; };
+		FC1749E6949B981BCACDF48AD89914A0 /* libMyLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMyLayout.a; path = libMyLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE452E6FFDF38B08CD8666537608943C /* SRKCommitOptions+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SRKCommitOptions+Private.h"; path = "SharkORM/Core/Persistable Objects/SRKCommitOptions+Private.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		148EAFF3E08CC14094DFE86102BC7FD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C07549DB97AC919ED3AEA7C5278FB13 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		405C235FDAFFD25C10A4E5B31D067C93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65D5E72158A80D669AF0529C934BE1D3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EBB9C3718C225B4982C753E6469072C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35ACEB8D9DBE3E210916C38ABE541B7B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03C3A3EF968ECB03031571B713FF0B53 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27313DE9D122D9C148215A34D10C0669 /* MyLayout */,
+				4D7C70A7BC000EE55A8C87167724AA6D /* SharkORM */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1F84FFDC487789A5C4251F5428B7AB0A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				144DD7CF08F767568E750D930151E50A /* MyLayout.xcconfig */,
+				433BD9AD7856ED38503032C37B3214A3 /* MyLayout-dummy.m */,
+				0DB87B185E854D2D3988842478F9233D /* MyLayout-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MyLayout";
+			sourceTree = "<group>";
+		};
+		27313DE9D122D9C148215A34D10C0669 /* MyLayout */ = {
+			isa = PBXGroup;
+			children = (
+				52E7064C6193E421A30FE963B16FAA43 /* MyBaseLayout.h */,
+				1DA4C3B5B34BE543ED83B3A7181C5097 /* MyBaseLayout.m */,
+				A501E9CA6C1CFE8B4F353FFAFAE14A92 /* MyBorderline.h */,
+				A18492113234F42A47E96405CC74B616 /* MyBorderline.m */,
+				EF1004CE0A81C75B64DADFA71759CC85 /* MyDimeScale.h */,
+				CF169426187E8017BE56E2F5470CC4D3 /* MyDimeScale.m */,
+				6B3324E3897BFFB1B2A0E5C005096A05 /* MyFloatLayout.h */,
+				58AA883ABA1617678018344A22B4FD1D /* MyFloatLayout.m */,
+				D8AB077B0CF7ADD06010F271AE910075 /* MyFlowLayout.h */,
+				D0F552FDEE1099E31AFB472C3F79CAD8 /* MyFlowLayout.m */,
+				936163CC972332480B6D78043CABE07B /* MyFrameLayout.h */,
+				5087F15216B2279BED755EEB8F7CE2A6 /* MyFrameLayout.m */,
+				51498A8025143A4CB563B1031479F1D2 /* MyGrid.h */,
+				6FD93466E8F1A20CC95D54B795A75569 /* MyGridLayout.h */,
+				480F99699D7A45AD3034C82D13621E68 /* MyGridLayout.m */,
+				AD1D127B036321E7C93D03902BC56D70 /* MyGridNode.h */,
+				9F0D3B88B7166FD3EDA3FC333C35C3C6 /* MyGridNode.m */,
+				F5955ABB8E42096F7B204280BF6470BC /* MyLayout.h */,
+				3B7329CD45689FAF393493DDA32DE9E7 /* MyLayoutDef.h */,
+				80805BB93E62FFD4DCFCBEE3412EAABD /* MyLayoutDelegate.h */,
+				D8591955412C8728F0BAE8EE0C05F681 /* MyLayoutDelegate.m */,
+				537D45D285375C4B010E75EE515DF200 /* MyLayoutInner.h */,
+				5803D05E88C78E87A87B0E3BEF25FA4A /* MyLayoutMath.h */,
+				DCEAEEC468344B6280F289C24BC7F911 /* MyLayoutMath.m */,
+				6BB1ED045C0584796AE1B850C5F05E96 /* MyLayoutPos.h */,
+				ABED74BF2065B82049969157DE4E18A7 /* MyLayoutPos.m */,
+				CF4C658FCC3F0AFC86E5EF3F97A62C7A /* MyLayoutPosInner.h */,
+				82D62EAF8F85CBF2028A9EB771AD96E3 /* MyLayoutSize.h */,
+				ED6FAF7EF9F243F3140FE3719C532F8E /* MyLayoutSize.m */,
+				8F5EB3E724075E1A3371B6E944C66CF2 /* MyLayoutSizeClass.h */,
+				5839E7B5A22281877D68BD29761B76E8 /* MyLayoutSizeClass.m */,
+				740407A476AC54500B74A76056F5C9C3 /* MyLayoutSizeInner.h */,
+				D735840B00FE9466308652FF6E9FD7F0 /* MyLinearLayout.h */,
+				267460C0D433AC7C9F31FB43912BA9F8 /* MyLinearLayout.m */,
+				AC6D18C93D3EFE825E40971D35F20940 /* MyMaker.h */,
+				363F4A7556BCCB81BA3BF00568A340BF /* MyMaker.m */,
+				8A94D5E7BEAE9CD3F333797265C45784 /* MyPathLayout.h */,
+				67060250566A427604682A322E92CBA1 /* MyPathLayout.m */,
+				9B2EAAA488F56CE06FB45533C41F5695 /* MyRelativeLayout.h */,
+				4C11E9180C48B2B79341C946C1905E5D /* MyRelativeLayout.m */,
+				8AAC77809365FBFA00AB945555415103 /* MyTableLayout.h */,
+				DA1BEC39F61B5ECCDB0E7DA52EADC682 /* MyTableLayout.m */,
+				1F84FFDC487789A5C4251F5428B7AB0A /* Support Files */,
+			);
+			name = MyLayout;
+			path = MyLayout;
+			sourceTree = "<group>";
+		};
+		4D7C70A7BC000EE55A8C87167724AA6D /* SharkORM */ = {
+			isa = PBXGroup;
+			children = (
+				D99BBD530A855D5768400DF21B0F9517 /* DBAccess.h */,
+				C2B6058349DA8074C964FDA27295402C /* FTSRegistry.h */,
+				CB80E7FF67C423986267713914CFA8DD /* FTSRegistry.m */,
+				916CE689483917B34CF2E3B03EC196C5 /* SharkORM.h */,
+				8E9293E6AC8095DF81C5CA31CE4989EF /* SharkORM.m */,
+				63B6D0CE898501885B4A0DF1768E852F /* SharkORM+Private.h */,
+				60A15C7FEE28885C0E540502011342EC /* sqlite3.c */,
+				B7A6FF5BE074684677F8DD97C145C386 /* sqlite3.h */,
+				DDB33FB8CA75D8850455919482A7575B /* sqlite3ext.h */,
+				6B4FCA488E400D43AA1B3FA7A8BC8EE9 /* SRKAES256Extension.h */,
+				C1777F68F23150441CF558E87D17489B /* SRKAES256Extension.m */,
+				5CB2FABE148A0780EAC681032C6D8A47 /* SRKCommitOptions.m */,
+				FE452E6FFDF38B08CD8666537608943C /* SRKCommitOptions+Private.h */,
+				B481C23283FB3CFC51F5D36BBCF44CFD /* SRKContext.h */,
+				DF3D22D19B9DDAE9079F1D5178E3204E /* SRKContext.m */,
+				18852E7B92335F8C0A6EE3C0F9766080 /* SRKDefinitions.h */,
+				CDE00180112A3D194DBE816D77117BBB /* SRKEncryptedObject.h */,
+				43ED490C9DD406088A8232AB74FE9B7E /* SRKEncryptedObject.m */,
+				4496EF177848F17512793504BCFAF368 /* SRKError.m */,
+				E2DCC55CF53498B3F76DF2BC47539077 /* SRKEvent.m */,
+				436EC929A57EB8D1C1028591D9506FC6 /* SRKEventBlockHolder.h */,
+				53D1389CD40B28F8DB60E596CD8FFC00 /* SRKEventBlockHolder.m */,
+				630EDB059431B4989E710F8A432E994D /* SRKEventHandler.m */,
+				DAC309DE9F5B73B636DF681E1A42A916 /* SRKEventHandler+Private.h */,
+				D6A239D1FD9B06818947166FE65C4A0E /* SRKEventRegistryObject.h */,
+				D17E3F23DB9DF9B518AB76574BCC38F5 /* SRKEventRegistryObject.m */,
+				1C5CC9D44E8B9F836F8D8CCCFEDC7A0A /* SRKFTSQuery.m */,
+				A05BD51236C7F5BE14D3FEB81EA6077F /* SRKFuzzyStore.h */,
+				A99A207E0A7492F499832A9762ECF9D6 /* SRKFuzzyStore.m */,
+				5E185D5A64E8B05BE292B39B67C0F235 /* SRKGlobals.h */,
+				529EE7F26F9DFB718A34F648653F0CB5 /* SRKGlobals.m */,
+				1A26ED0DB22BFF2A5C9D4D42FD9E83B6 /* SRKIndexDefinition.m */,
+				97C0D5654854E0632B954522FE583A00 /* SRKIndexDefinition+Private.h */,
+				34FFECE3AEA3600D078868FFBC325422 /* SRKJoinObject.h */,
+				E7A7C1B788261C29E4F7D7D8FAC4921F /* SRKJoinObject.m */,
+				E3F28597972AE6DA106ACFD1ECCE79C1 /* SRKLazyLoader.h */,
+				1A5596FA143A4FD6E59654867A168AFE /* SRKLazyLoader.m */,
+				424DED980E9B1B088A685F44B53941A6 /* SRKObject.m */,
+				49DCB0DCC84B0B16559741A79023EAD1 /* SRKObject+Private.h */,
+				4218BEC65ADB9E519457E66F6FDF84B6 /* SRKObjectChain.h */,
+				D4E01C697F083946351E9691E8AB776C /* SRKObjectChain.m */,
+				93E5473B2034E24294C579BE15193AB4 /* SRKQuery.m */,
+				59E3C4D9C067A1F09C4B830102DD4BB1 /* SRKQuery+Private.h */,
+				135563FD18A745908C61CDDE830E2AE1 /* SRKQueryAsyncHandler.m */,
+				8C3B3EC6A288E59BFEB38527CC1D26DA /* SRKQueryAsyncHandler+Private.h */,
+				024DC981BA4B644ED15E2E9120DFE1FD /* SRKQueryProfile.m */,
+				E292A7E0318603953820BE9ADA5AF1C8 /* SRKRawResults.m */,
+				F7F0168F460E0F676DFB7E64353996E7 /* SRKRegistry.h */,
+				3C6AA0299163E0995EE4E39FE76CA861 /* SRKRegistry.m */,
+				0001CEC1C6F397840783940F9075CA90 /* SRKRegistryEntry.h */,
+				E4C8E5AFB2BED9A3D7E556B6A463F1FA /* SRKRegistryEntry.m */,
+				372CD722780C131BA44EBC1485B8DB14 /* SRKRelationship.h */,
+				5CF13353E326E7F84E19A1DE4CC696E0 /* SRKRelationship.m */,
+				75E83B6A46C76AC39207708825E1E286 /* SRKResultSet.m */,
+				6798FE3BC845D0FD0AD1AAA4D18B8B96 /* SRKResultSet+Private.h */,
+				6C733C62FFD9F56F6F32470D5F1B0642 /* SRKSettings.m */,
+				613ED9EEAE712F353E0C3529900809B1 /* SRKSQLiteHandle.h */,
+				41E3A1EDBB88861EEE120ACB60A9AEF0 /* SRKSQLiteHandle.m */,
+				CF62143CA275C28E93032AA779C57C7E /* SRKStringObject.m */,
+				68588FD321397CC1211A67ED2FF1BC00 /* SRKTransaction.m */,
+				5D3FB37533C9D498C53A38B82B2A3D5C /* SRKTransaction+Private.h */,
+				F24A550C171F8D80B12981C1E51213BE /* SRKTransactionInfo.h */,
+				6671D3A12B1325ADDAFB66C7C691CFEC /* SRKTransactionInfo.m */,
+				52AC0A52DECF66154E7D23F89C8FF485 /* SRKUnsupportedObject.h */,
+				C2200B0D6470361B3B6D9B97FC51EE48 /* SRKUnsupportedObject.m */,
+				C49C717EB4F61318FB6CE18AA2B08323 /* SRKUtilities.h */,
+				6EED9DD6AC541280196AF5267DA1A0A2 /* SRKUtilities.m */,
+				812B28497AF0DA8B010A9074B9E25907 /* Support Files */,
+			);
+			name = SharkORM;
+			path = SharkORM;
+			sourceTree = "<group>";
+		};
+		5BCB471EB2E24037C0C1789D5618AEE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC1749E6949B981BCACDF48AD89914A0 /* libMyLayout.a */,
+				CE4980C30DF91A354D1C4A52D63654B2 /* libPods-ToolKitDev.a */,
+				EF1AD4159000BCFAA800DCA44C8ECC54 /* libSharkORM.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				03C3A3EF968ECB03031571B713FF0B53 /* Pods */,
+				5BCB471EB2E24037C0C1789D5618AEE6 /* Products */,
+				AEC048A5C7C2D98DC9A0BF38C8AA723D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		812B28497AF0DA8B010A9074B9E25907 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF8EE9C28084D26ED4B4E118E601BEF3 /* SharkORM.xcconfig */,
+				E72D56C83FE82AAEF5F4F5B89E183680 /* SharkORM-dummy.m */,
+				2797B26A80475195F36014C0A463173C /* SharkORM-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SharkORM";
+			sourceTree = "<group>";
+		};
+		8C1F34C2249F83C180975B53111BF36A /* Pods-ToolKitDev */ = {
+			isa = PBXGroup;
+			children = (
+				11B6B55C32BD73368B273D861A29E785 /* Pods-ToolKitDev-acknowledgements.markdown */,
+				DD54F28977E0EDF07811C816E314F2DC /* Pods-ToolKitDev-acknowledgements.plist */,
+				4490754A3531495B09521FAEB5A99BEF /* Pods-ToolKitDev-dummy.m */,
+				21D5BDF89521B2F13F7F71DC8D4183B0 /* Pods-ToolKitDev-frameworks.sh */,
+				0E69F58759ED6BCC4D426C749B414175 /* Pods-ToolKitDev-resources.sh */,
+				E68CA767F89A3F78AD6F4996D5CEF1AF /* Pods-ToolKitDev.debug.xcconfig */,
+				14B820267D895AA40905B25F91C6C0B1 /* Pods-ToolKitDev.release.xcconfig */,
+			);
+			name = "Pods-ToolKitDev";
+			path = "Target Support Files/Pods-ToolKitDev";
+			sourceTree = "<group>";
+		};
+		AEC048A5C7C2D98DC9A0BF38C8AA723D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F34C2249F83C180975B53111BF36A /* Pods-ToolKitDev */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5F82729F7BD2E869F7DE02FF6F22147B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA68C669F033BF2CBBA36BC5DEEF50FB /* DBAccess.h in Headers */,
+				F004DAE87A09E11EFD5C765115147D6A /* FTSRegistry.h in Headers */,
+				99B1FC7ECBAA058CDEDAC5C2B1E66DED /* SharkORM+Private.h in Headers */,
+				57563E250EDA947301D81E901772C5BE /* SharkORM.h in Headers */,
+				AA9B2F262362348BD0713A09A5CCF48E /* sqlite3.h in Headers */,
+				3B893FC65C83CF21FCE72ACE66528E0A /* sqlite3ext.h in Headers */,
+				7ABC02B32FAE1ABCE543F951823B905C /* SRKAES256Extension.h in Headers */,
+				3CC752ADD19D57872AD35381DA30E9AB /* SRKCommitOptions+Private.h in Headers */,
+				6C15DFBC9D7AFC1463B9E99E3285C478 /* SRKContext.h in Headers */,
+				994055B1988E33AB85B0B31BE57E32A0 /* SRKDefinitions.h in Headers */,
+				C9CDD2D5025A8A2BAEFC83934AD77619 /* SRKEncryptedObject.h in Headers */,
+				B525F580F868394DD1B3DBE6F0A379CD /* SRKEventBlockHolder.h in Headers */,
+				D1A6D316D3331AFBD5E4F633C87B68FB /* SRKEventHandler+Private.h in Headers */,
+				29570AC112B5808D52B3783176570B5B /* SRKEventRegistryObject.h in Headers */,
+				9565374086F8282B63B07EC160DD4F0E /* SRKFuzzyStore.h in Headers */,
+				656CABBFE3537057716B8A0FBD6A606B /* SRKGlobals.h in Headers */,
+				790C2AE1E3404BF2EF23A0D6FB504E66 /* SRKIndexDefinition+Private.h in Headers */,
+				D60B8ED57DBA1AAAADBD70AEF2EB3320 /* SRKJoinObject.h in Headers */,
+				A10D8EEE5AC4FAEC9C783C6218457C62 /* SRKLazyLoader.h in Headers */,
+				9FF25BFB25E57C5F3EDD0306907DB4CC /* SRKObject+Private.h in Headers */,
+				5556FF14D88428DCA578310B0E2A7147 /* SRKObjectChain.h in Headers */,
+				F5FF1A13B7FC9560116BFA3BC33F117D /* SRKQuery+Private.h in Headers */,
+				493D2AAEAD20302BD2CFA90CD22FAD02 /* SRKQueryAsyncHandler+Private.h in Headers */,
+				14FB42E69DDDA7E4B6E2198F9D55DAC4 /* SRKRegistry.h in Headers */,
+				3ACDB82BC34ACC43407A09CD1022F947 /* SRKRegistryEntry.h in Headers */,
+				EAD63CC1BFF1E564857A87257D14E037 /* SRKRelationship.h in Headers */,
+				630A4B0E877676501842EF6BC904CBBF /* SRKResultSet+Private.h in Headers */,
+				1BF1940736F9162694CF98B439981080 /* SRKSQLiteHandle.h in Headers */,
+				0D18D523C035D0084F24BD6BC18256E8 /* SRKTransaction+Private.h in Headers */,
+				CF2748EEE33A8301F9A16D7A82CF1619 /* SRKTransactionInfo.h in Headers */,
+				C12E8B5E26C34D84F1817D0C951B7C07 /* SRKUnsupportedObject.h in Headers */,
+				4F305B31E84058E1F8C3769F2796B789 /* SRKUtilities.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6B03DC2BE7D3F4B39DF05B8357C0F73 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35D397B7971F1D14643AD6A83F031801 /* MyBaseLayout.h in Headers */,
+				B71381D75C6580599B0D7B4A6A3187F7 /* MyBorderline.h in Headers */,
+				6317E0F077C4D0F355D9781736D29AB7 /* MyDimeScale.h in Headers */,
+				9E9459B0B336C1ABF7EAFC38D5149EC5 /* MyFloatLayout.h in Headers */,
+				C18778886A4BB363822AA115A2A062D7 /* MyFlowLayout.h in Headers */,
+				F17B5DDDEDF5C12278E2508D313B6D6F /* MyFrameLayout.h in Headers */,
+				B0B6124243BF2DE26CA213F133BE4109 /* MyGrid.h in Headers */,
+				F0CABDC4E4BFB24119BF0332EF97B191 /* MyGridLayout.h in Headers */,
+				37555EC07165BE93146A299FB7FE2EF5 /* MyGridNode.h in Headers */,
+				560846810F38B3CC50779E03C0D01115 /* MyLayout.h in Headers */,
+				AA437D093F166045315C6428C48D25D2 /* MyLayoutDef.h in Headers */,
+				2964698B1E44C28CE9766735A516D042 /* MyLayoutDelegate.h in Headers */,
+				D2F5A6E79D9BEC1899D8694DE7972AB2 /* MyLayoutInner.h in Headers */,
+				BD5CCDE55665E938F02F219AC9F2F03C /* MyLayoutMath.h in Headers */,
+				409EDC58BB674A31428FCFFA7A4282DF /* MyLayoutPos.h in Headers */,
+				22DD22FEA006DA519F88A362822C1B3D /* MyLayoutPosInner.h in Headers */,
+				100490DE26D2579F8D5A67710A698890 /* MyLayoutSize.h in Headers */,
+				C98DE3A85EB2B329B1520C3A208281AF /* MyLayoutSizeClass.h in Headers */,
+				DE19968589D6129D12DC09D8D4B6C849 /* MyLayoutSizeInner.h in Headers */,
+				641817754FB71124E926EA6087A637D5 /* MyLinearLayout.h in Headers */,
+				EA5279433BDFB6A09E9B6D92EF4A0D5E /* MyMaker.h in Headers */,
+				F983783FF3606C6CDB1DAA7F694A31CF /* MyPathLayout.h in Headers */,
+				12C46A924D3224877E4A0D7B8EBA8914 /* MyRelativeLayout.h in Headers */,
+				D6719F8D4FF7BAB36F5BA21CBAB03042 /* MyTableLayout.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		36DD9A87239F1E988347A56D85CE879F /* MyLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36860A5045F6542AD155388C91E964A1 /* Build configuration list for PBXNativeTarget "MyLayout" */;
+			buildPhases = (
+				EBED209A066CC650070FCE5095787AE0 /* Sources */,
+				148EAFF3E08CC14094DFE86102BC7FD9 /* Frameworks */,
+				A6B03DC2BE7D3F4B39DF05B8357C0F73 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyLayout;
+			productName = MyLayout;
+			productReference = FC1749E6949B981BCACDF48AD89914A0 /* libMyLayout.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BAF7F2B5B7EAD47F030A410ABFF82AD6 /* Pods-ToolKitDev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23FD1D24C2B8F97F09A146381BB41FAF /* Build configuration list for PBXNativeTarget "Pods-ToolKitDev" */;
+			buildPhases = (
+				3D1D7EC4EFDE2052C5ED44CF71D4B55C /* Sources */,
+				7EBB9C3718C225B4982C753E6469072C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91D5D8FEFE200F38D1686A9E59499FFA /* PBXTargetDependency */,
+				E62A07AAB45C5DB00E68273F2784A137 /* PBXTargetDependency */,
+			);
+			name = "Pods-ToolKitDev";
+			productName = "Pods-ToolKitDev";
+			productReference = CE4980C30DF91A354D1C4A52D63654B2 /* libPods-ToolKitDev.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DC44C566DF7E2431F897FB2D6DE15F0C /* SharkORM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2EF64C8681DE9E462B1F9663A9D7AC8 /* Build configuration list for PBXNativeTarget "SharkORM" */;
+			buildPhases = (
+				27695DBD9F50084221F73BBE144528D1 /* Sources */,
+				405C235FDAFFD25C10A4E5B31D067C93 /* Frameworks */,
+				5F82729F7BD2E869F7DE02FF6F22147B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SharkORM;
+			productName = SharkORM;
+			productReference = EF1AD4159000BCFAA800DCA44C8ECC54 /* libSharkORM.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 5BCB471EB2E24037C0C1789D5618AEE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36DD9A87239F1E988347A56D85CE879F /* MyLayout */,
+				BAF7F2B5B7EAD47F030A410ABFF82AD6 /* Pods-ToolKitDev */,
+				DC44C566DF7E2431F897FB2D6DE15F0C /* SharkORM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27695DBD9F50084221F73BBE144528D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DAFF70B84D1A3E21EC967C6D5C4C8CB /* FTSRegistry.m in Sources */,
+				5940E059AB22FB25DC696085C239C115 /* SharkORM-dummy.m in Sources */,
+				5DC5B591AF687256E652DE258D8D3AAA /* SharkORM.m in Sources */,
+				3E33CDA83762520010586CB064558D08 /* sqlite3.c in Sources */,
+				764C86CEC52E6979547D81CEFDABDA88 /* SRKAES256Extension.m in Sources */,
+				02AAC7694505B6C516E0E09DF2EBB0D2 /* SRKCommitOptions.m in Sources */,
+				035E2B61443A2AA78C53410FB8BF547B /* SRKContext.m in Sources */,
+				DCF197B96C27679A4540C87EDC2CB3B0 /* SRKEncryptedObject.m in Sources */,
+				497D649AE6C0871D89A3B72B24D30483 /* SRKError.m in Sources */,
+				AAE6FD90BE18D8D70938358A6DEB3EEB /* SRKEvent.m in Sources */,
+				FEDA614DB36ACE4864E47A416038A00C /* SRKEventBlockHolder.m in Sources */,
+				5F0A916A533F72C2104F10681EAA6063 /* SRKEventHandler.m in Sources */,
+				AB3D8D859E66AA238D9A330F8582981B /* SRKEventRegistryObject.m in Sources */,
+				90B0CA547E90FE161B91F8C913D99C4B /* SRKFTSQuery.m in Sources */,
+				C7AB3A04C5F3C763AA73B4CC143360CE /* SRKFuzzyStore.m in Sources */,
+				56C01FBB43F46CC1B33E7E53CC9E447F /* SRKGlobals.m in Sources */,
+				EED4D8E7993A52A0C2ABEE8A345F6655 /* SRKIndexDefinition.m in Sources */,
+				DCA4C5ECB9939EDD2E59E1279633CBD4 /* SRKJoinObject.m in Sources */,
+				83875813CA32C3561940103B0CAD1FC7 /* SRKLazyLoader.m in Sources */,
+				93D6AC0FCC9F7273BFDE8DF416220561 /* SRKObject.m in Sources */,
+				DE4B702DA24AAE33A820CA675E73662D /* SRKObjectChain.m in Sources */,
+				DA1D51F423656B5537D96801849F78F4 /* SRKQuery.m in Sources */,
+				73D8BAD29297C4F53C0F922F19F9C10E /* SRKQueryAsyncHandler.m in Sources */,
+				CD9E8D52B19B09F60A9E31A7E7973C14 /* SRKQueryProfile.m in Sources */,
+				22E6CF160D0C54B82F3CA374BF532ED3 /* SRKRawResults.m in Sources */,
+				4C417EFD1B9EE1876516DDE0DF0A8CE9 /* SRKRegistry.m in Sources */,
+				FDF1EA6FFC3F2938765C3610740A21B6 /* SRKRegistryEntry.m in Sources */,
+				1977B660FC1FE2B5FC663555224F2BFE /* SRKRelationship.m in Sources */,
+				EF132E3428212F8572DB4EDBA21F1F81 /* SRKResultSet.m in Sources */,
+				A006D1770C05AEBDE537357E63CC0629 /* SRKSettings.m in Sources */,
+				2B186803934CDB96E48BCCF2F7E53F34 /* SRKSQLiteHandle.m in Sources */,
+				FA12141FB75061B5B065BCC52D684B6A /* SRKStringObject.m in Sources */,
+				4F681FBA05ADD6CE16E0B9DF5F9BE2BD /* SRKTransaction.m in Sources */,
+				F63DABE0E0A6B2C310C35E4ED750D541 /* SRKTransactionInfo.m in Sources */,
+				D6900C30DCA0E49E99C78176305F448C /* SRKUnsupportedObject.m in Sources */,
+				503A4F260E2B2CE017DE4520558F3124 /* SRKUtilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D1D7EC4EFDE2052C5ED44CF71D4B55C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4DD64EC10A341321255BDC8E42683F5 /* Pods-ToolKitDev-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBED209A066CC650070FCE5095787AE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9741FF1AD6C03FAA2D5707F319728612 /* MyBaseLayout.m in Sources */,
+				6B712CFB64E15D0DA71DE99389E1F3D0 /* MyBorderline.m in Sources */,
+				A65AAC6CE5BECBB1D16C5B7D2BDC94B4 /* MyDimeScale.m in Sources */,
+				0D09822F8C81E2C0B90573DAAD2DD134 /* MyFloatLayout.m in Sources */,
+				F5DDC4E5F02A326529F5E58832C25C57 /* MyFlowLayout.m in Sources */,
+				E2FD10D181F2B3A61CCEF5189C15D29D /* MyFrameLayout.m in Sources */,
+				B7C2B1EF647DC14F8ED5905DC9AF72F0 /* MyGridLayout.m in Sources */,
+				EE3429BAAF12ABEF125B7BCA1E8F8327 /* MyGridNode.m in Sources */,
+				5A17CB503E802352E03A3203E7E742D9 /* MyLayout-dummy.m in Sources */,
+				11D4504CA03B23A9F96BFD2E76D7D83B /* MyLayoutDelegate.m in Sources */,
+				A33ACDCADB815B9CC29D3D3DD0B9143E /* MyLayoutMath.m in Sources */,
+				D9441044BF48399CB6D0AB410DBFD096 /* MyLayoutPos.m in Sources */,
+				D12947C0F58B8662B9B2EE7F09600261 /* MyLayoutSize.m in Sources */,
+				5FAE4AE2F4845AE8BB83720B64EF2124 /* MyLayoutSizeClass.m in Sources */,
+				5CEE8EA33B2216AFBABB406F91769138 /* MyLinearLayout.m in Sources */,
+				7DAB61E8B7852CE785D1B7BB65E35DEA /* MyMaker.m in Sources */,
+				EA8377191FB5AB9FCACCAD4B0247D572 /* MyPathLayout.m in Sources */,
+				CE4920A29BEE6ABAFAFB9C56DE6B0762 /* MyRelativeLayout.m in Sources */,
+				E73D23F0AAEA0021F009A6C5D5F764FC /* MyTableLayout.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		91D5D8FEFE200F38D1686A9E59499FFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MyLayout;
+			target = 36DD9A87239F1E988347A56D85CE879F /* MyLayout */;
+			targetProxy = FAB593F556FC1755FFC4E1B198D6E482 /* PBXContainerItemProxy */;
+		};
+		E62A07AAB45C5DB00E68273F2784A137 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SharkORM;
+			target = DC44C566DF7E2431F897FB2D6DE15F0C /* SharkORM */;
+			targetProxy = 2376F1634A540EFA49F100A006A8FC9B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		16CA6A511B9E657382FC6BBFA1678A97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E68CA767F89A3F78AD6F4996D5CEF1AF /* Pods-ToolKitDev.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		236843032107DE38ADB16CC7F6CF2585 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 144DD7CF08F767568E750D930151E50A /* MyLayout.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/MyLayout/MyLayout-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		40015C96093A4E744D32170958E43B53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 144DD7CF08F767568E750D930151E50A /* MyLayout.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/MyLayout/MyLayout-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B36C6B50E388E0616265BBCF31AECF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF8EE9C28084D26ED4B4E118E601BEF3 /* SharkORM.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SharkORM/SharkORM-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		EF3545240C759C0DD1D8C8EACF3CF792 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF8EE9C28084D26ED4B4E118E601BEF3 /* SharkORM.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SharkORM/SharkORM-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F752EA40CAD043F7080AEAA3E646FD54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14B820267D895AA40905B25F91C6C0B1 /* Pods-ToolKitDev.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23FD1D24C2B8F97F09A146381BB41FAF /* Build configuration list for PBXNativeTarget "Pods-ToolKitDev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16CA6A511B9E657382FC6BBFA1678A97 /* Debug */,
+				F752EA40CAD043F7080AEAA3E646FD54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */,
+				B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36860A5045F6542AD155388C91E964A1 /* Build configuration list for PBXNativeTarget "MyLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40015C96093A4E744D32170958E43B53 /* Debug */,
+				236843032107DE38ADB16CC7F6CF2585 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2EF64C8681DE9E462B1F9663A9D7AC8 /* Build configuration list for PBXNativeTarget "SharkORM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF3545240C759C0DD1D8C8EACF3CF792 /* Debug */,
+				8B36C6B50E388E0616265BBCF31AECF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
