@@ -2,7 +2,7 @@
 //  IntroScene.h
 //  ToolKitDev
 //
-//  Created by yihyeoncheol on 2018. 5. 8..
+//  Created by Infomax on 2018. 9. 19..
 //  Copyright © 2018년 yihyeoncheol. All rights reserved.
 //
 
