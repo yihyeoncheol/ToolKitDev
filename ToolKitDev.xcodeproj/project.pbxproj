@@ -12,6 +12,12 @@
 		029DAEED1EB4AF2A003B32AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEEB1EB4AF2A003B32AE /* Main.storyboard */; };
 		029DAEEF1EB4AF2A003B32AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEEE1EB4AF2A003B32AE /* Assets.xcassets */; };
 		029DAEF21EB4AF2A003B32AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DAEF01EB4AF2A003B32AE /* LaunchScreen.storyboard */; };
+		261A220B2179BC2A001D01BA /* GridTestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A22082179BC2A001D01BA /* GridTestScene.m */; };
+		261A220C2179BC2A001D01BA /* GridTestScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 261A220A2179BC2A001D01BA /* GridTestScene.xib */; };
+		261A22112179BF55001D01BA /* AlertTestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A220F2179BF55001D01BA /* AlertTestScene.m */; };
+		261A22122179BF55001D01BA /* AlertTestScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 261A22102179BF55001D01BA /* AlertTestScene.xib */; };
+		261A22172179C340001D01BA /* SimpleUIScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A22152179C340001D01BA /* SimpleUIScene.m */; };
+		261A22182179C340001D01BA /* SimpleUIScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 261A22162179C340001D01BA /* SimpleUIScene.xib */; };
 		262BCA512152258C008B63AF /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 262BCA4F2152258C008B63AF /* IntroScene.m */; };
 		262BCA522152258C008B63AF /* IntroScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262BCA502152258C008B63AF /* IntroScene.xib */; };
 		264149D0205A0AA200B72655 /* font in Resources */ = {isa = PBXBuildFile; fileRef = 264149CE205A0AA200B72655 /* font */; };
@@ -48,6 +54,15 @@
 		029DAEEE1EB4AF2A003B32AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029DAEF11EB4AF2A003B32AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		029DAEF31EB4AF2A003B32AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		261A22082179BC2A001D01BA /* GridTestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridTestScene.m; sourceTree = "<group>"; };
+		261A22092179BC2A001D01BA /* GridTestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridTestScene.h; sourceTree = "<group>"; };
+		261A220A2179BC2A001D01BA /* GridTestScene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridTestScene.xib; sourceTree = "<group>"; };
+		261A220E2179BF55001D01BA /* AlertTestScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertTestScene.h; sourceTree = "<group>"; };
+		261A220F2179BF55001D01BA /* AlertTestScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertTestScene.m; sourceTree = "<group>"; };
+		261A22102179BF55001D01BA /* AlertTestScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertTestScene.xib; sourceTree = "<group>"; };
+		261A22142179C340001D01BA /* SimpleUIScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleUIScene.h; sourceTree = "<group>"; };
+		261A22152179C340001D01BA /* SimpleUIScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleUIScene.m; sourceTree = "<group>"; };
+		261A22162179C340001D01BA /* SimpleUIScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleUIScene.xib; sourceTree = "<group>"; };
 		262BCA4E2152258C008B63AF /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
 		262BCA4F2152258C008B63AF /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		262BCA502152258C008B63AF /* IntroScene.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroScene.xib; sourceTree = "<group>"; };
@@ -151,9 +166,50 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		261A21FC2179BA6D001D01BA /* UITestScene */ = {
+			isa = PBXGroup;
+			children = (
+				261A22132179C310001D01BA /* SIMPLE_UI */,
+				261A220D2179BF30001D01BA /* ALERT */,
+				261A22072179BC03001D01BA /* GRID */,
+			);
+			path = UITestScene;
+			sourceTree = "<group>";
+		};
+		261A22072179BC03001D01BA /* GRID */ = {
+			isa = PBXGroup;
+			children = (
+				261A22092179BC2A001D01BA /* GridTestScene.h */,
+				261A22082179BC2A001D01BA /* GridTestScene.m */,
+				261A220A2179BC2A001D01BA /* GridTestScene.xib */,
+			);
+			path = GRID;
+			sourceTree = "<group>";
+		};
+		261A220D2179BF30001D01BA /* ALERT */ = {
+			isa = PBXGroup;
+			children = (
+				261A220E2179BF55001D01BA /* AlertTestScene.h */,
+				261A220F2179BF55001D01BA /* AlertTestScene.m */,
+				261A22102179BF55001D01BA /* AlertTestScene.xib */,
+			);
+			path = ALERT;
+			sourceTree = "<group>";
+		};
+		261A22132179C310001D01BA /* SIMPLE_UI */ = {
+			isa = PBXGroup;
+			children = (
+				261A22142179C340001D01BA /* SimpleUIScene.h */,
+				261A22152179C340001D01BA /* SimpleUIScene.m */,
+				261A22162179C340001D01BA /* SimpleUIScene.xib */,
+			);
+			path = SIMPLE_UI;
+			sourceTree = "<group>";
+		};
 		262BCA4D21522572008B63AF /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				261A21FC2179BA6D001D01BA /* UITestScene */,
 				262BCA4E2152258C008B63AF /* IntroScene.h */,
 				262BCA4F2152258C008B63AF /* IntroScene.m */,
 				262BCA502152258C008B63AF /* IntroScene.xib */,
@@ -263,7 +319,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261A220C2179BC2A001D01BA /* GridTestScene.xib in Resources */,
+				261A22122179BF55001D01BA /* AlertTestScene.xib in Resources */,
 				029DAEF21EB4AF2A003B32AE /* LaunchScreen.storyboard in Resources */,
+				261A22182179C340001D01BA /* SimpleUIScene.xib in Resources */,
 				262BCA522152258C008B63AF /* IntroScene.xib in Resources */,
 				264149D1205A0AA200B72655 /* Menu in Resources */,
 				029DAEEF1EB4AF2A003B32AE /* Assets.xcassets in Resources */,
@@ -330,8 +389,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261A22172179C340001D01BA /* SimpleUIScene.m in Sources */,
+				261A22112179BF55001D01BA /* AlertTestScene.m in Sources */,
 				029DAEE71EB4AF2A003B32AE /* AppDelegate.m in Sources */,
 				3CEF93B7205FE29500F3FC66 /* Style.m in Sources */,
+				261A220B2179BC2A001D01BA /* GridTestScene.m in Sources */,
 				264149DB205A1C7000B72655 /* MainMenu.m in Sources */,
 				029DAEE41EB4AF2A003B32AE /* main.m in Sources */,
 				262BCA512152258C008B63AF /* IntroScene.m in Sources */,
@@ -477,15 +539,7 @@
 				INFOPLIST_FILE = ToolKitDev/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ToolKitDev/Lib/KeysharpiPhone/lib/FingerprintCertManager lib\"",
-					"\"$(SRCROOT)/ToolKitDev/Lib/KeysharpiPhone/lib/FingerprintCertManager lib\"",
-					"\"$(SRCROOT)/ToolKitDev/Lib/KeysharpiPhone/lib/KeySharpiPhone lib/Release-iphoneos\"",
-					"\"$(SRCROOT)/ToolKitDev/Lib/KeysharpiPhone/lib/KeySharpiPhoneICRP lib/Release-iphoneos\"",
-					"\"$(SRCROOT)/ToolKitDev/Lib/KeysharpiPhone/lib/KeySharpiPhoneUtil lib/Release-iphoneos\"",
-					"\"$(SRCROOT)/ToolKitDev/Lib/KeysharpiPhone/lib/SecureData lib/Release-iphoneos\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = yihyeoncheol.ToolKitDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,15 +562,7 @@
 				INFOPLIST_FILE = ToolKitDev/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ToolKitDev/Lib/KeysharpiPhone/lib/FingerprintCertManager\\ lib",
-					"$(PROJECT_DIR)/ToolKitDev/Lib/KeysharpiPhone/lib/FingerprintCertManager\\ lib",
-					"$(PROJECT_DIR)/ToolKitDev/Lib/KeysharpiPhone/lib/KeySharpiPhone\\ lib/Release-iphoneos",
-					"$(PROJECT_DIR)/ToolKitDev/Lib/KeysharpiPhone/lib/KeySharpiPhoneICRP\\ lib/Release-iphoneos",
-					"$(PROJECT_DIR)/ToolKitDev/Lib/KeysharpiPhone/lib/KeySharpiPhoneUtil\\ lib/Release-iphoneos",
-					"$(PROJECT_DIR)/ToolKitDev/Lib/KeysharpiPhone/lib/SecureData\\ lib/Release-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = yihyeoncheol.ToolKitDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";

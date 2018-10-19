@@ -9,34 +9,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroScene">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GridTestScene">
             <connections>
+                <outlet property="grid" destination="i5M-Pr-FkT" id="pWR-W5-oLY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="Grid">
             <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="naw-Vu-OgU">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nzA-1a-azZ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="hFF-za-yqc"/>
-                        <outlet property="delegate" destination="-1" id="ZqZ-Lq-wqQ"/>
-                    </connections>
-                </tableView>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TzN-Nd-jM2">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="naw-Vu-OgU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="17d-W2-POg"/>
-                <constraint firstAttribute="bottom" secondItem="naw-Vu-OgU" secondAttribute="bottom" id="6DN-gv-pKn"/>
-                <constraint firstAttribute="trailing" secondItem="naw-Vu-OgU" secondAttribute="trailing" id="9zk-n4-anG"/>
-                <constraint firstItem="naw-Vu-OgU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qDA-hd-uQl"/>
+                <constraint firstItem="nzA-1a-azZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3VS-Rs-dMg"/>
+                <constraint firstItem="nzA-1a-azZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3eE-1m-HtY"/>
+                <constraint firstAttribute="bottom" secondItem="nzA-1a-azZ" secondAttribute="bottom" id="M7f-gQ-zfs"/>
+                <constraint firstAttribute="trailing" secondItem="nzA-1a-azZ" secondAttribute="trailing" id="kfB-2B-2Nr"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <point key="canvasLocation" x="-537" y="-393"/>
         </view>
     </objects>
 </document>
