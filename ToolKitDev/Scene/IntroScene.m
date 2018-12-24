@@ -10,10 +10,16 @@
 
 @interface IntroScene ()
 @property(nonatomic,strong)NSArray *list;
+
 @end
 
 @implementation IntroScene
 
+- (void)dealloc
+{
+    
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

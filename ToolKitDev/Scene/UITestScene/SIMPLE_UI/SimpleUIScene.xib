@@ -13,6 +13,9 @@
             <connections>
                 <outlet property="radio" destination="wQl-hF-pPj" id="Lgi-Ue-w7F"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="viewCollection" destination="HHk-ru-GFy" id="TJY-91-nkL"/>
+                <outletCollection property="viewCollection" destination="wQl-hF-pPj" id="Nwe-75-EeM"/>
+                <outletCollection property="viewCollection" destination="cRF-5p-59J" id="ZAE-Nw-zxI"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
