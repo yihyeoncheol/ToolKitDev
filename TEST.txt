@@ -1,10 +1,3001 @@
-TEST
+@implementation LViewModel
+- (void)requestCompleted:(NSHTTPURLResponse*)response data:(NSData*)data {
+    NSError *err;
+    id object = [NSJSONSerialization JSONObjectWithData:data
+                                                options:NSJSONReadingMutableContainers
+                                                  error:&err];
+    if (err){
+        [self requestFailWithError:err];
+        return;
+    }
+    
+    NSDictionary *jsonData = (NSDictionary*)object;
+    NSDictionary *status = jsonData[@"Status"];
+    if(status){
+        ErrorModel *model = [[ErrorModel alloc]initWithData:status];
+        if(model.code !=  0){        
+         
+        }else{
+            [self receiveWithResponse:response data:object];
+        }
+    }else{
+        [self receiveWithResponse:response data:object];
+    }
+}
+
+- (void)failWithError:(NSString*) errorMessage {
+
+
+    [Alert alertWithTitle:nil
+                  message:@""
+                     type:AlertTypeDefault
+        cancelButtonTitle:nil
+         otherButtonTitle:@"확인"
+                  handler:nil];
+}
+@end
+
+#import "BalloonToast.h"
+@interface BalloonToast()
+@property(nonatomic)CAShapeLayer *roundLayer;
+@property(nonatomic)CGPoint point;
+@property(nonatomic)UIRectEdge edge;
+@end
+
+@implementation BalloonToast
+
++ (BalloonToast*)toastWithText:(NSString*)text {
+    BalloonToast *toast = [BalloonToast new];
+    toast.text = text;
+    return toast;
+}
+
+- (void)dealloc {
+    [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
+- (void)initial {
+    
+    _contentEdgeInsets = UIEdgeInsetsZero;
+    _textEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    
+    _point = CGPointZero;
+    
+    _height = 25;
+    _edge = UIRectEdgeBottom;
+    _textColor = [UIColor rgbColorWithRed:34 green:34 blue:34 alpha:1];
+//    _backgroundColor  = [UIColor rgbColorWithRed:237 green:237 blue:237 alpha:1];;
+    
+    
+    _roundLayer = [[CAShapeLayer alloc]init];
+    
+    _roundLayer.frame = self.bounds;
+    
+    [self.layer addSublayer:_roundLayer];
+    
+    self.backgroundColor = [UIColor rgbColorWithRed:237 green:237 blue:237 alpha:1];
+    _edge = UIRectEdgeBottom;
+    
+    
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(touchEventNotification:)
+                                               name:RootControllerTouchEventNotification
+                                             object:nil];
+    
+}
+
+
+- (void)showInView:(UIView*)inView {
+  
+    _roundLayer.fillColor = self.backgroundColor.CGColor;
+    
+    CGRect convertTagetFarme = [_taget convertRect:_taget.bounds toView:inView];
+    CGRect rect = inView.bounds;
+ 
+    rect = UIEdgeInsetsInsetRect(rect, _contentEdgeInsets);
+    rect = UIEdgeInsetsInsetRect(rect, _textEdgeInsets);
+    
+    
+    Label *textLabel = [[Label alloc]initWithFrame:rect];
+    textLabel.text = _text;
+    textLabel.textColor = _textColor;
+    textLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
+    textLabel.fontStyle = @"NotoSansCJKkr";
+    textLabel.textAlignment = NSTextAlignmentLeft;
+    textLabel.numberOfLines = 0;
+    [textLabel sizeToFit];
+    [self addSubview:textLabel];
+    
+    CGRect textRect = textLabel.frame;
+    CGFloat h = MAX(textRect.size.height, _height);
+    CGFloat y = convertTagetFarme.origin.y;
+    
+    if (_edge == UIRectEdgeBottom) {
+        y += convertTagetFarme.size.height;
+        y += 16;
+    }else if (_edge == UIRectEdgeTop) {
+        y -= convertTagetFarme.size.height;
+        y -= h;
+        y -= 16;
+    }
+
+    CGFloat width = textLabel.bounds.size.width  + (_contentEdgeInsets.left + _contentEdgeInsets.right + _textEdgeInsets.left + _textEdgeInsets.right);
+    CGFloat x = (inView.frame.size.width - width) / 2;
+    CGRect frame = CGRectMake(x,
+                              y,
+                              width,
+                              h + (_contentEdgeInsets.top + _contentEdgeInsets.bottom + _textEdgeInsets.top + _textEdgeInsets.bottom));
+    
+    self.frame = UIEdgeInsetsInsetRect(frame, _contentEdgeInsets);
+    
+    
+    textLabel.frame = UIEdgeInsetsInsetRect(self.bounds, _textEdgeInsets);
+    [inView addSubview:self];
+    
+    CGRect convertFarme = [self convertRect:_taget.bounds fromView:_taget];
+    
+    self.point = CGPointMake(CGRectGetMidX(convertFarme), CGRectGetMidY(convertFarme));
+    _roundLayer.path = [self path].CGPath;
+    
+}
+
+- (UIBezierPath*)path {
+    UIBezierPath *path = [UIBezierPath new];
+ 
+    CGFloat radius = 8;
+    
+    [path addArcWithCenter:CGPointMake(0,0)
+                    radius:radius
+                startAngle:M_PI
+                  endAngle:3*M_PI/2
+                 clockwise:YES];
+    
+    
+    CGFloat width = 20;
+    CGFloat height = 10;
+    CGFloat x = MAX(_point.x - (width / 2), 0);
+          
+
+    
+    if (_edge == UIRectEdgeBottom) {
+        
+        [path addLineToPoint:CGPointMake(x ,  -(radius))];
+        [path addLineToPoint:CGPointMake(x + (width / 2) , -(radius + height))];
+        [path addLineToPoint:CGPointMake(x + width, -(radius))];
+        [path addLineToPoint:CGPointMake(self.bounds.size.width - radius , -(radius))];
+    }
+    
+    [path addArcWithCenter:CGPointMake(self.bounds.size.width,0)
+                    radius:radius
+                startAngle:3*M_PI/2
+                  endAngle:2*M_PI
+                 clockwise:YES];
+    
+    [path addArcWithCenter:CGPointMake(self.bounds.size.width,self.bounds.size.height)
+                    radius:radius
+                startAngle:0
+                  endAngle:M_PI/2
+                 clockwise:YES];
+    
+    if (_edge == UIRectEdgeTop) {
+        
+        [path addLineToPoint:CGPointMake(x ,  self.bounds.size.height + radius)];
+        [path addLineToPoint:CGPointMake(x + (width / 2) , self.bounds.size.height + (radius + height))];
+        [path addLineToPoint:CGPointMake(x + width, self.bounds.size.height + radius)];
+        [path addLineToPoint:CGPointMake(0 , self.bounds.size.height + radius)];
+    }
+    
+    
+    [path addArcWithCenter:CGPointMake(0,self.bounds.size.height)
+                       radius:radius
+                   startAngle:2*M_PI/3
+                     endAngle:M_PI
+                    clockwise:YES];
+    
+    [path closePath];
+    
+    
+    return path;
+}
+
+//- (void)layoutSubviews {
+//
+//}
+
+- (void)dismiss{
+    [self removeFromSuperview];
+}
+
+- (void)touchEventNotification:(NSNotification*)notification {
+    UITouch *touch = (UITouch*)notification.object;
+    UIView *keyWindow = UIApplication.sharedApplication.keyWindow.rootViewController.view;
+    CGPoint point = [touch locationInView:keyWindow];
+    
+    
+//    CGRect convertFarme =  [self convertRect:self.bounds toView:keyWindow];
+    CGRect convertFarme = [self.taget convertRect:self.taget.bounds toView:keyWindow];
+    BOOL contains = CGRectContainsPoint(convertFarme, point);
+               
+    if (contains) {
+        return;
+    }
+    [self dismiss];
+}
+    
+@end
+
+#import <UIKit/UIKit.h>
+#import "EdgeLine.h"
+@class Message;
+
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface View : UIView
+@property(nullable,nonatomic,copy)IBInspectable NSString *name;
+@property(nullable,nonatomic,copy)IBInspectable NSString *style;
+
+@property(nullable,nonatomic,strong) void (^layoutChanged) (id self);
+@property(nullable,nonatomic,strong,setter=event:) void (^event) (Message *message);
+@property(nullable,nonatomic,strong) NSArray<EdgeLine*> *edgeLines;
+- (void)didLoad;
+- (void)initial;
+- (void)setData:(id)data;
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+
+
+static ActivityIndicator *indicatorView;
+static int indicatorCount = 0;
+NSString *const ActivityIndicatorToucheNotification = @"ActivityIndicatorToucheNotification";
+@interface ActivityIndicator()
+
+@property(nonatomic,strong)LOTAnimationView *indicator;
+@end
+
+
+@implementation ActivityIndicator
+
+
++ (void)start {
+    
+    indicatorCount ++;
+    
+    if (indicatorCount == 1){
+        if (indicatorView) {
+            [indicatorView.layer removeAllAnimations];
+            [indicatorView.indicator stop];
+            [indicatorView removeFromSuperview];
+            indicatorView = nil;
+        }
+        
+        UIApplication.sharedApplication.networkActivityIndicatorVisible = YES;
+        UIView *topLayerView = [[UIApplication sharedApplication].keyWindow.rootViewController valueForKey:@"topLayerView"];
+        
+        indicatorView = [[ActivityIndicator alloc] initWithFrame:topLayerView.bounds];
+        indicatorView.alpha = 0.0f;
+        [topLayerView addSubview:indicatorView];
+        [indicatorView.indicator play];
+        [UIView animateWithDuration:0.3f
+                              delay:0.0f
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^(void) {
+                                indicatorView.alpha = 1.0f;
+                            }
+                         completion:^(BOOL completed) {
+            
+                         }];
+    }
+    
+}
+
+
++ (void)stop {
+    
+    if (indicatorCount == 1) {
+//        indicatorCount = 0;
+//        [indicatorView.layer removeAllAnimations];
+        UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;
+        [UIView animateWithDuration:0.3f
+                              delay:0.3f
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^(void) {
+                                    indicatorView.alpha = 0.0;
+                        }completion:^(BOOL completed) {
+                                [indicatorView.indicator stop];
+                                [indicatorView removeFromSuperview];
+                                indicatorView = nil;
+                            indicatorCount --;
+                            indicatorCount = MAX(indicatorCount, 0);
+                            if (indicatorCount > 0){
+                                 indicatorCount --;
+                                [ActivityIndicator start];
+                            }
+                        }];
+    }else{
+        indicatorCount --;
+        
+        indicatorCount = MAX(indicatorCount, 0);
+        
+    }
+}
+#import "AlertLayerView.h"
+#import "Alert.h"
+#import "UIColor+Extension.h"
+
+@interface AlertLayerView()
+@property (nonatomic,strong)UIView *backgroundView;
+@end
+
+@implementation AlertLayerView
+
+- (void)dealloc {
+}
+
+- (void)initial {
+    self.hidden = YES;
+    self.backgroundColor = [UIColor clearColor];
+    self.backgroundView = [UIView new];
+    self.backgroundView.backgroundColor = [UIColor rgbColorWithRed:0 green:0 blue:0 alpha:.7f];
+    [self addSubview:self.backgroundView];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.backgroundView.frame = self.bounds;
+}
+
+
+- (void)didAddSubview:(UIView *)subview {
+    [super didAddSubview:subview];
+    if(self.subviews.count == 2){
+        self.hidden = NO;
+        self.backgroundView.alpha = 0.5;
+        [UIView animateWithDuration:0.3f animations:^{
+            self.backgroundView.alpha = 1.0;
+        } completion:^(BOOL finished) {
+        }];
+    }
+}
+   
+- (void)addSubview:(UIView *)view {
+    if (self.subviews.count > 1){
+        UIView *lastView = self.subviews.lastObject;
+        lastView.hidden = NO;
+        view.hidden = YES;
+        
+        [self insertSubview:view atIndex:1];
+    }else{
+        [super addSubview:view];
+    }
+}
+
+- (void)willRemoveSubview:(UIView *)subview {
+    [super willRemoveSubview:subview];
+    NSInteger count = self.subviews.count;
+    if(count == 2){
+        [UIView animateWithDuration:0.3f animations:^{
+            self.backgroundView.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            self.hidden = YES;
+        }];
+    }else if(count > 2){
+        UIView *view = [self.subviews objectAtIndex:count - 2];
+        Alert *alert = (Alert*)view;
+        alert.hidden = NO;
+        alert.alpha = 0;
+        SEL selector = NSSelectorFromString(@"showAnimation");
+        if([view respondsToSelector:selector]){
+            IMP imp = [view methodForSelector:selector];
+            void (*func)(id, SEL) = (void*)imp;
+            func(view, selector);
+        }
+    }
+}
+
+@end
+
+
+#import "ComponentLayerView.h"
+
+@interface ComponentLayerView()
+@property (nonatomic,strong)UIView *backgroundView;
+@end
+
+@implementation ComponentLayerView
+
+- (void)initial {
+    self.hidden = YES;
+    self.backgroundColor = [UIColor clearColor];
+    self.backgroundView = [UIView new];
+    self.backgroundView.backgroundColor = [UIColor rgbColorWithRed:0 green:0 blue:0 alpha:.7f];
+    [self addSubview:self.backgroundView];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.backgroundView.frame = self.bounds;
+}
+
+
+- (void)didAddSubview:(UIView *)subview {
+    [super didAddSubview:subview];
+    if(self.subviews.count == 2){
+        self.hidden = NO;
+        self.backgroundView.alpha = 0.5;
+        [UIView animateWithDuration:0.3f animations:^{
+            self.backgroundView.alpha = 1.0;
+        } completion:^(BOOL finished) {
+        }];
+    }
+}
+   
+- (void)addSubview:(UIView *)view {
+    if (self.subviews.count > 1){
+        UIView *lastView = self.subviews.lastObject;
+        lastView.hidden = NO;
+        view.hidden = YES;
+        
+        [self insertSubview:view atIndex:1];
+    }else{
+        [super addSubview:view];
+    }
+}
+
+- (void)willRemoveSubview:(UIView *)subview {
+    [super willRemoveSubview:subview];
+    NSInteger count = self.subviews.count;
+    if(count == 2){
+        [UIView animateWithDuration:0.3f animations:^{
+            self.backgroundView.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            self.hidden = YES;
+        }];
+    }else if(count > 2){
+        UIView *view = [self.subviews objectAtIndex:count - 2];
+
+        view.hidden = NO;
+        view.alpha = 0;
+        SEL selector = NSSelectorFromString(@"showAnimation");
+        if([view respondsToSelector:selector]){
+            IMP imp = [view methodForSelector:selector];
+            void (*func)(id, SEL) = (void*)imp;
+            func(view, selector);
+        }
+    }
+}
+@end
+
+@implementation Component
+
+- (void)dealloc {
+    
+//    NSArray *keys = @[@"style"];
+//
+//    for (NSString *key in keys) {
+//        [self removeObserver:self forKeyPath:key];
+//    }
+    
+    _style = nil;
+    _name = nil;
+    _layoutChanged = nil;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self didLoad];
+}
+
+- (id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self){
+        [self initial];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if (self){
+        [self initial];
+    }
+    return self;
+}
+
+- (void)initial{
+#if (TARGET_IPHONE_SIMULATOR)
+//    [self roundWithRadius:0.f width:.5f color:[UIColor blackColor]];
+#endif
+    
+//    NSArray *keys = @[@"style"];
+//
+//    for (NSString *key in keys) {
+//        [self addObserver:self forKeyPath:key options:NSKeyValueObservingOptionNew context:nil];
+//    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if ([keyPath isEqualToString:@"style"]) {
+        SEL selector = NSSelectorFromString(_style);
+        if([self respondsToSelector:selector]){
+            IMP imp = [self methodForSelector:selector];
+            void (*func)(id, SEL) = (void *)imp;
+            func(self, selector);
+        }
+    }
+}
+
+- (void)setNeedsStyle {
+    if (_style) {
+        SEL selector = NSSelectorFromString(_style);
+        if([self respondsToSelector:selector]){
+            IMP imp = [self methodForSelector:selector];
+            void (*func)(id, SEL) = (void *)imp;
+            func(self, selector);
+        }
+    }
+    
+    [self update];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if (_layoutChanged) {
+        _layoutChanged(self);
+    }
+}
+
+- (void)viewWillRotate:(id<UIViewControllerTransitionCoordinatorContext>) context{
+#if 0
+    NSTimeInterval animationDuration = [context transitionDuration];
+    UIViewAnimationCurve animationCurve = [context completionCurve];
+    //
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+     // run
+    [UIView commitAnimations];
+    
+#endif
+}
+
+- (void)didLoad {
+}
+@end
+
+
+@interface NavigationBar()
+
+//@property(nonatomic,weak) IBOutlet NSLayoutConstraint *heightLayoutConstraint;
+
+@property(nonatomic)NavigationBarState scrollState;
+//@property(nonatomic,strong)UIPanGestureRecognizer *panGestureRecognizer;
+@property(nonatomic)CGFloat lastContentOffsetY;
+@end
+
+@implementation NavigationBar
+
+- (void)dealloc {
+    
+}
+
+- (void)initial {
+    _statusBarTopOffset = [UIApplication sharedApplication].rootController.safeAreaInsets.top;
+    _titleEdgeInsets = UIEdgeInsetsMake(0, 56, 0, 56);;
+    
+    _titleLabel = [[Label alloc]initWithFrame:UIEdgeInsetsInsetRect(self.bounds, _titleEdgeInsets)];
+    _titleLabel.textAlignment = NSTextAlignmentLeft;
+    _titleLabel.font = [UIFont systemFontOfSize:18];
+    _titleLabel.textColor = [UIColor rgbColorWithRed:34 green:34 blue:34 alpha:1];
+    _titleLabel.numberOfLines = 2;
+    _titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightMedium];
+    _titleLabel.fontStyle = @"NotoSans";
+    
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:_titleLabel];
+    
+
+
+}
+
+- (void)didLoad {
+
+}
+
+- (void)setTitle:(NSString *)title {
+    _title = title;
+    _titleLabel.text = title ;
+}
+
+- (void)setScrollView:(ScrollView *)scrollView {
+    _scrollView = scrollView;
+    [_scrollView.panGestureRecognizer addTarget:self action:@selector(handlePan:)];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _titleLabel.frame = UIEdgeInsetsInsetRect(self.bounds, _titleEdgeInsets);
+}
+
+
+
+- (void)didScroll:(UIScrollView*)scrollView {
+//    if (scrollView.panGestureRecognizer.state == UIGestureRecognizerStateEnded){
+//        CGFloat contentOffsetY = scrollView.contentOffset.y;
+//        CGFloat height = self.bounds.size.height;
+//
+//        CGFloat y = MIN(contentOffsetY, height);
+//
+//        _viewTopContraint.constant = y *-1;
+//
+//        [self.superview updateConstraints];
+////    }
+}
+
+#pragma mark - panGesture handler
+
+- (void)handlePan:(UIPanGestureRecognizer*)panGestureRecognizer {
+
+    CGFloat contentOffsetY = _scrollView.contentOffset.y;
+
+//    CGFloat height = self.bounds.size.height;
+
+    CGFloat yVelocity = [_scrollView.panGestureRecognizer velocityInView:_scrollView].y;
+    
+    if(panGestureRecognizer.state == UIGestureRecognizerStateBegan){
+        self.lastContentOffsetY = contentOffsetY;
+    }else if(panGestureRecognizer.state == UIGestureRecognizerStateChanged||
+             panGestureRecognizer.state == UIGestureRecognizerStateEnded){
+        if (yVelocity < 0) {
+            if (_viewTopContraint.constant == -50){
+            }else{
+                CGFloat y =_lastContentOffsetY- contentOffsetY ;
+                y = fabs(y);
+                y = MAX(-y, -50);
+                _viewTopContraint.constant = y;
+            }
+        }else if (yVelocity > 0) {
+//            if (contentOffsetY < 150) {
+//                CGFloat y = contentOffsetY - 150;
+//                _viewTopContraint.constant = MAX(y, -height);
+//            }else{
+                CGFloat y = _lastContentOffsetY - contentOffsetY;
+                y = fabs(y);
+                _viewTopContraint.constant = MAX(-y, 0);
+//            }
+        }
+    }
+}
+
+@end
+
+//
+//  ActionSheet.m
+//  LPoint
+//
+//  Created by MP02031 on 2020/09/17.
+//  Copyright © 2020 MP02031. All rights reserved.
+//
+
+#import "ActionSheet.h"
+#import "Label.h"
+#import "ComponentLayerView.h"
+
+@interface ActionSheet()
+
+@property(nonnull,nonatomic,strong)UIView *titleView;
+@property(nonatomic)BOOL isShowInView;
+@end
+
+@implementation ActionSheet
+
+- (void)dealloc {
+     _title = nil;
+    _contentView = nil;
+    _titleView = nil;
+}
+
+- (void)initial {
+    
+    _titleHeight = 40.0f;
+    _contentHeight = 20.0f;
+    
+    self.backgroundColor = [UIColor whiteColor];
+//    _contentView = [ActionSheetContentView new];
+    
+    _reverse = NO;
+}
+
+
+- (UIView*)titleView:(CGRect)frame {
+    
+    View *container = [[View alloc]initWithFrame:frame];
+    container.backgroundColor = [UIColor whiteColor];
+    
+    CGRect slice;
+    CGRect remainder;
+    
+    CGRectDivide(UIEdgeInsetsInsetRect(container.bounds, UIEdgeInsetsMake(0, 10, 0, 10)),
+                 &slice, &remainder,
+                 frame.size.height,
+                 CGRectMaxXEdge);
+    
+    
+    Label *label = [[Label alloc]initWithFrame:remainder];
+    label.text = self.title;
+    label.numberOfLines = 1;
+    label.textAlignment = NSTextAlignmentLeft;
+    label.font = [UIFont systemFontOfSize:13];
+    label.textColor = [UIColor darkTextColor];
+    [container addSubview:label];
+    
+    Button *button = [Button buttonWithType:UIButtonTypeCustom];
+    
+    
+    button.style = _reverse ? @"actionSheetReverseCloseButton" : @"actionSheetCloseButton";
+    [button addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    button.frame = slice;
+
+    
+    [container addSubview:button];
+    
+    return container;
+}
+
+
+- (void)show {
+    UIViewController *rvc = UIApplication.sharedApplication.keyWindow.rootViewController;
+    UIView *view = [rvc valueForKey:@"componentLayerView"];
+    [self _showInView:view];
+}
+
+- (void)setContentView:(ActionSheetContentView *)contentView {
+    contentView.actionSheet = self;
+    _contentView = contentView;
+}
+- (void)showInView:(UIView*)view {
+    
+    self.isShowInView = YES;
+    UIView *componentLayerView = [[ComponentLayerView alloc]initWithFrame:view.bounds];
+    [view addSubview:componentLayerView];
+    [self _showInView:componentLayerView];
+}
+
+- (void)_showInView:(UIView*)view {
+    
+    UIViewController *rvc = UIApplication.sharedApplication.keyWindow.rootViewController;
+    
+    
+    if (_reverse) {
+        
+        UIEdgeInsets edgeInsets = [rvc safeAreaInsets];
+        CGFloat safeArea = edgeInsets.top;
+        
+        CGRect frame = view.bounds;
+        CGFloat height = _titleHeight + _contentHeight;
+        height += safeArea;
+        
+        CGRect slice;
+        CGRect remainder;
+        
+        CGRectDivide(frame, &slice, &remainder, height, CGRectMinYEdge);
+        
+        self.frame = slice;
+        
+        remainder = UIEdgeInsetsInsetRect(slice, UIEdgeInsetsMake(safeArea, 0, 0, 0));
+        
+        
+        CGRectDivide(remainder, &slice, &remainder, _titleHeight, CGRectMinYEdge);
+        
+        self.titleView = [self titleView:slice];
+        
+        [self addSubview:_titleView];
+        
+        
+        CGRectDivide(remainder, &slice, &remainder, _contentHeight, CGRectMinYEdge);
+        
+        _contentView.frame = slice;
+        [self addSubview:_contentView];
+        
+        
+        [view addSubview:self];
+        
+        [self roundingCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight
+                       radius:CGSizeMake(25.0f, 25.f)];
+        
+    }else {
+
+        UIEdgeInsets edgeInsets = [rvc safeAreaInsets];
+        CGFloat safeArea = edgeInsets.bottom;
+        
+        CGRect frame = view.bounds;
+        CGFloat height = self.titleHeight + self.contentHeight;
+        height += safeArea;
+        
+        
+        CGRect slice;
+        CGRect remainder;
+        
+        CGRectDivide(frame, &slice, &remainder, height, CGRectMaxYEdge);
+        
+        self.frame = slice;
+        
+        CGRectDivide(self.bounds, &slice, &remainder, self.titleHeight, CGRectMinYEdge);
+        self.titleView = [self titleView:slice];
+        
+        [self addSubview:_titleView];
+        
+        
+        CGRectDivide(remainder, &slice, &remainder, self.contentHeight, CGRectMinYEdge);
+        
+        _contentView.frame = slice;
+        [self addSubview:_contentView];
+        
+        
+        [view addSubview:self];
+        
+        [self roundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight
+                       radius:CGSizeMake(25.0f, 25.f)];
+        
+    }
+    
+    
+    [self showAnimation];
+}
+
+- (void)changeContentHeight:(CGFloat) contentHeight {
+    
+    _contentHeight = contentHeight;
+    
+    UIViewController *rvc = UIApplication.sharedApplication.keyWindow.rootViewController;
+    UIView *view = [rvc valueForKey:@"componentLayerView"];
+    
+    if (_reverse) {
+           
+       UIEdgeInsets edgeInsets = [rvc safeAreaInsets];
+       CGFloat safeArea = edgeInsets.top;
+       
+       CGRect frame = view.bounds;
+       CGFloat height = _titleHeight + _contentHeight;
+       height += safeArea;
+       
+       CGRect slice;
+       CGRect remainder;
+       
+       CGRectDivide(frame, &slice, &remainder, height, CGRectMinYEdge);
+       
+       self.frame = slice;
+       
+       remainder = UIEdgeInsetsInsetRect(slice, UIEdgeInsetsMake(safeArea, 0, 0, 0));
+       
+       
+       CGRectDivide(remainder, &slice, &remainder, _titleHeight, CGRectMinYEdge);
+       
+        _titleView.frame = slice;
+       
+       CGRectDivide(remainder, &slice, &remainder, _contentHeight, CGRectMinYEdge);
+       
+       _contentView.frame = slice;
+        
+        [self roundingCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight
+                       radius:CGSizeMake(25.0f, 25.f)];
+        
+    }else {
+
+        UIEdgeInsets edgeInsets = [rvc safeAreaInsets];
+        CGFloat safeArea = edgeInsets.bottom;
+           
+       CGRect frame = view.bounds;
+       CGFloat height = self.titleHeight + self.contentHeight;
+       height += safeArea;
+       
+       
+       CGRect slice;
+       CGRect remainder;
+       
+       CGRectDivide(frame, &slice, &remainder, height, CGRectMaxYEdge);
+       
+       self.frame = slice;
+       
+       CGRectDivide(self.bounds, &slice, &remainder, self.titleHeight, CGRectMinYEdge);
+        _titleView.frame  = slice;
+           
+        CGRectDivide(remainder, &slice, &remainder, self.contentHeight, CGRectMinYEdge);
+           
+        _contentView.frame = slice;
+        
+        [self roundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight
+                              radius:CGSizeMake(25.0f, 25.f)];
+    }
+}
+
+
+- (void)dismiss {
+    
+//    if ([_contentView.delegate respondsToSelector:@selector(actionSheetContentView: message:)]){
+//        [_contentView.delegate actionSheetContentView:_contentView message:[Message messageWithName:@"dismiss" object:_contentView.]];
+//    }
+
+//    delegate?.actionSheet?(self, clickedButtonAt: selectedIndex)
+    [_contentView dismiss];
+    BOOL ani = [self dismissAnimation];
+    if (ani) {
+    }else{
+        [self removeFromSuperview];
+        if(self.isShowInView){
+            [self.superview removeFromSuperview];
+        }
+    }
+    
+    
+}
+
+- (BOOL)showAnimation {
+    
+    DECLARE_WEAK_SELF(weakself);
+    
+    CGFloat ty = self.bounds.size.height;
+    if (_reverse) {
+        ty *= -1;
+        UIViewController *rvc = UIApplication.sharedApplication.keyWindow.rootViewController;
+        [((RootController*)rvc) setStatusBarHidden:YES animated:YES];
+    }
+    CATransform3D transform = CATransform3DTranslate(CATransform3DIdentity,
+                                                     0,
+                                                     ty,
+                                                     0);
+    self.layer.transform = transform;
+    
+    
+    [UIView animateWithDuration:0.3f
+                          delay:0
+         usingSpringWithDamping:1
+          initialSpringVelocity:0.5f
+                        options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        weakself.layer.transform = CATransform3DIdentity;
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+    return YES;
+}
+
+- (BOOL)dismissAnimation {
+    
+    DECLARE_WEAK_SELF(weakself);
+    
+    CATransform3D transform = CATransform3DIdentity;
+    self.layer.transform = transform;
+    
+    CGFloat ty = self.bounds.size.height;
+    if (_reverse) {
+        ty *= -1;
+        
+        UIViewController *rvc = UIApplication.sharedApplication.keyWindow.rootViewController;
+        [((RootController*)rvc) setStatusBarHidden:NO animated:YES];
+    }
+    
+    [UIView animateWithDuration:0.3f
+                          delay:0.3f
+         usingSpringWithDamping:1
+          initialSpringVelocity:0.5f
+                        options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        weakself.layer.transform = CATransform3DTranslate(CATransform3DIdentity,
+                                                          0,
+                                                          ty,
+                                                          0);
+        
+    } completion:^(BOOL finished) {
+        [weakself removeFromSuperview];
+        
+        if(weakself.isShowInView){
+            [weakself.superview removeFromSuperview];
+        }
+    }];
+    return YES;
+}
+
+//open override func showAnimation() -> Bool {
+//    self.backgroundView.alpha = 0.5
+//    UIView.animate(withDuration: 0.3) {
+//        self.backgroundView.alpha = 1
+//    }
+//
+//    let transform = CATransform3DTranslate(CATransform3DIdentity,
+//                                           0,
+//                                           self.contentView.bounds.size.height,
+//                                           0)
+//
+//    self.contentView.layer.transform = transform
+//    UIView.animate(withDuration: 0.3,
+//                   delay: 0.1,
+//                   usingSpringWithDamping: 1,
+//                   initialSpringVelocity: 0,
+//                   options: .curveEaseOut,
+//                   animations: {
+//                    self.contentView.layer.transform = CATransform3DIdentity
+//    },completion: nil)
+//    return true
+//}
+//
+//
+//@discardableResult
+//open override func dismissAnimation() -> Bool{
+//
+//    UIView.animate(withDuration: 0.3) {
+//        self.backgroundView.alpha = 0.0
+//    }
+//
+//    let transform = CATransform3DIdentity
+//    self.layer.transform = transform
+//    UIView.animate(withDuration: 0.3,
+//                   delay: 0.1,
+//                   usingSpringWithDamping: 1,
+//                   initialSpringVelocity: 0,
+//                   options: .curveEaseOut,
+//                   animations: {
+//                    self.contentView.layer.transform = CATransform3DTranslate(CATransform3DIdentity,
+//                                                                              0,
+//                                                                              self.contentView.frame.size.height,
+//                                                                              0)
+//    },completion: { finished in
+//        self.removeFromSuperview()
+//    })
+//    return true
+//}
+
+
+
+@end
+
+//
+//  Camera.m
+//  LPoint
+//
+//  Created by MP02031 on 2020/10/14.
+//  Copyright © 2020 MP02031. All rights reserved.
+//
+
+#import "Camera.h"
+
+#import <AVFoundation/AVFoundation.h>
+#import <CoreImage/CoreImage.h>
+
+
+//https://www.infragistics.com/community/blogs/b/torrey-betts/posts/scanning-barcodes-with-ios-7-objective-c
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_10_0
+#else
+API_AVAILABLE(ios(10.0))
+#endif
+@interface Camera()<AVCaptureMetadataOutputObjectsDelegate,AVCaptureVideoDataOutputSampleBufferDelegate
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_10_0
+>
+#else
+,AVCapturePhotoCaptureDelegate>
+#endif
+
+@property(nonatomic,strong)AVCaptureVideoDataOutput *videoDataOutput;
+@property(nonatomic,strong)AVCaptureVideoPreviewLayer *previewLayer;
+@property(nonatomic,strong)AVCaptureSession *session;
+@property(nonatomic,strong)AVCaptureMetadataOutput *metadataOutput;
+
+@property (nonatomic, strong) dispatch_queue_t videoDataOutputQueue;
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_10_0
+@property (nonatomic, strong) AVCaptureStillImageOutput *photoOutput;
+#else
+@property (nonatomic, strong) AVCapturePhotoOutput *photoOutput;
+#endif
+
+@end
+
+@implementation Camera
+
+- (void)dealloc {
+    _videoDataOutput = nil;
+    _previewLayer = nil;
+    _session = nil;
+    _metadataOutput = nil;
+    _photoOutput = nil;
+}
+
+- (void)initial {
+    
+    self.backgroundColor = [UIColor blackColor];
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    
+    switch (status) {
+        case AVAuthorizationStatusNotDetermined: {
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                dispatch_async( dispatch_get_main_queue(), ^{
+                    [self captureSession];
+                });
+            }];
+        }
+            break;
+        case AVAuthorizationStatusRestricted:
+            break;
+        case AVAuthorizationStatusDenied:
+            break;
+        case AVAuthorizationStatusAuthorized: {
+            [self captureSession];
+        }
+            break;
+    }
+}
+
+- (void)captureSession {
+
+    _videoOrientation = AVCaptureVideoOrientationPortrait;
+    
+    _session = [[AVCaptureSession alloc] init];
+    
+    if ([_session canSetSessionPreset:AVCaptureSessionPreset1920x1080]){
+        [_session setSessionPreset:AVCaptureSessionPreset1920x1080];
+        _size = CGSizeMake (1920.0, 1080.0);
+    } else if ([_session canSetSessionPreset:AVCaptureSessionPreset640x480]) {
+        [_session setSessionPreset:AVCaptureSessionPreset640x480];
+        _size = CGSizeMake (640.0, 480.0);
+    } else if ([_session canSetSessionPreset:AVCaptureSessionPreset352x288]) {
+        [_session setSessionPreset:AVCaptureSessionPreset352x288];
+        _size = CGSizeMake (352.0, 288.0);
+    } else {
+        NSLog(@"failed  setSessionPreset");
+        return;
+    }
+    
+    
+    
+    
+    NSArray<AVCaptureDevice *> *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    if (devices.count > 0) {
+        AVCaptureDevice *captureDevice = devices.firstObject;
+        
+       
+        UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
+        AVCaptureVideoOrientation initialVideoOrientation = AVCaptureVideoOrientationLandscapeLeft;
+        if ( statusBarOrientation != UIInterfaceOrientationUnknown ) {
+            initialVideoOrientation = (AVCaptureVideoOrientation)statusBarOrientation;
+        }
+        _previewLayer.connection.videoOrientation = initialVideoOrientation;
+        
+        _previewLayer = [[AVCaptureVideoPreviewLayer alloc]initWithSession:_session];
+        _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        
+        
+//        _previewLayer.frame = CenterInRect(self.bounds, CGRectMake(0, 0, resolution.width, resolution.height));
+        
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        
+        if (screenSize.width / _size.height > screenSize.height / _size.width) {
+            CGFloat height = _size.width * screenSize.width / _size.height;
+            CGRect frameRect = CGRectMake (0, (screenSize.height - height) / 2, screenSize.width, height);
+            [self.previewLayer setFrame:frameRect];
+        } else {
+            CGFloat width = _size.height * screenSize.height / _size.width;
+            CGRect frameRect = CGRectMake ((screenSize.width - width) / 2, 0, width, screenSize.height);
+            [self.previewLayer setFrame:frameRect];
+        }
+        
+        
+        [self.layer addSublayer:_previewLayer];
+        
+        
+//        AVCaptureDevicePosition position = captureDevice.position;
+        
+//        AVCaptureFigVideoDevice
+        NSError *error = nil;
+        AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+     
+        if ([_session canAddInput:deviceInput]) {
+            [_session addInput:deviceInput];
+        }
+        
+        _metadataOutput = [[AVCaptureMetadataOutput alloc]init];
+        if ([_session canAddOutput:_metadataOutput]) {
+            [_session addOutput:_metadataOutput];
+            [_metadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+            [_metadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode, AVMetadataObjectTypeEAN13Code]];
+//            [_metadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode,
+//                                                      AVMetadataObjectTypeUPCECode,
+//                                                      AVMetadataObjectTypeCode39Code,
+//                                                      AVMetadataObjectTypeCode39Mod43Code,
+//                                                      AVMetadataObjectTypeEAN13Code,
+//                                                      AVMetadataObjectTypeEAN8Code,
+//                                                      AVMetadataObjectTypeCode93Code,
+//                                                      AVMetadataObjectTypeCode128Code,
+//                                                      AVMetadataObjectTypePDF417Code,
+//                                                      AVMetadataObjectTypeAztecCode]];
+            
+        }
+        
+        
+        _videoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
+        
+        // we want YUV, both CoreGraphics and OpenGL work well with 'YUV'
+        NSDictionary *rgbOutputSettings = [NSDictionary dictionaryWithObject:
+                                           [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange] forKey:(id)kCVPixelBufferPixelFormatTypeKey];
+        [_videoDataOutput setVideoSettings:rgbOutputSettings];
+        [_videoDataOutput setAlwaysDiscardsLateVideoFrames:YES];
+        [[_videoDataOutput connectionWithMediaType:AVMediaTypeVideo] setEnabled:YES];
+//        self.videoDataOutputQueue = dispatch_queue_create("VideoDataOutputQueue", DISPATCH_QUEUE_SERIAL);
+
+        
+        
+        _videoDataOutputQueue = dispatch_queue_create("com.lottecard.LotteMembers.capturesession.videodata", DISPATCH_QUEUE_SERIAL);
+        dispatch_set_target_queue(_videoDataOutputQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
+        //오디오 큐 생성
+//        self.audioDataOutputQueue = dispatch_queue_create("com.lottecard.LotteMembers.capturesession.audiodata", DISPATCH_QUEUE_SERIAL);
+
+        [_videoDataOutput setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
+        
+        if ([_session canAddOutput:_videoDataOutput]) {
+            [_session addOutput:_videoDataOutput];
+        }
+        
+        #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_10_0
+        _photoOutput = [[AVCaptureStillImageOutput alloc]init];
+        NSDictionary *settings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG, AVVideoCodecKey, nil];
+        [_photoOutput setOutputSettings:settings];
+        #else
+        if (@available(iOS 10.0, *)) {
+            _photoOutput = [[AVCapturePhotoOutput alloc] init];
+        } else {
+            // Fallback on earlier versions
+        }
+        #endif
+        
+
+        if ([_session canAddOutput:_photoOutput]) {
+            [_session addOutput:_photoOutput];
+        }
+    }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _previewLayer.frame = self.bounds;
+}
+
+- (void)on {
+    if (_session) {
+        if (!_session.isRunning) {
+            [_session startRunning];
+        }
+    }
+}
+
+- (void)off {
+    if (_session) {
+        [_session stopRunning];
+    }
+}
+
+- (void)shutter {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_10_0
+        
+    AVCaptureStillImageOutput *captureStillImageOutput = (AVCaptureStillImageOutput*)_photoOutput;
+    
+    AVCaptureConnection *videoConnection = nil;
+    for (AVCaptureConnection *connection in captureStillImageOutput.connections){
+        for (AVCaptureInputPort *port in [connection inputPorts]){
+            if ([[port mediaType] isEqual:AVMediaTypeVideo]){
+                videoConnection = connection;
+                break;
+            }
+        }
+        if (videoConnection) {
+            break;
+        }
+    }
+    
+    if(videoConnection){
+        [captureStillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error){
+            
+            if (error) {
+            }else{
+                NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
+                if (imageData){
+                    UIImage *resultingImage = [UIImage imageWithData:imageData];
+                    resultingImage = [UIImage imageWithCGImage:[resultingImage CGImage] scale:[resultingImage scale] orientation:UIImageOrientationUp];
+
+                    if ([self.delegate respondsToSelector:@selector(camera:didFinishProcessingPhoto:)]){
+                        [self.delegate camera:self didFinishProcessingPhoto:resultingImage];
+                    }
+                }
+            }
+        }];
+    }
+#else
+    if (@available(iOS 10.0, *)) {
+        AVCapturePhotoSettings *settings = [AVCapturePhotoSettings photoSettings];
+        //    settings.flashMode = flashMode
+        AVCaptureConnection *connection = [_photoOutput connectionWithMediaType:AVMediaTypeVideo];
+//        connection.videoOrientation = videoOrientation
+        [_photoOutput capturePhotoWithSettings:settings delegate:self];
+    } else {
+        // Fallback on earlier versions
+    }
+#endif
+}
+
+#if 0
+- (void)setFlashMode:(CameraFlashMode)flashMode
+{
+    _flashMode = flashMode;
+    AVCaptureDevice
+    // check if flashlight available
+    Class captureDeviceClass = NSClassFromString(@"AVCaptureDevice");
+    if (captureDeviceClass != nil) {
+        
+        AVCaptureDevice *device = nil;
+
+        NSArray* allDevices = [AVCaptureDevice devices];
+        for (AVCaptureDevice* currentDevice in allDevices) {
+            if (currentDevice.position == AVCaptureDevicePositionBack) {
+                device = currentDevice;
+            }
+        }
+        
+        if ([device hasTorch] && [device hasFlash]){
+
+            [device lockForConfiguration:nil];
+            switch (_flashMode) {
+                case CameraFlashModeOff:
+                   [device setFlashMode:AVCaptureFlashModeOff];
+                    break;
+                case CameraFlashModeOn:
+                    [device setFlashMode:AVCaptureFlashModeOn];
+                    break;
+                case CameraFlashModeAuto:
+                    [device setFlashMode:AVCaptureFlashModeAuto];
+                    break;
+                default:
+                    break;
+            }
+            [device unlockForConfiguration];
+        }
+    }
+}
+#endif
+
+#pragma mark - AVCapturePhotoCaptureDelegate
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_10_0
+#else
+
+- (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(nullable NSError *)error API_AVAILABLE(ios(11.0)) {
+    
+    NSData *data = photo.fileDataRepresentation;
+    UIImage *resultingImage =  [UIImage imageWithData:data];
+
+    if ([self.delegate respondsToSelector:@selector(camera:didFinishProcessingPhoto:)]){
+        [self.delegate camera:self didFinishProcessingPhoto:resultingImage];
+    }
+}
+
+- (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhotoSampleBuffer:(nullable CMSampleBufferRef)photoSampleBuffer previewPhotoSampleBuffer:(nullable CMSampleBufferRef)previewPhotoSampleBuffer resolvedSettings:(AVCaptureResolvedPhotoSettings *)resolvedSettings bracketSettings:(nullable AVCaptureBracketedStillImageSettings *)bracketSettings error:(nullable NSError *)error  API_AVAILABLE(ios(10.0)){
+ 
+   NSData *data = [AVCapturePhotoOutput JPEGPhotoDataRepresentationForJPEGSampleBuffer:photoSampleBuffer previewPhotoSampleBuffer:previewPhotoSampleBuffer];
+   UIImage *resultingImage=  [UIImage imageWithData:data];
+    
+    if ([self.delegate respondsToSelector:@selector(camera:didFinishProcessingPhoto:)]){
+        [self.delegate camera:self didFinishProcessingPhoto:resultingImage];
+    }
+}
+#endif
+
+#pragma mark - AVCaptureMetadataOutputObjectsDelegate
+- (void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects
+       fromConnection:(AVCaptureConnection *)connection {
+    AVMetadataObject* metadataObject = metadataObjects.firstObject;
+    if ([metadataObject isMemberOfClass:[AVMetadataMachineReadableCodeObject class]]){
+        AVMetadataMachineReadableCodeObject *readableCodeObject = (AVMetadataMachineReadableCodeObject*)metadataObject;
+        if([_delegate respondsToSelector:@selector(camera:metatype:data:)]){
+            [_delegate camera:self metatype:readableCodeObject.type data:readableCodeObject.stringValue];
+        }
+    }
+}
+
+#pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
+       fromConnection:(AVCaptureConnection *)connection {
+    if([_delegate respondsToSelector:@selector(camera:captureOutput:didOutputSampleBuffer:fromConnection:)]){
+        [_delegate camera:self captureOutput:captureOutput didOutputSampleBuffer:sampleBuffer fromConnection:connection];
+    }
+}
+@end
+
+
+//
+//  PageControl.m
+//  LPoint
+//
+//  Created by MP02031 on 2020/11/03.
+//  Copyright © 2020 MP02031. All rights reserved.
+//
+
+#import "PageControl.h"
+
+
+@interface PageControl()
+@property(nonatomic,strong) NSMutableArray <ImageView*> *components;
+@property(nonatomic,strong) ScrollView *contentView;
+
+@property(nonatomic,strong) ImageView *specialIndicator;
+@property(nonatomic) NSInteger specialIndicatorIndex;
+@end
+
+@implementation PageControl
+
+- (void)dealloc {
+    _indicatorTintColor = nil;
+    _currentIndicatorTintColor = nil;
+    _components = nil;
+    _contentView = nil;
+    _specialIndicator = nil;
+}
+
+- (void)initial {
+    _currentPage = 0;
+    
+    _specialIndicatorIndex = -1;
+    
+    _indicatorTintColor = [UIColor rgbColorWithRed:216 green:216 blue:216 alpha:1];
+    _currentIndicatorTintColor = [UIColor rgbColorWithRed:0 green:155 blue:250 alpha:1];;
+    _indicatorSize = CGSizeMake(5, 5);
+    _currentIndicatorSize = CGSizeMake(5, 5);
+    _spacing = 6;
+    _contentView = [[ScrollView alloc]initWithFrame:self.bounds];
+    _contentView.showsVerticalScrollIndicator = NO;
+    _contentView.showsHorizontalScrollIndicator = NO;
+    [self addSubview:_contentView];
+    _components = [[NSMutableArray alloc]init];
+}
+
+- (void)didLoad {
+    
+}
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _contentView.frame = self.bounds;
+    [self update];
+}
+
+- (void)setNumberOfPages:(NSInteger)numberOfPages {
+    _numberOfPages = numberOfPages;
+    [self paint];
+    [self update];
+}
+
+- (void)setCurrentPage:(NSInteger)currentPage {
+    _currentPage = currentPage;
+    for(int i = 0 ; i< _components.count ; i ++ ) {
+       ImageView *indicator = _components[i];
+        indicator.highlighted = NO;
+        if (i == _currentPage) {
+            indicator.highlighted = YES;
+        }
+    }
+    
+    [self update];
+}
+
+- (void)setSpecialIndicator:(ImageView*)indicator index:(NSInteger)index {
+    self.specialIndicator = indicator;
+    _specialIndicatorIndex = index;
+    ImageView *imageView = _components[index];
+    [_components removeObject:imageView];
+    [imageView removeFromSuperview];
+    [_components insertObject:indicator atIndex:index];
+    [_contentView addSubview:indicator];
+    
+    
+    [self update];
+}
+
+
+- (void)setContentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment {
+    super.contentHorizontalAlignment = contentHorizontalAlignment;
+    [self update];
+    
+}
+- (void)update {
+    CGFloat allWidth = ((_numberOfPages - 1) * (_indicatorSize.width + _spacing)) + _currentIndicatorSize.width;
+    
+    if (_specialIndicatorIndex < 0) {
+    }else {
+        allWidth = ((_numberOfPages - 1) * (_indicatorSize.width + _spacing)) + _specialIndicator.frame.size.width;
+    }
+    
+    
+    
+         
+    CGFloat x = 0;//
+    
+    
+    switch (self.contentHorizontalAlignment) {
+        case UIControlContentHorizontalAlignmentCenter: {
+            x = (_contentView.frame.size.width - allWidth)/ 2.0;
+        }
+            break;
+        case UIControlContentHorizontalAlignmentLeft:
+        {
+        }
+            break;
+        case UIControlContentHorizontalAlignmentRight:
+            break;
+        default:
+            break;
+    }
+    
+    CGFloat start_point = x;
+    CGFloat y = (_contentView.frame.size.height - _indicatorSize.height) / 2.0;
+    
+    for(int i = 0 ; i< _components.count ; i ++ ) {
+        ImageView *indicator = _components[i];
+//        CGFloat indicatorWidth = indicator.bounds.size.width;
+//        CGFloat indicatorheight = indicator.bounds.size.height;
+        indicator.contentMode = UIViewContentModeScaleToFill;
+        
+        
+        if (i == _currentPage) {
+            indicator.highlighted = YES;
+            if (i == _specialIndicatorIndex) {
+                CGFloat cy = (_contentView.frame.size.height - indicator.bounds.size.height) / 2.0;
+                indicator.frame = CGRectMake(start_point, cy, indicator.bounds.size.width, indicator.bounds.size.height);
+            }else{
+                CGFloat cy = (_contentView.frame.size.height - _currentIndicatorSize.height) / 2.0;
+                indicator.frame = CGRectMake(start_point, cy, _currentIndicatorSize.width, _currentIndicatorSize.height);
+            }
+        }else{
+            indicator.highlighted = NO;
+            if (i == _specialIndicatorIndex) {
+                CGFloat cy = (_contentView.frame.size.height - indicator.bounds.size.height) / 2.0;
+                indicator.frame = CGRectMake(start_point, cy, indicator.bounds.size.width, indicator.bounds.size.height);
+            }else{
+                indicator.frame = CGRectMake(start_point, y, _indicatorSize.width, _indicatorSize.height);
+            }
+        }
+        
+        [indicator roundWithRadius:indicator.bounds.size.height / 2.0 width:0 color:nil];
+        start_point += indicator.bounds.size.width + _spacing;
+    }
+}
+
+- (void)paint {
+    
+    CGFloat allWidth = ((_numberOfPages) * (_indicatorSize.width + _spacing)) ;
+    
+    if (_specialIndicatorIndex < 0) {
+    }else {
+        allWidth = ((_numberOfPages - 1) * (_indicatorSize.width + _spacing)) + _specialIndicator.frame.size.width;
+    }
+//    CGFloat height = _indicatorSize.height;
+     
+    CGFloat x = 0;//
+    
+    
+    switch (self.contentHorizontalAlignment) {
+        case UIControlContentHorizontalAlignmentCenter:
+        {
+            x = (_contentView.frame.size.width - allWidth);
+        }
+            break;
+        case UIControlContentHorizontalAlignmentLeft:
+        {
+        }
+            break;
+        case UIControlContentHorizontalAlignmentRight:
+            break;
+        default:
+            break;
+    }
+    
+    CGFloat start_point = 0;
+    
+    for (UIView *view in _components){
+        [view removeFromSuperview];
+    }
+    
+    [_components removeAllObjects];
+    
+    for(int i = 0 ; i< _numberOfPages ; i ++ ) {
+        ImageView *indicator = [[ImageView alloc]init];
+        CGFloat indicatorWidth = _indicatorSize.width;
+        CGFloat indicatorheight = _indicatorSize.height;
+        indicator.contentMode = UIViewContentModeScaleToFill;
+        
+//        if (i == 0){
+//            indicator.image = [UIImage imageNamed:@"icoIndicatiorPlus"];
+//            indicator.highlightedImage = [UIImage imageNamed:@"icoIndicatiorPlusBlue"];
+//            indicatorWidth = 14;
+//            indicatorheight = 14;
+//        }else{
+            indicator.image = [UIImage imageWithColor:_indicatorTintColor size:_indicatorSize];
+            indicator.highlightedImage = [UIImage imageWithColor:_currentIndicatorTintColor size:_indicatorSize];
+//        }
+        CGFloat y = (_contentView.frame.size.height - indicatorheight) / 2.0;
+        indicator.frame = CGRectMake(start_point, y, indicatorWidth, indicatorheight);
+
+        if (i == _currentPage) {
+            indicator.highlighted = YES;
+        }
+        
+        [indicator roundWithRadius:indicatorheight / 2.0 width:0 color:nil];
+
+     
+        [_contentView addSubview:indicator];
+        [_components addObject:indicator];
+        start_point += indicatorWidth + _spacing;
+    }
+    
+    if (_specialIndicatorIndex < 0) {
+    }else {
+        
+        ImageView *imageView = _components[_specialIndicatorIndex];
+        [_components removeObject:imageView];
+        [imageView removeFromSuperview];
+        
+        
+        
+        [_components insertObject:_specialIndicator atIndex:_specialIndicatorIndex];
+        [_contentView addSubview:_specialIndicator];
+        
+        
+    }
+    
+    [self setNeedsStyle];
+    
+}
+#if 0
+CGFloat TruncatingReminder(CGFloat x, CGFloat dividingBy) {
+    return x - dividingBy * floor(x / dividingBy);
+}
+
+- (void)didScroll:(UIScrollView*)scrollView {
+        
+    CGFloat currentOffset = scrollView.contentOffset.x;
+    CGFloat index = currentOffset / scrollView.bounds.size.width;
+             
+    currentOffset = scrollView.contentOffset.x / scrollView.bounds.size.width * 10;
+    index = currentOffset / 10;
+
+        
+    CGFloat offsetX = scrollView.contentOffset.x;
+    
+    offsetX = TruncatingReminder(offsetX,scrollView.bounds.size.width);
+    
+    if(offsetX == 0){
+    }
+        
+    ImageView *currentPageIndicator = _components[_currentPage];
+
+        if (_currentPage > index) {
+            
+            ImageView *nextPageIndicator = _components[_currentPage - 1];
+
+            CGFloat width = 0.0;
+           
+            if(offsetX == 0){
+                width = 12;
+            }else{
+                width = 12 - ((offsetX / scrollView.bounds.size.width) * 8);
+            }
+            
+            
+            nextPageIndicator.frame = CGRectMake(nextPageIndicator.frame.origin.x,
+                                                 nextPageIndicator.frame.origin.y,
+                                                 width,
+                                                 nextPageIndicator.frame.size.height);
+            
+            
+            width = 0.0;
+            if(offsetX == 0){
+                width = 4;
+            }else{
+                width = 4 + ((offsetX / scrollView.bounds.size.width) * 8);
+            }
+            
+            currentPageIndicator.frame  = CGRectMake(3,
+                                                     currentPageIndicator.frame.origin.y,
+                                                     width,
+                                                     currentPageIndicator.frame.size.height);
+            
+            currentPageIndicator.backgroundColor = _indicatorTintColor;
+            nextPageIndicator.backgroundColor = _currentIndicatorTintColor;
+            
+        }else if (_currentPage < index) {
+            
+            
+            if (_currentPage + 1 >= _numberOfPages){
+                return;
+            }
+            
+            
+            CGFloat width   = 0.0;
+            if(offsetX == 0){
+                width = 4.0;
+            }else{
+                width = 12 - ((offsetX / scrollView.bounds.size.width) * 8);
+            }
+            
+            currentPageIndicator.frame  = CGRectMake(currentPageIndicator.frame.origin.x,
+                                                     currentPageIndicator.frame.origin.y,
+                                                     width,
+                                                     currentPageIndicator.frame.size.height);
+            
+            
+            
+            ImageView *nextPageIndicator = _components[_currentPage + 1];
+//            nextPageIndicatorIndex = currentPage + 1
+            width = 0.0;
+            if(offsetX == 0){
+                width = 12.0;
+            }else{
+                width = 4 + ((offsetX / scrollView.bounds.size.width) * 8);
+            }
+            
+            nextPageIndicator.frame  = CGRectMake(CGRectGetMaxX(currentPageIndicator.frame) + 6,
+                                                  nextPageIndicator.frame.origin.y,
+                                                  width,
+                                                  nextPageIndicator.frame.size.height);
+            
+            
+            
+            currentPageIndicator.backgroundColor = _indicatorTintColor;
+            nextPageIndicator.backgroundColor = _currentIndicatorTintColor;
+
+        }
+        
+    currentOffset = scrollView.contentOffset.x;
+    index = currentOffset / scrollView.bounds.size.width;
+        
+//        //페이징 스크롤이 완전히 끝나야 페이지 인덱스가 바뀜
+    
+    
+    
+    
+//        if (TruncatingReminder(currentOffset, scrollView.bounds.size.width) == 0) {
+//            _currentPage = index
+//            if (_currentPage != currentPage) {
+//                currentPage = _currentPage;
+//            }
+//            for (ImageView *indicator in _components){
+//                indicator.backgroundColor = pageIndicatorTintColor;
+//            }
+//
+//            let current = indicators[currentPage]
+//            current.backgroundColor = currentPageIndicatorTintColor
+//        }
+    }
+#endif
+@end
+
+//
+//  CollectionViewFlowLayout.m
+//  LPoint
+//
+//  Created by MP02031 on 2020/11/12.
+//  Copyright © 2020 MP02031. All rights reserved.
+//
+
+#import "CollectionViewFlowLayout.h"
+
+@implementation CollectionViewFlowLayout
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+
+    NSInteger itemsCount = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:0];
+    
+    if  ((_previousOffset > self.collectionView.contentOffset.x) && (velocity.x < 0)) {
+        _currentPage = MAX(_currentPage - 1, 0);
+    }else if ((_previousOffset < self.collectionView.contentOffset.x) && (velocity.x > 0)) {
+        _currentPage = MIN(_currentPage + 1, itemsCount - 1);
+    }
+    
+    CGFloat updatedOffset = ((self.itemSize.width + self.minimumLineSpacing) * _currentPage);
+    _previousOffset = updatedOffset;
+    
+    CGPoint updatedPoint = CGPointMake(updatedOffset, proposedContentOffset.y);
+    
+    if([self.delegate respondsToSelector:@selector(collectionViewLayout:currentPage:)]) {
+        [self.delegate collectionViewLayout:self currentPage:_currentPage];
+    }
+    
+    return updatedPoint;
+}
+
+- (void)setCurrentPage:(CGFloat)currentPage {
+    _currentPage = currentPage;
+    
+    CGFloat updatedOffset = ((self.itemSize.width + self.minimumLineSpacing) * _currentPage);
+    _previousOffset = updatedOffset;
+}
+
+@end
+//
+//  ShadowView.m
+//  LPoint
+//
+//  Created by MP02031 on 2020/12/04.
+//  Copyright © 2020 MP02031. All rights reserved.
+//
+
+#import "ShadowView.h"
+
+@implementation ShadowView
+
+- (void)dealloc {
+    NSArray *keys = @[
+        @"color",
+        @"offset",
+        @"opacity",
+        @"radius"
+    ];
+
+    for (NSString *key in keys) {
+        [self removeObserver:self forKeyPath:key];
+    }
+}
+- (void)initial {
+    
+    self.backgroundColor = [UIColor clearColor];
+    _color = [UIColor rgbColorWithRed:0 green:0 blue:0 alpha:0.15f];
+    _offset = CGSizeMake(0, 10);
+    _opacity = 1.f;
+    _radius = 10;
+    
+    
+    
+    NSArray *keys = @[
+        @"color",
+        @"offset",
+        @"opacity",
+        @"radius"
+    ];
+    
+    for (NSString *key in keys) {
+        [self addObserver:self forKeyPath:key options:NSKeyValueObservingOptionNew context:nil];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if ([keyPath isEqualToString:@"color"]||
+        [keyPath isEqualToString:@"offset"]||
+        [keyPath isEqualToString:@"opacity"]||
+        [keyPath isEqualToString:@"radius"]) {
+        [self shadowWithColor:_color offset:_offset opacity:_opacity radius:_radius];
+        
+    }else{
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    [self shadowWithColor:_color offset:_offset opacity:_opacity radius:_radius];
+}
+@end
+
+//
+//  CircularProgressView.m
+//  LPoint
+//
+//  Created by MP02006 on 2021/01/04.
+//  Copyright © 2021 MP02031. All rights reserved.
+//
+
+#import "CircularProgressView.h"
+
+
+@interface CircularProgressView()
+//@property(nonatomic,strong) CAShapeLayer *valueMaskLayer;
+@property(nonatomic,strong) CAShapeLayer *valueLayer;
+@property(nonatomic,strong) CAShapeLayer *bgLayer;
+@property(nonatomic,strong) CAShapeLayer *circleLayer;
+
+@property(nonatomic,strong) UIBezierPath *valuePath;
+@property(nonatomic,strong) UIBezierPath *bgPath;
+
+ 
+@end
+
+
+
+@implementation CircularProgressView
+- (void)dealloc {
+     
+}
+
+- (void)initial {
+    _maxValue = 30;
+    self.transform = CGAffineTransformRotate(CGAffineTransformIdentity, [self degreesToRadians:270]);
+    
+    
+    _bgLayer = [[CAShapeLayer alloc]init];
+    [self.layer addSublayer:_bgLayer];
+    
+    
+    _valueLayer = [[CAShapeLayer alloc]init];
+
+    _valueLayer.strokeColor = [UIColor rgbColorWithRed:0 green:155 blue:250 alpha:1].CGColor;
+    _valueLayer.fillColor = [UIColor clearColor].CGColor;
+    _valueLayer.lineCap = kCALineCapRound;
+    
+    [self.layer addSublayer:_valueLayer];
+    
+    _bgLayer.strokeColor = [UIColor rgbColorWithRed:193 green:231 blue:255 alpha:1].CGColor;
+    _bgLayer.fillColor = [UIColor clearColor].CGColor;
+    
+    _valuePath = [[UIBezierPath alloc]init];
+    _bgPath = [[UIBezierPath alloc]init];
+    
+    
+    
+//        [self.layer setCornerRadius:60];
+//        [self.layer setBorderWidth:_borderWidth];
+//        [self.layer setMasksToBounds:YES];
+//        if (_borderColor) {
+//            [self.layer setBorderColor: _borderColor.CGColor];
+//        }
+//    }
+}
+
+- (void)didLoad {
+    _valueLayer.frame = self.bounds;
+}
+
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+}
+
+- (void)layoutSubviews {
+     _valueLayer.frame = self.bounds;
+//
+    _bgLayer.frame =   self.bounds;
+    [_valuePath removeAllPoints];
+
+    CGFloat lineWidth  = 10;
+    CGFloat radius = (MIN(self.bounds.size.height, self.bounds.size.width) /2) - (lineWidth / 2);
+
+    CGFloat degrees = (360.f / _maxValue) * _maxValue;
+    CGFloat dendAngle = [self degreesToRadians:degrees];
+     
+    
+    [_bgPath addArcWithCenter:CGPointMake(60, 60)
+                       radius:radius
+                   startAngle:[self startAngle]
+                     endAngle:dendAngle
+                    clockwise:YES];
+    [_bgPath closePath];
+    
+    _bgLayer.path = _bgPath.CGPath;
+    _bgLayer.lineWidth = 5;
+    
+    
+    
+    [_valuePath addArcWithCenter:CGPointMake(60, 60)
+                          radius:radius
+                      startAngle:[self startAngle]
+                        endAngle:[self endAngle]
+                       clockwise:YES];
+
+    _valueLayer.path = _valuePath.CGPath;
+    _valueLayer.lineWidth = lineWidth;
+    
+    
+
+    [_valuePath closePath];
+    
+    
+}
+- (void)setValue:(CGFloat)value {
+    _value = value;
+    [self setNeedsLayout];
+}
+
+- (CGFloat)degreesToRadians:(CGFloat)degrees {
+    return degrees * (M_PI/180);
+}
+
+- (CGFloat)startAngle{
+    return [self degreesToRadians:0];
+}
+
+- (CGFloat)endAngle{
+    CGFloat degrees = (360.f / _maxValue) * _value;
+    return [self degreesToRadians:degrees];
+}
+
+
+@end
+//
+//  RootController.m
+//  ObjcToolKit
+//
+//  Created by yihyeoncheol on 2020/08/29.
+//  Copyright © 2020 yihyeoncheol. All rights reserved.
+//
+
+#import "RootController.h"
+#import "NavigationController.h"
+#import "AlertLayerView.h"
+#import "SecurityTextField.h"
+
+#import "ComponentLayerView.h"
+NSString *const RootControllerTouchEventNotification = @"RootControllerTouchEventNotification";
+@interface RootController () <UIGestureRecognizerDelegate> {
+    NavigationController *_navigationController;
+}
+    
+@property(nonatomic,strong)UITouch *tapGestureShouldReceiveTouch;
+@property(nonatomic)BOOL statusBarHidden;
+
+@end
+
+@implementation RootController
+
+- (void)dealloc {
+    _statusView = nil;
+//    _modal = nil;
+    _alertLayerView = nil;
+    _topLayerView = nil;
+    _componentLayerView = nil;
+    _linkData = nil;
+    _push = nil;
+    _navigationController = nil;
+    _tapGestureShouldReceiveTouch = nil;
+    _cookie = nil;
+//    _session = nil;
+    _encryptCookie = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)loadView {
+    [super loadView];
+
+    _cookie = [[Cookie alloc]init];
+//    _session = [[Session alloc]init];
+    _encryptCookie = [[EncryptCookie alloc]init];
+    
+}
+
+- (void)viewDidLoad {
+    
+    
+    [super viewDidLoad];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
+    UIViewController *fakeController = [sb instantiateInitialViewController];
+    
+    NavigationController *navigationController = [[NavigationController alloc]initWithRootViewController:fakeController];
+    navigationController.view.frame = UIEdgeInsetsInsetRect(self.view.bounds, UIEdgeInsetsMake(0, 0, 0, 0));
+//        navigationController.view.frame = UIEdgeInsetsInsetRect(self.view.bounds, UIEdgeInsetsZero);
+    [self.view addSubview:navigationController.view];
+    [self addChildViewController:navigationController];
+    [navigationController didMoveToParentViewController:self];
+    _navigationController = navigationController;
+    
+
+    
+    _statusView = [[UIView alloc]init];
+    _statusView.backgroundColor = [UIColor whiteColor];
+    _statusView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.safeAreaInsets.top);
+    [self.view addSubview:_statusView];
+    
+    
+    _componentLayerView = [[ComponentLayerView alloc] init];
+    [self.view addSubview:_componentLayerView];
+    
+    _alertLayerView = [[AlertLayerView alloc] init];
+    [self.view addSubview:_alertLayerView];
+    
+    _topLayerView = [[LayerView alloc] init];
+    [self.view addSubview:_topLayerView];
+    
+    
+    _statusBarHidden = NO;
+    UITapGestureRecognizer *singleTapRecognizer = [UITapGestureRecognizer new];
+    [singleTapRecognizer setDelegate:self];
+    singleTapRecognizer.numberOfTapsRequired = 1;
+    singleTapRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:singleTapRecognizer];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didBecomeActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(willResignActive:)
+//                                                 name:UIApplicationWillResignActiveNotification
+//                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(willEnterForeground:)
+                                                 name: UIApplicationWillEnterForegroundNotification
+                                               object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(didEnterBackground:)
+                                                 name: UIApplicationDidEnterBackgroundNotification
+                                               object: nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(didEnterTerminate:)
+                                                 name: UIApplicationWillTerminateNotification
+                                               object: nil];
+    
+    //applicationWillTerminate
+    
+    
+    
+}
+
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    _statusView.frame                   = CGRectMake(0, 0, self.view.bounds.size.width, self.safeAreaInsets.top);
+    _navigationController.view.frame    = UIEdgeInsetsInsetRect(self.view.bounds, UIEdgeInsetsMake(0, 0, 0, 0));
+    _alertLayerView.frame               = self.view.bounds;
+    _topLayerView.frame                 = self.view.bounds;
+    _componentLayerView.frame           = self.view.bounds;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    UIViewController *vc = [self navigation].viewControllers.firstObject;
+    if (vc) {
+        [vc motionEnded:motion withEvent:event];
+    }
+}
+
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+    return UIStatusBarAnimationFade;
+}
+
+- (void)setStatusBarHidden:(BOOL)hidden animated:(BOOL)animated {
+    _statusBarHidden = hidden;
+#if 0
+    if (animated){
+           [UIView beginAnimations:@"statusBarHiddenAnimation" context:nil];
+    }
+    [self setNeedsStatusBarAppearanceUpdate];
+               
+    if (animated) {
+        [UIView commitAnimations];
+       }
+#endif
+    [UIView animateWithDuration:.3f animations:^{
+        [self setNeedsStatusBarAppearanceUpdate];
+    }];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return _statusBarHidden;
+}
+
+- (NavigationController*)navigation {
+    return _navigationController;
+}
+
+- (void)setInitalViewController:(ViewController*) viewController {
+    [_navigationController setViewController:viewController message:nil];
+}
+
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if (gestureRecognizer.state == UIGestureRecognizerStatePossible) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:RootControllerTouchEventNotification object:touch];
+    }
+    return YES;
+}
+
+#pragma mark - UIApplicationNotification
+
+-(void) didEnterTerminate:(NSNotification *)notification {
+    [UIApplication.sharedApplication updateAllMissionNotification];
+}
+- (void)willEnterForeground:(NSNotification *)notification {
+    
+}
+
+- (void)didBecomeActive:(NSNotification *)notification {
+    if (_screenSaver) {
+        if(self.screenSaver.superview){
+
+            [UIView animateWithDuration:.3f animations:^{
+                self.screenSaver.alpha = 0;
+            } completion:^(BOOL finished) {
+                [self.screenSaver removeFromSuperview];
+//                self.screenSaver.alpha = 1;
+            }];
+        }
+    }
+}
+
+
+- (void)didEnterBackground:(NSNotification *)notification {
+    if (_screenSaver) {
+        _screenSaver.alpha = 1;
+        _screenSaver.frame = self.view.bounds;
+        [self.view addSubview:_screenSaver];
+        
+        [self.view endEditing:YES];
+        [UIApplication.sharedApplication updateAllMissionNotification];
+
+//        [UIView animateWithDuration:.3f animations:^{
+//            self.screenSaver.alpha = 1;
+//        } completion:^(BOOL finished) {
+//        }];
+    }
+}
+
+- (void)willResignActive:(NSNotification *)notification {
+    
+    if (_screenSaver) {
+        _screenSaver.alpha = 0;
+        _screenSaver.frame = self.view.bounds;
+        [self.view addSubview:_screenSaver];
+        
+        [self.view endEditing:YES];
+
+        [UIView animateWithDuration:.3f animations:^{
+            self.screenSaver.alpha = 1;
+        } completion:^(BOOL finished) {
+        }];
+    }
+}
+@end
+
+//
+//  TabBarViewController.m
+//  ObjcToolKit
+//
+//  Created by MP02031 on 2020/09/09.
+//  Copyright © 2020 yihyeoncheol. All rights reserved.
+//
+
+#import "TabBarViewController.h"
+
+#import "UIViewController+Extension.h"
+
+
+@interface TabBarViewController ()
+
+@property(nullable, strong, nonatomic)  UIView *contentView;
+
+//@property(nonatomic) CGRect contentRect;
+@end
+
+@implementation TabBarViewController
+
+- (void)dealloc {
+    if(self.isViewLoaded){
+        NSArray *keys = @[
+            @"viewControllers"
+        ];
+        for (NSString *key in keys) {
+            [self removeObserver:self forKeyPath:key];
+        }
+    }
+    
+    _tabBar = nil;
+}
+
+- (void)loadView  {
+    [super loadView];
+    _contentEdgeInsets = UIEdgeInsetsZero;
+    
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    _tabBarHeight = 44.0f;
+    _tabBar = [self createTabBar];
+    [self.view addSubview:_tabBar];
+    UIEdgeInsets safeAreaInsets = [UIApplication sharedApplication].rootController.safeAreaInsets;
+    _tabBar.contentEdgeInsets = UIEdgeInsetsMake(0, 0, safeAreaInsets.bottom, 0);
+    [_tabBar addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    NSArray *keys = @[
+        @"viewControllers"
+    ];
+
+    for (NSString *key in keys) {
+        [self addObserver:self forKeyPath:key options:NSKeyValueObservingOptionNew context:nil];
+    }
+    _tabBar.useAccessoryView = YES;
+}
+
+- (void)viewWillLayoutSubviews {
+    
+    [super viewWillLayoutSubviews];
+ 
+    CGRect slice;
+    CGRect remainder;
+    
+    UIEdgeInsets safeAreaInsets = [UIApplication sharedApplication].rootController.safeAreaInsets;
+    CGRectDivide(self.view.bounds, &slice, &remainder, _tabBarHeight + safeAreaInsets.bottom, CGRectMaxYEdge);
+        
+    _tabBar.frame = slice;
+    
+    if (_selectedViewController){
+        CGRect viewBounds = UIEdgeInsetsInsetRect(self.view.bounds, UIEdgeInsetsMake(0, 0, safeAreaInsets.bottom + _tabBarHeight, 0));
+        _selectedViewController.view.frame = UIEdgeInsetsInsetRect(viewBounds, _contentEdgeInsets);
+    }
+}
+- (TabBar *)createTabBar{
+    return [[TabBar alloc] initWithFrame:CGRectZero];
+}
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
+    self.tabBar.selectedIndex = selectedIndex;
+    _selectedIndex = selectedIndex;
+}
+
+- (void)enter:(Message *)message {
+    if (_selectedViewController) {
+        [_selectedViewController enter:message];
+    }
+}
+- (void)refresh {
+    if (_selectedViewController) {
+        [_selectedViewController refresh];
+    }
+}
+- (void)update:(Message *)message {
+    if (_selectedViewController) {
+        [_selectedViewController update:message];
+    }
+}
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object  change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"viewControllers"]) {
+        [self print];
+    }
+}
+
+- (ViewController*)loadViewControllerWithStoryboard:(UIStoryboard*)storyboard identifier:(NSString*)identifier {
+    return [storyboard instantiateViewControllerWithIdentifier:identifier];
+}
+
+- (void)valueChanged:(TabBar*)tabBar {
+    if (_selectedIndex == tabBar.selectedIndex){
+    }else{
+        _selectedIndex = tabBar.selectedIndex;
+        [self update];
+    }
+}
+
+- (void)print {
+    NSMutableArray *items = [NSMutableArray array];
+    
+    for (ViewController *vc in _viewControllers) {
+        [items addObject:[vc item]];
+    }
+    
+    _tabBar.items = items;
+    
+    [self update];
+}
+
+- (void)update {
+    
+    if (_selectedViewController) {
+        [_selectedViewController pause];
+        [_selectedViewController willMoveToParentViewController:nil];
+        [_selectedViewController removeFromParentViewController];
+        [_selectedViewController.view removeFromSuperview];
+        
+        _selectedViewController = nil;
+    }
+    
+    if (_viewControllers.count > 0) {
+        ViewController *vc = _viewControllers[_selectedIndex];
+        
+        CGRect slice;
+        CGRect remainder;
+        UIEdgeInsets safeAreaInsets = [UIApplication sharedApplication].rootController.safeAreaInsets;
+        CGRect viewBounds = UIEdgeInsetsInsetRect(self.view.bounds, UIEdgeInsetsMake(0, 0, safeAreaInsets.bottom + _tabBarHeight, 0));
+        
+        CGRectDivide(viewBounds, &slice, &remainder, 0, CGRectMaxYEdge);
+        vc.view.frame = UIEdgeInsetsInsetRect(remainder, _contentEdgeInsets);
+        
+//        [self.view addSubview:vc.view];
+        [self.view insertSubview:vc.view atIndex:0];
+        
+        [self addChildViewController:vc];
+        [vc didMoveToParentViewController:self];
+        [vc enter:nil];
+        self.selectedViewController = vc;
+        
+        
+    }
+}
+
+@end
+
+
+
+//
+//  ChildViewController.h
+//  LPoint
+//
+//  Created by MP02031 on 2020/10/12.
+//  Copyright © 2020 MP02031. All rights reserved.
+//
+
+#import "ViewController.h"
+
+NS_ASSUME_NONNULL_BEGIN
+@protocol ChildMessageDelegate;
+
+@interface ChildViewController : ViewController
+
+@property(nonatomic,weak) id<ChildMessageDelegate> delegate;
+
+- (void)setData:(id)data;
+@end
+
+@protocol ChildMessageDelegate <NSObject>
+- (void)child:(ChildViewController*)child message:(Message*)message;
+@end
+
+
+NS_ASSUME_NONNULL_END
+
+
+//
+//  Model.m
+//  ObjcToolKit
+//
+//  Created by MP02031 on 2020/09/04.
+//  Copyright © 2020 yihyeoncheol. All rights reserved.
+//
+
+#import "Model.h"
+#import <objc/runtime.h>
+@implementation Model
+
++ (id)parser:(id)data{
+    return nil;
+}
+
+- (instancetype)initWithData:(id)data {
+    self = [super init];
+    if (self) {
+        NSMutableArray *propertyKeys = [NSMutableArray array];
+        Class currentClass = self.class;
+
+        while ([currentClass superclass]) { // avoid printing NSObject's attributes
+            unsigned int outCount, i;
+            objc_property_t *properties = class_copyPropertyList(currentClass, &outCount);
+            for (i = 0; i < outCount; i++) {
+                objc_property_t property = properties[i];
+                const char *propName = property_getName(property);
+                if (propName) {
+                    NSString *propertyName = [NSString stringWithUTF8String:propName];
+                    [propertyKeys addObject:propertyName];
+                }
+            }
+            free(properties);
+            currentClass = [currentClass superclass];
+        }
+        
+        NSDictionary *jsonData = (NSDictionary*)data;
+        for (NSString *key in propertyKeys) {
+            if  ([[jsonData allKeys] containsObject:key]) {
+                
+                id value = [jsonData valueForKey:key];
+                if([value isKindOfClass:[NSArray class]]||
+                   [value isKindOfClass:[NSDictionary class]]){
+                    
+                }else{
+                    [self setValue:value forKey:key];
+                }
+            }
+        }
+    }
+    return self;
+}
+@end
+
+
+
+#pragma mark - LPayCardCollectionViewLayout
+@interface LPayCardCollectionViewLayout ()
+
+
+@end
+
+@implementation LPayCardCollectionViewLayout
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        self.previousOffset = 0;
+        self.currentPage = 0;
+        self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        self.minimumLineSpacing = 0;
+        self.minimumInteritemSpacing = 0;
+        self.itemSize = CGSizeMake(220,
+                                   332);
+//        self.collectionView.bounds.size
+    }
+    return self;
+}
+
+- (NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
+
+    NSMutableArray *attributes = [@[] mutableCopy];
+    NSArray *layoutAttributes = [super layoutAttributesForElementsInRect:rect];
+    
+    [attributes addObjectsFromArray:layoutAttributes];
+    
+    
+    CGRect visibleRect;
+    visibleRect.origin = self.collectionView.contentOffset;
+    visibleRect.size = self.collectionView.bounds.size;
+    
+    CGFloat width = 220 ;
+    CGFloat height = 332;
+
+
+    
+    for (UICollectionViewLayoutAttributes *attribute in attributes) {
+        CGRect frame = attribute.frame;
+        frame.origin.y = 0;
+        attribute.frame = frame;
+        
+        if (CGRectIntersectsRect(attribute.frame, rect)) {
+//            CGFloat distance = attribute.frame.origin.x - CGRectGetMinX(visibleRect) ;
+//             CGFloat distance = CGRectGetMidX(visibleRect) - attribute.center.x;
+            
+            CGFloat distance = CGRectGetMidX(visibleRect) - attribute.center.x;
+//            CGFloat scale = distance / width;
+            
+            if (ABS(distance) < width) {
+                CGFloat scale = 1 - (ABS(distance) / width);
+                CGFloat zoom = 0.68f + ((1.f - 0.68f) * ABS(scale));
+                zoom = MIN(1, MAX(zoom, 0.68f));
+                attribute.alpha = zoom;
+                
+                CGFloat h = 332 * zoom;
+
+                CGFloat y = height - h;
+                                
+                y *= -1;
+//                attribute.transform = CGAffineTransformTranslate(CGAffineTransformMakeScale(zoom, zoom), 0, y/2);
+                attribute.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0, y/2), zoom, zoom);
+            }else{
+                CGFloat h = 332 * 0.68f;
+
+                CGFloat y = height - h;
+//                y *= 0.7484;
+                 y *= -1;
+                attribute.alpha = 0.68f;
+                attribute.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0, y/2), 0.68f, 0.68f);
+//                attribute.transform = CGAffineTransformTranslate(CGAffineTransformMakeScale(0.68f, 0.68f), 0, y/2);
+            }
+        }
+    }
+    return attributes;
+}
+
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+    return YES;
+}
+
+
+//
+//  Button+Style.m
+//  LPoint
+//
+//  Created by MP02031 on 2020/10/07.
+//  Copyright © 2020 MP02031. All rights reserved.
+//
+
+#import "Button+Style.h"
+//#import "UIImage+Extension.h"
+@implementation Button (Style)
+
+
+- (void)notosanscjkkr {
+
+//    for (id familyName in [UIFont familyNames]) {
+//        NSLog(@"%@", familyName);
+//        for (id fontName in [UIFont fontNamesForFamilyName:familyName]) {
+//            NSLog(@"  %@", fontName);
+//        }
+//    }
+    
+    NSString *fontName = self.titleLabel.font.fontName;
+    UIFontDescriptor *fontDescriptor = [self.titleLabel.font fontDescriptor];
+
+    NSString *name = nil;
+    
+    if ([fontName hasSuffix:@"Medium"]){
+        name = @"NotoSans-Medium";
+    }else if ([fontName hasSuffix:@"Regular"]){
+        name = @"NotoSans-Regular";
+    }else if ([fontName hasSuffix:@"Light"]){
+        name = @"NotoSans-Light";
+    }else if ([fontName hasSuffix:@"Thin"]){
+        name = @"NotoSans-Thin";
+    }else if ([fontName hasSuffix:@"Bold"]){
+        name = @"NotoSans-Bold";
+    }else{
+        name = @"NotoSans-Regular";
+    }
+    
+    float size = [[fontDescriptor objectForKey:UIFontDescriptorSizeAttribute] floatValue];
+    UIFont *font = [UIFont fontWithName:name size:size];
+    self.titleFont = font;
+}
+
+- (void)nunitosans {
+    
+    NSString *fontName = self.titleLabel.font.fontName;
+    UIFontDescriptor *fontDescriptor = [self.titleLabel.font fontDescriptor];
+
+    NSString *name = nil;
+    
+    if ([fontName hasSuffix:@"Regular"]){
+        name = @"NunitoSans-Regular";
+    }else if ([fontName hasSuffix:@"Light"]){
+        name = @"NunitoSans-Light";
+    }else if ([fontName hasSuffix:@"Bold"]){
+        name = @"NunitoSans-Bold";
+    }else if ([ fontName hasSuffix:@"SemiBold"]){
+        name = @"NunitoSans-SemiBold";
+    } else{
+        name = @"NunitoSans-Regular";
+    }
+    
+    float size = [[fontDescriptor objectForKey:UIFontDescriptorSizeAttribute] floatValue];
+    UIFont *font = [UIFont fontWithName:name size:size];
+    self.titleFont = font;
+}
+
+- (void)gotham {
+         
+     NSString *fontName = self.titleLabel.font.fontName;
+     UIFontDescriptor *fontDescriptor = [self.titleLabel.font fontDescriptor];
+
+     NSString *name = nil;
+
+    
+    if ([fontName hasSuffix:@"Medium"]){
+        name = @"Gotham-Medium";
+    }else if ([fontName hasSuffix:@"Regular"]){
+        name = @"Gotham-Book";
+    }else if ([fontName hasSuffix:@"Bold"]){
+        name = @"Gotham-Bold";
+    }else {
+        name = @"Gotham-Book";
+    }
+    
+    float size = [[fontDescriptor objectForKey:UIFontDescriptorSizeAttribute] floatValue];
+    UIFont *font = [UIFont fontWithName:name size:size];
+    self.titleFont = font;
+}
 
 
 
 
+- (void)socialloginButton {
+    [self sizeToFit];
+
+
+       CGSize imageSize = self.imageView.frame.size;
+       CGSize titleSize = self.titleLabel.frame.size;
+       CGFloat totalHeight = (imageSize.height + titleSize.height + 5.0f);
+       
+       self.imageEdgeInsets = UIEdgeInsetsMake(- (totalHeight - imageSize.height) + 20,
+                                               0.0f,
+                                               0.0f,
+                                               - titleSize.width);
+       
+       self.titleEdgeInsets = UIEdgeInsetsMake(20.0f,
+                                               - imageSize.width,
+                                               - (totalHeight - titleSize.height),
+                                               0.0f);
+       
+       self.contentEdgeInsets = UIEdgeInsetsMake(0.0f,
+                                                 0.0f,
+                                                 titleSize.height,
+                                                 0.0f);
+}
+
+- (void)socialLoginButton {
+    [self sizeToFit];
+
+
+    CGSize imageSize = self.imageView.frame.size;
+     [self.titleLabel sizeToFit];
+       CGSize titleSize = self.titleLabel.frame.size;
+       CGFloat totalHeight = (imageSize.height + titleSize.height + 5.0f);
+       
+       self.imageEdgeInsets = UIEdgeInsetsMake(- (totalHeight - imageSize.height) + 20,
+                                               0.0f,
+                                               0.0f,
+                                               - titleSize.width);
+       
+       self.titleEdgeInsets = UIEdgeInsetsMake(20.0f,
+                                               - imageSize.width,
+                                               - (totalHeight - titleSize.height),
+                                               0.0f);
+       
+       self.contentEdgeInsets = UIEdgeInsetsMake(0.0f,
+                                                 0.0f,
+                                                 titleSize.height,
+                                                 0.0f);
+}
+
+- (void)menuIconTopButton {
+    [self sizeToFit];
+
+
+    CGSize imageSize = self.imageView.frame.size;
+    [self.titleLabel sizeToFit];
+    
+    CGSize titleSize = self.titleLabel.frame.size;
+    CGFloat totalHeight = (imageSize.height + titleSize.height);
+   
+    self.imageEdgeInsets = UIEdgeInsetsMake(- (totalHeight - imageSize.height)+13,
+                                            0.0f,
+                                            0.0f,
+                                            - titleSize.width);
+   
+    self.titleEdgeInsets = UIEdgeInsetsMake(10,
+                                            - imageSize.width,
+                                            - (totalHeight - titleSize.height),
+                                            0.0f);
+   
+    self.contentEdgeInsets = UIEdgeInsetsMake(0.0f,
+                                              0.0f,
+                                              titleSize.height,
+                                              0.0f);
+}
+
+
+- (void)vendingMachineBuyButton {
+    [self sizeToFit];
+
+
+    self.cornerRadius = 15;
+    CGSize imageSize = self.imageView.frame.size;
+    [self.titleLabel sizeToFit];
+    CGSize titleSize = self.titleLabel.frame.size;
+    CGFloat totalHeight = (imageSize.height + titleSize.height)+15;
+   
+    self.imageEdgeInsets = UIEdgeInsetsMake(- (totalHeight - imageSize.height),
+                                            0.0f,
+                                            0.0f,
+                                            - titleSize.width);
+   
+    self.titleEdgeInsets = UIEdgeInsetsMake(15,
+                                            - imageSize.width,
+                                            - (totalHeight - titleSize.height),
+                                            0.0f);
+   
+    self.contentEdgeInsets = UIEdgeInsetsMake(0.0f,
+                                              0.0f,
+                                              titleSize.height,
+                                              0.0f);
+}
+
+
+
+- (void)actionSheetCloseButton {
+    [self setImage:[UIImage imageNamed:@"icoClose"]];
+    self.imageEdgeInsets = UIEdgeInsetsMake(16,
+                                            0.0f,
+                                            0.0f,
+                                            0.0f);
+}
+
+- (void)actionSheetReverseCloseButton {
+    [self setImage:[UIImage imageNamed:@"icoClose"]];
+    self.imageEdgeInsets = UIEdgeInsetsMake(0,
+                                            0.0f,
+                                            16,
+                                            0.0f);
+}
+
+
+- (void)lpayCardRegButton {
+
+    CGSize imageSize = self.imageView.frame.size;
+    CGSize titleSize = self.titleLabel.frame.size;
+    CGFloat totalHeight = (imageSize.height + titleSize.height + 5.0f);
+    
+    self.imageEdgeInsets = UIEdgeInsetsMake(- (totalHeight - imageSize.height) + 20,
+                                            0.0f,
+                                            0.0f,
+                                            - titleSize.width);
+    
+    self.titleEdgeInsets = UIEdgeInsetsMake(20.0f,
+                                            - imageSize.width,
+                                            - (totalHeight - titleSize.height),
+                                            0.0f);
+    
+    self.contentEdgeInsets = UIEdgeInsetsMake(0.0f,
+                                              0.0f,
+                                              titleSize.height,
+                                              0.0f);
+    
+    
+//    self roundingCorners:<#(UIRectCorner)#> radius:<#(CGSize)#>
+}
+
+
+
+- (void)blueRoundButton {
+//    }else if(state == 5){
+//        content = [[_content objectForKey:type] objectForKey:[NSNumber numberWithInt:UIControlStateSelected]];
+
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor rgbColorWithRed:0 green:155 blue:250 alpha:1]] forState:UIControlStateNormal];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor rgbColorWithRed:3 green:132 blue:236 alpha:1]] forState:UIControlStateHighlighted];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor rgbColorWithRed:216 green:216 blue:216 alpha:1]] forState:UIControlStateDisabled];
+    
+    
+    [self setTitleColor:[UIColor rgbColorWithRed:255 green:255 blue:255 alpha:1] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor rgbColorWithRed:255 green:255 blue:255 alpha:1] forState:UIControlStateHighlighted];
+    [self setTitleColor:[UIColor rgbColorWithRed:255 green:255 blue:255 alpha:1] forState:UIControlStateDisabled];
+        
+    self.titleFont = [UIFont systemFontOfSize:16];
+    self.fontStyle = @"NotoSansCJKkr";
+                
+    [self roundWithRadius:15 width:0 color:nil];
+    
+}
+
+- (void)whiteRoundButton {
+//    }else if(state == 5){
+//        content = [[_content objectForKey:type] objectForKey:[NSNumber numberWithInt:UIControlStateSelected]];
+
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor rgbColorWithRed:255 green:255 blue:255 alpha:1]] forState:UIControlStateNormal];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor rgbColorWithRed:249 green:249 blue:249 alpha:1]] forState:UIControlStateHighlighted];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor rgbColorWithRed:216 green:216 blue:216 alpha:0.4f]] forState:UIControlStateDisabled];
+    
+    
+    [self setTitleColor:[UIColor rgbColorWithRed:85 green:85 blue:85 alpha:1] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor rgbColorWithRed:85 green:85 blue:85 alpha:1] forState:UIControlStateHighlighted];
+    [self setTitleColor:[UIColor rgbColorWithRed:85 green:85 blue:85 alpha:0.2f] forState:UIControlStateDisabled];
+    
+    
+    [self roundWithRadius:15 width:1 color:[UIColor rgbColorWithRed:218 green:218 blue:218 alpha:1]];
+    self.titleFont = [UIFont systemFontOfSize:16];
+    self.fontStyle = @"NotoSansCJKkr";
+    
+    
+    [self setLayoutChanged:^(id  _Nonnull self) {
+    }];
+    
+    
+    [self addTarget:self action:@selector(whiteRoundButtonTouchDown:) forControlEvents:UIControlEventTouchDown];
+    [self addTarget:self action:@selector(whiteRoundButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)whiteRoundButtonTouchDown:(Button*)button {
+     [self roundWithRadius:15 width:0 color:nil];
+}
+
+- (void)whiteRoundButtonTouchUpInside:(Button*)button {
+     [self roundWithRadius:15 width:1 color:[UIColor rgbColorWithRed:218 green:218 blue:218 alpha:1]];
+}
+
+- (void)blueLineButton {
+//    }else if(state == 5){
+//        content = [[_content objectForKey:type] objectForKey:[NSNumber numberWithInt:UIControlStateSelected]];
+
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor rgbColorWithRed:255 green:255 blue:255 alpha:1]] forState:UIControlStateNormal];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor rgbColorWithRed:240 green:249 blue:255 alpha:1]] forState:UIControlStateHighlighted];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor rgbColorWithRed:255 green:255 blue:255 alpha:1]] forState:UIControlStateDisabled];
+    
+    [self setTitleColor:[UIColor rgbColorWithRed:0 green:155 blue:250 alpha:1] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor rgbColorWithRed:0 green:155 blue:250 alpha:1] forState:UIControlStateHighlighted];
+    [self setTitleColor:[UIColor rgbColorWithRed:85 green:85 blue:85 alpha:1] forState:UIControlStateDisabled];
+    
+//    [self roundWithRadius:15 width:0 color:nil];
+    
+
+    [self setLayoutChanged:^(id  _Nonnull self) {
+    }];
+    
+}
 
 
 
 
+@end
+//
+//  MenuCoreData.m
+//  LPoint
+//
+//  Created by MP02031 on 2020/12/02.
+//  Copyright © 2020 MP02031. All rights reserved.
+//
 
+#import "MenuCoreData.h"
+
+@implementation MenuCoreData
+static MenuCoreData *instance = nil;
+
++ (MenuCoreData *)sharedObj {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        [self initializeCoreData];
+    }
+    return self;
+}
+
+#pragma mark Core Data stack
+- (void)initializeCoreData{
+
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Menu" withExtension:@"momd"];
+                    
+    NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+     
+    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
+
+
+    NSManagedObjectContext* moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+
+    [moc setPersistentStoreCoordinator:psc];
+
+     self.context = moc;
+
+     NSFileManager *fileManager = [NSFileManager defaultManager];
+
+     NSURL *documentURL = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+
+     NSURL *storeURL = [documentURL URLByAppendingPathComponent:@"Menu.sqlite"];
+    
+     NSError *error = nil;
+
+         
+     // Mission.xcdatamodeld에 Entity 추가 후
+     // 기존 버전 Model에 신규 버전 Model을 Migrate 하기 위한 옵션 추가
+     NSNumber *optionYes = [NSNumber numberWithBool:YES];
+     NSDictionary *options = [NSDictionary dictionaryWithObjects:@[optionYes] forKeys:@[NSMigratePersistentStoresAutomaticallyOption]];
+     
+     // Store 추가
+     [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
+
+}
+
+
+#pragma mark - Core Data Saving support
+- (void)saveContext {
+    NSError *error = nil;
+    if ([self.context hasChanges] && ![self.context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+    }
+}
+@end
