@@ -1,0 +1,87 @@
+- (void)setCalendar{
+    
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [formatter setLocale:locale];
+        
+    NSArray *monthSymbols = [formatter monthSymbols];
+    
+    NSMutableArray *dataList =  [NSMutableArray array];
+    NSCalendarUnit calendarUnit = NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth| NSCalendarUnitDay;
+    
+    NSDate *calendarDate = [NSDate date];
+     
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *components = [gregorianCalendar components:calendarUnit fromDate:calendarDate];
+    components.day = 1;
+     
+    NSDate *firstDayOfMonth = [gregorianCalendar dateFromComponents:components];
+    NSDateComponents *comps = [gregorianCalendar components:NSCalendarUnitWeekday fromDate:firstDayOfMonth];
+     
+    NSInteger weekdayBeginning = [comps weekday];  // Starts at 1 on Sunday
+     
+    weekdayBeginning -= 1;
+
+//    if(weekdayBeginning < 0){
+//        weekdayBeginning += 7;                          // Starts now at 0 on Monday
+//    }
+
+    NSRange days = [gregorianCalendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:calendarDate];
+
+    NSInteger lastDayOfMonth = days.length;
+
+    _monthLabel.text =  [@(components.month) stringValue];
+    
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:[monthSymbols[components.month -1] uppercaseString]
+                                                                         attributes:@{NSKernAttributeName:@(3.f)}];
+    _monthSymbolLabel.attributedText = attributedText;
+    
+    NSDateComponents *toDayComponents = [gregorianCalendar components:calendarUnit fromDate:[NSDate date]];
+    
+    _todayLabel.text = [@(toDayComponents.day) stringValue];
+    
+    
+    
+    NSDateComponents *previousMonthComponents = [gregorianCalendar components:calendarUnit fromDate:calendarDate];
+    previousMonthComponents.month --;
+    NSDate *previousMonthDate = [gregorianCalendar dateFromComponents:previousMonthComponents];
+    NSRange previousMonthDays = [gregorianCalendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:previousMonthDate];
+    NSInteger maxDate = previousMonthDays.length - weekdayBeginning;
+    
+    for (int i = 0; i < weekdayBeginning; i++){
+        
+        previousMonthComponents.day = maxDate + i + 1;
+        
+        NSDate *date =  [gregorianCalendar dateFromComponents:previousMonthComponents];
+        [dataList addObject:date];
+        
+    }
+    
+    for (NSInteger i = 0; i < lastDayOfMonth; i++) {
+        components.day = i + 1;
+        NSDate *date =  [gregorianCalendar dateFromComponents:components];
+        [dataList addObject:date];
+    }
+
+    
+    
+//    NSInteger remainingDays = (lastDayOfMonth + weekdayBeginning) % 7;
+//
+//    NSDateComponents *nextMonthComponents = [gregorianCalendar components:calendarUnit fromDate:calendarDate];
+//    nextMonthComponents.month ++;
+//    //    NSDate *nextMonthDate = [gregorianCalendar dateFromComponents:nextMonthComponents];
+//    //    NSRange previousMonthDays = [gregorianCalendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:previousMonthDate];
+//
+//
+//    for (int i = 0; i < remainingDays; i++){
+//        nextMonthComponents.day = i;
+//        NSDate *date =  [gregorianCalendar dateFromComponents:nextMonthComponents];
+//        [dataList addObject:date];
+//    }
+    
+    self.dataList = dataList;
+    
+    
+    [_calendarCollectionView reloadData];
+}
